@@ -65,7 +65,6 @@ const RESUME_DATA = {
       organization: "University of Ulsan",
       location: "Ulsan, South Korea",
       period: "Mar 2019 – Feb 2024",
-      mentor: "Prof. Dr. Soon Ho Hong",
       details: "Developed a novel microbial cell-surface display (MCSD) system in recombinant Escherichia coli to express cobalt-binding peptides on outer membranes (using OmpC and YiaT anchors). Reused bioadsorbed cobalt on cells to calcinate into highly functional cobalt oxide (Co3O4) nanoparticles, showing exceptional norfloxacin drug degradation, methylene blue dye degradation, and in vitro anticancer potential."
     },
     {
