@@ -104,6 +104,8 @@ const RESUME_DATA = {
       "HPLC & GC-MS"
     ],
     software: [
+      "Python & R Programming",
+      "Statistical Tools",
       "Molecular Docking",
       "Online Bioinformatic tools",
       "Origin",
