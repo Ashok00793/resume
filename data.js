@@ -22,6 +22,7 @@ const RESUME_DATA = {
       institution: "University of Ulsan",
       location: "Ulsan, South Korea",
       period: "Mar 2019 – Feb 2024",
+      mentor: "Prof. Dr. Soon Ho Hong",
       grade: "Grade: 94%",
       details: "Specialized in microbial cell surface display (MCSD), metabolic pathway engineering, and green synthesis of functional metal nanoparticles for bioremediation and cancer therapies."
     },
@@ -57,7 +58,6 @@ const RESUME_DATA = {
       organization: "National Taiwan University (NTU)",
       location: "Taipei, Taiwan",
       period: "Nov 2024 – Nov 2025",
-      mentor: "Prof. Dr. Kuan-Chen Cheng",
       details: "Worked on transforming agricultural waste (specifically peanut shell powder) into highly functional, high-performance Bacterial Cellulose (BC) membranes for sustainable packaging applications. Designed chemical and enzymatic pretreatment strategies that yielded a ~40% increase in BC tensile strength and superior mechanical characteristics."
     },
     {

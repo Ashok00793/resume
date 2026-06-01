@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
         type: "education",
         title: edu.degree,
         org: `${edu.institution}, ${edu.location}`,
-        desc: `${edu.grade}. ${edu.details}`,
+        desc: `${edu.grade}. ${edu.details}` + (edu.mentor ? ` (Mentor: ${edu.mentor})` : ""),
         period: edu.period,
         sortValue: getSortValue(edu.period)
       });
