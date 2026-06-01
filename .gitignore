@@ -1,0 +1,5 @@
+# Ignore zip backups and OS files
+*.zip
+.DS_Store
+Thumbs.db
+.gemini/
