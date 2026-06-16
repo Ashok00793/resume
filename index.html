@@ -9,16 +9,47 @@
   <!-- Modern Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="styles.css?v=2.6">
 </head>
 <body class="dark-mode">
 
+  <!-- Boot Loader Overlay (Active Theory Boot Sequence) -->
+  <div id="boot-loader" class="boot-loader">
+    <div class="boot-content">
+      <div class="boot-logo font-space"><span class="logo-icon">🧬</span> ASHOKKUMAR_SYS_v3.5</div>
+      <div class="boot-progress-bar"><div class="boot-progress-fill"></div></div>
+      <div id="boot-terminal-log" class="boot-terminal-log"></div>
+    </div>
+  </div>
+
   <!-- Ambient Glow Effects -->
   <div class="ambient-glow glow-1"></div>
   <div class="ambient-glow glow-2"></div>
+
+  <!-- Immersive Canvas Background (Molecular Node Network) -->
+  <canvas id="interactive-canvas"></canvas>
+
+  <!-- Cybernetic Grid Overlay & Scanlines -->
+  <div class="grid-overlay"></div>
+  <div class="scanlines"></div>
+
+  <!-- Cinema Grain/Noise Overlay -->
+  <svg class="visual-noise">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+  </svg>
+
+  <!-- Custom Spring Cursor with Coordinates -->
+  <div id="custom-cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-coords">X: 000 Y: 000</div>
+  </div>
 
   <!-- Header / Navigation Bar -->
   <header class="main-header glass">
@@ -57,7 +88,7 @@
         <div class="badge animate-fade">
           <span class="pulse-dot"></span> Active Research Associate
         </div>
-        <h1 class="hero-title animate-slide">
+        <h1 class="hero-title animate-slide glitch-hover">
           Engineering Microbes For <br>
           <span class="text-gradient">Sustainable Innovation</span>
         </h1>
@@ -116,7 +147,7 @@
   <!-- Interactive Research Dashboard -->
   <section id="dashboard" class="dashboard-section container">
     <div class="section-header text-center">
-      <h2 class="section-title">Research & Projects</h2>
+      <h2 class="section-title glitch-hover">Research & Projects</h2>
       <p class="section-subtitle">Deep dive into laboratory projects, academic fellowships, and technology transfer milestones.</p>
     </div>
 
@@ -282,7 +313,7 @@
   <!-- Interactive Publications Explorer -->
   <section id="publications" class="publications-section container">
     <div class="section-header text-center">
-      <h2 class="section-title">Scientific Publications</h2>
+      <h2 class="section-title glitch-hover">Scientific Publications</h2>
       <p class="section-subtitle">Real-time database of peer-reviewed articles indexed in SCI/ESCI, retrieved dynamically.</p>
     </div>
 
@@ -380,7 +411,7 @@
   <!-- Interactive Timeline Section -->
   <section id="timeline" class="timeline-section container">
     <div class="section-header text-center">
-      <h2 class="section-title">Academic & Awards Journey</h2>
+      <h2 class="section-title glitch-hover">Academic & Awards Journey</h2>
       <p class="section-subtitle">Chronological milestone breakdown of academic degrees, lecturing positions, and national scholarships.</p>
     </div>
 

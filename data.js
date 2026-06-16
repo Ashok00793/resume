@@ -8,7 +8,7 @@ const RESUME_DATA = {
     linkedin: "https://www.linkedin.com/in/ashokkumar-kumeravel",
     scopusId: "57515216700",
     stats: {
-      citations: 161,
+      citations: 162,
       hIndex: 7,
       i10Index: 5,
       totalPublications: 12
@@ -51,13 +51,27 @@ const RESUME_DATA = {
       location: "Chennai, Tamil Nadu, India",
       period: "Jan 2026 – Present",
       mentor: "Prof. Dr. Palanivel Velmurugan",
-      details: "Leading a national-level project focused on engineering Pseudomonas denitrificans for the efficient biosynthesis of Poly(3-hydroxypropionate) [P(3HP)] from glycerol and gluconate, contributing directly to industrial-scale biodegradable biopolymer production."
+      details: "Conducting scientific research in biotechnology, collaborating on national level projects, and mentoring junior scholars in microbial processes."
+    },
+    {
+      role: "Adjunct Professor",
+      organization: "Academy of Maritime Education and Training (AMET) Deemed to be University",
+      location: "Chennai, Tamil Nadu, India",
+      period: "Since Dec 2025",
+      details: "Concurrently delivering lectures and mentoring student projects at the Centre for Research and Innovation, focusing on marine biotechnology, eco-friendly nanomaterials, and environmental microbiology."
+    },
+    {
+      role: "Post-Doctoral Researcher",
+      organization: "Ulsan National Institute of Science and Technology (UNIST)",
+      location: "Ulsan, South Korea",
+      period: "Aug 2025 – Feb 2026",
+      details: "Conducted a national project focused on engineering Pseudomonas denitrificans for efficient biosynthesis of Poly(3-hydroxypropionate) from glycerol and gluconate, contributing to sustainable biopolymer production."
     },
     {
       role: "Research Fellow",
       organization: "National Taiwan University (NTU)",
       location: "Taipei, Taiwan",
-      period: "Nov 2024 – Nov 2025",
+      period: "Nov 2024 – Apr 2025",
       details: "Worked on transforming agricultural waste (specifically peanut shell powder) into highly functional, high-performance Bacterial Cellulose (BC) membranes for sustainable packaging applications. Designed chemical and enzymatic pretreatment strategies that yielded a ~40% increase in BC tensile strength and superior mechanical characteristics."
     },
     {
@@ -66,13 +80,6 @@ const RESUME_DATA = {
       location: "Ulsan, South Korea",
       period: "Mar 2019 – Feb 2024",
       details: "Developed a novel microbial cell-surface display (MCSD) system in recombinant Escherichia coli to express cobalt-binding peptides on outer membranes (using OmpC and YiaT anchors). Reused bioadsorbed cobalt on cells to calcinate into highly functional cobalt oxide (Co3O4) nanoparticles, showing exceptional norfloxacin drug degradation, methylene blue dye degradation, and in vitro anticancer potential."
-    },
-    {
-      role: "Adjunct Professor",
-      organization: "Academy of Maritime Education and Training (AMET) Deemed to be University",
-      location: "Chennai, Tamil Nadu, India",
-      period: "Since Dec 2025",
-      details: "Concurrently delivered lectures and mentored student projects at the Centre for Research and Innovation, focusing on marine biotechnology, eco-friendly nanomaterials, and environmental microbiology."
     }
   ],
 
@@ -348,6 +355,18 @@ const RESUME_DATA = {
       pdf_url: "https://academic.oup.com/jimb/article-pdf/48/7-8/kuab039/42964483/kuab039.pdf",
       tags: ["GABA Production", "Cell-Surface Display", "Archaeon GadB", "Bioprocess Engineering"],
       impactFactor: "3.2"
+    },
+    {
+      id: "W4400567888",
+      title: "Optimized g-C3N4/TiO2 composites for visible-light-driven Sono photocatalysis in norfloxacin removal",
+      year: 2025,
+      citations: 0,
+      doi: "",
+      journal: "Environmental Research",
+      abstract: "In this work, we developed optimized g-C3N4/TiO2 composites for visible-light-driven sonophotocatalysis to remove the antibiotic norfloxacin. The synergistic interaction between graphitic carbon nitride (g-C3N4) and titanium dioxide (TiO2) enhanced charge carrier separation, accelerating degradation kinetics. The composite achieved highly efficient photocatalytic removal of norfloxacin under visible light irradiation, suggesting its potential for advanced wastewater treatment and organic contaminant remediation.",
+      pdf_url: "",
+      tags: ["Sonophotocatalysis", "Norfloxacin Removal", "Wastewater", "Composites"],
+      impactFactor: "7.7"
     }
   ]
 };

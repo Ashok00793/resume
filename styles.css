@@ -1632,3 +1632,325 @@ body.light-mode .glass {
     flex-direction: column;
   }
 }
+
+/* ==========================================================================
+   ACTIVE THEORY IMMERSIVE STYLES
+   ========================================================================== */
+
+/* Hide default cursor on desktop */
+@media (min-width: 1025px) {
+  body, a, button, select, input, .pub-title, .db-tab-btn, .c-tab, .email-btn-copy {
+    cursor: none !important;
+  }
+}
+
+/* Custom Cursor Tracker */
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate3d(-50%, -50%, 0);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  mix-blend-mode: difference;
+}
+
+#custom-cursor .cursor-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.2s ease, border-color 0.2s;
+  opacity: 0.7;
+}
+
+#custom-cursor .cursor-coords {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--accent-secondary);
+  background: rgba(8, 11, 22, 0.85);
+  border: 1px solid var(--border);
+  padding: 0.15rem 0.35rem;
+  border-radius: 2px;
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+#custom-cursor.hovering {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-secondary);
+}
+
+#custom-cursor.hovering .cursor-ring {
+  width: 48px;
+  height: 48px;
+  transform: translate(-50%, -50%) scale(1.1);
+  border-color: var(--accent-secondary);
+  border-width: 2px;
+}
+
+/* Boot Loader Sequence */
+.boot-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #03050c;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
+  overflow: hidden;
+}
+
+.boot-loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.boot-content {
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.boot-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.boot-progress-bar {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.boot-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.boot-terminal-log {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  height: 120px;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  line-height: 1.4;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(10, 15, 29, 0.5);
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.boot-log-line {
+  opacity: 0;
+  transform: translateY(4px);
+  animation: slideLog 0.2s forwards;
+}
+
+.boot-log-line.success { color: var(--accent); }
+.boot-log-line.info { color: var(--accent-secondary); }
+
+@keyframes slideLog {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Immersive background particles canvas */
+#interactive-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  background: radial-gradient(circle at center, #080d1a 0%, #03050c 100%);
+}
+
+/* Technical Grid Overlay */
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: center;
+  opacity: 0.75;
+}
+
+/* CRT Scanlines and Screen Fades */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9998;
+  pointer-events: none;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.12) 50%
+  );
+  background-size: 100% 4px;
+}
+
+/* Grain / Noise Filter Overlay */
+.visual-noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9997;
+  pointer-events: none;
+  opacity: 0.035;
+}
+
+/* Cybernetic Card Decorations (Corner Brackets) */
+.glass, .sup-card, .footer-ref-card, .stat-card {
+  position: relative;
+}
+
+.glass::before, .glass::after,
+.sup-card::before, .sup-card::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--accent);
+  pointer-events: none;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+/* Top-Left and Bottom-Right ticks */
+.glass::before, .sup-card::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.glass::after, .sup-card::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+.glass:hover::before, .glass:hover::after,
+.sup-card:hover::before, .sup-card:hover::after {
+  opacity: 1;
+  width: 14px;
+  height: 14px;
+  border-color: var(--accent-secondary);
+}
+
+/* Monospace details & indicator logs */
+.nav-link, .badge, .panel-date, .pub-year-badge, .ref-badge, .sup-badge {
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 0.05em;
+}
+
+/* Sci-fi crosshair indicators inside sections */
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::before {
+  content: '+';
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.1rem;
+}
+
+.section-title::after {
+  content: '//';
+  position: absolute;
+  right: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-secondary);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+/* Glitch Effect on Hover for Headings */
+.glitch-hover:hover {
+  animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+@keyframes glitch-anim {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255,0,0,.75), -0.05em -0.025em 0 rgba(0,255,0,.75), 0.025em 0.05em 0 rgba(0,0,255,.75);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(255,0,0,.75), -0.05em -0.025em 0 rgba(0,255,0,.75), 0.025em 0.05em 0 rgba(0,0,255,.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255,0,0,.75), 0.025em 0.025em 0 rgba(0,255,0,.75), -0.05em -0.05em 0 rgba(0,0,255,.75);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(255,0,0,.75), 0.025em 0.025em 0 rgba(0,255,0,.75), -0.05em -0.05em 0 rgba(0,0,255,.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255,0,0,.75), 0.05em 0 0 rgba(0,255,0,.75), 0 -0.05em 0 rgba(0,0,255,.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255,0,0,.75), 0.05em 0 0 rgba(0,255,0,.75), 0 -0.05em 0 rgba(0,0,255,.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255,0,0,.75), -0.025em -0.025em 0 rgba(0,255,0,.75), -0.025em -0.05em 0 rgba(0,0,255,.75);
+  }
+}

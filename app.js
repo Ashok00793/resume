@@ -500,4 +500,286 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
   });
+
+  /* ==========================================================================
+     DYNAMIC SCIENTIFIC STATS POPULATION
+     ========================================================================== */
+  const populateStats = () => {
+    const stats = RESUME_DATA.personal.stats;
+    const statCitations = document.getElementById("stat-citations");
+    const statHindex = document.getElementById("stat-hindex");
+    const statI10 = document.getElementById("stat-i10");
+    const statPubs = document.getElementById("stat-pubs");
+
+    if (statCitations) statCitations.textContent = stats.citations;
+    if (statHindex) statHindex.textContent = stats.hIndex;
+    if (statI10) statI10.textContent = stats.i10Index;
+    if (statPubs) statPubs.textContent = stats.totalPublications;
+  };
+  populateStats();
+
+  /* ==========================================================================
+     TEXT SCRAMBLE DECRYPT SYSTEM
+     ========================================================================== */
+  const scrambleText = (element, finalText, isHtml = false) => {
+    if (!element) return;
+    const chars = "!<>-_\\/[]{}—=+*^?#________";
+    let frame = 0;
+    const queue = [];
+    
+    // Clean text representations
+    const cleanFinalText = isHtml ? finalText.replace(/<[^>]*>/g, "") : finalText;
+    
+    for (let i = 0; i < cleanFinalText.length; i++) {
+      const start = Math.floor(Math.random() * 6);
+      const end = start + Math.floor(Math.random() * 10);
+      queue.push({
+        char: cleanFinalText[i],
+        start,
+        end,
+        current: ""
+      });
+    }
+
+    let cancelId;
+    const update = () => {
+      let output = "";
+      let complete = 0;
+      
+      for (let i = 0, n = queue.length; i < n; i++) {
+        let { char, start, end, current } = queue[i];
+        if (frame >= end) { complete++; output += char; }
+        else if (frame >= start) {
+          if (!current || Math.random() < 0.28) {
+            current = chars[Math.floor(Math.random() * chars.length)];
+            queue[i].current = current;
+          }
+          output += current;
+        } else {
+          output += "";
+        }
+      }
+      
+      if (isHtml) {
+        element.innerHTML = finalText;
+      } else {
+        element.textContent = output;
+      }
+      
+      if (complete === queue.length) {
+        cancelAnimationFrame(cancelId);
+      } else {
+        frame++;
+        cancelId = requestAnimationFrame(update);
+      }
+    };
+    
+    update();
+  };
+
+  // Bind scramble on hovering headers
+  const glitchHeaders = document.querySelectorAll(".glitch-hover");
+  glitchHeaders.forEach(header => {
+    const originalText = header.textContent.trim();
+    header.addEventListener("mouseenter", () => {
+      scrambleText(header, originalText);
+    });
+  });
+
+  /* ==========================================================================
+     ACTIVE THEORY SYSTEM BOOT SEQUENCE
+     ========================================================================== */
+  const bootLoader = document.getElementById("boot-loader");
+  const bootTerminalLog = document.getElementById("boot-terminal-log");
+  const bootProgressFill = document.querySelector(".boot-progress-fill");
+
+  const bootLogs = [
+    { text: "CONNECTING TO ASHOKKUMAR_SYS PORTFOLIO DATABASE...", type: "info" },
+    { text: "ESTABLISHING SECURE PROTOCOLS... [DONE]", type: "success" },
+    { text: "LOADING SYSTEM ENGINES [BIOLOGICAL PATHWAYS] [OK]", type: "success" },
+    { text: "PARSING GOOGLE SCHOLAR CITATION API... [162 CITATIONS FOUND]", type: "info" },
+    { text: "SYNCHRONIZING CAREER PATHWAYS AND PUBLICATIONS...", type: "info" },
+    { text: "P. DENITRIFICANS FLUX BALANCE OPTIMIZATION... LOADED", type: "success" },
+    { text: "MEMBRANE PEPTIDE METAL BINDING DFT PREDICTORS... ONLINE", type: "success" },
+    { text: "BOOT SEQUENCE SUCCESSFUL. DECRYPTING DASHBOARD CONTROLS...", type: "info" }
+  ];
+
+  let logIndex = 0;
+  const printNextLog = () => {
+    if (logIndex < bootLogs.length && bootLoader) {
+      const log = bootLogs[logIndex];
+      const logLine = document.createElement("div");
+      logLine.className = `boot-log-line ${log.type}`;
+      logLine.textContent = `> ${log.text}`;
+      bootTerminalLog.appendChild(logLine);
+      bootTerminalLog.scrollTop = bootTerminalLog.scrollHeight;
+      
+      const progress = ((logIndex + 1) / bootLogs.length) * 100;
+      if (bootProgressFill) bootProgressFill.style.width = `${progress}%`;
+      
+      logIndex++;
+      setTimeout(printNextLog, 200);
+    } else {
+      setTimeout(() => {
+        if (bootLoader) bootLoader.classList.add("loaded");
+        
+        // Trigger decryption visual effect
+        const logoText = document.querySelector(".logo-text");
+        const heroTitle = document.querySelector(".hero-title");
+        if (logoText) scrambleText(logoText, "ASHOKKUMAR KUMARAVEL");
+        if (heroTitle) scrambleText(heroTitle, "Engineering Microbes For Sustainable Innovation", true);
+      }, 500);
+    }
+  };
+
+  // Start Boot Sequence
+  if (bootLoader) setTimeout(printNextLog, 250);
+
+  /* ==========================================================================
+     CUSTOM DYNAMIC CURSOR
+     ========================================================================== */
+  const customCursor = document.getElementById("custom-cursor");
+  
+  if (customCursor) {
+    const cursorCoords = customCursor.querySelector(".cursor-coords");
+    
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let cursorX = mouseX;
+    let cursorY = mouseY;
+    
+    window.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+    
+    const updateCursor = () => {
+      const ease = 0.15;
+      cursorX += (mouseX - cursorX) * ease;
+      cursorY += (mouseY - cursorY) * ease;
+      
+      customCursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+      if (cursorCoords) {
+        cursorCoords.textContent = `X: ${Math.round(cursorX)} Y: ${Math.round(cursorY)}`;
+      }
+      
+      requestAnimationFrame(updateCursor);
+    };
+    updateCursor();
+    
+    // Hover state detection
+    const updateInteractiveHover = () => {
+      const interactiveElements = document.querySelectorAll("a, button, select, input, .pub-title, .db-tab-btn, .c-tab, .email-btn-copy");
+      interactiveElements.forEach(el => {
+        el.addEventListener("mouseenter", () => {
+          customCursor.classList.add("hovering");
+        });
+        el.addEventListener("mouseleave", () => {
+          customCursor.classList.remove("hovering");
+        });
+      });
+    };
+    updateInteractiveHover();
+    
+    // Periodically re-bind hover events for dynamically rendered items
+    setInterval(updateInteractiveHover, 2000);
+  }
+
+  /* ==========================================================================
+     HTML5 CANVAS MOLECULAR NODE NETWORK
+     ========================================================================== */
+  const canvas = document.getElementById("interactive-canvas");
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+    
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+    
+    window.addEventListener("resize", () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+    
+    let mouseX = width / 2;
+    let mouseY = height / 2;
+    
+    window.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+    
+    const particles = [];
+    const particleCount = Math.min(65, Math.floor((width * height) / 22000));
+    
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.45;
+        this.vy = (Math.random() - 0.5) * 0.45;
+        this.radius = Math.random() * 2 + 1;
+        this.color = Math.random() < 0.2 ? "rgba(6, 182, 212, 0.45)" : "rgba(16, 185, 129, 0.45)";
+      }
+      
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+      
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+    
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+    
+    const animateParticles = () => {
+      ctx.clearRect(0, 0, width, height);
+      
+      for (let i = 0; i < particles.length; i++) {
+        const p1 = particles[i];
+        p1.update();
+        p1.draw();
+        
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(16, 185, 129, ${0.12 * (1 - dist / 100)})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+        
+        const dxMouse = p1.x - mouseX;
+        const dyMouse = p1.y - mouseY;
+        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+        if (distMouse < 140) {
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(mouseX, mouseY);
+          ctx.strokeStyle = `rgba(6, 182, 212, ${0.15 * (1 - distMouse / 140)})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+      
+      requestAnimationFrame(animateParticles);
+    };
+    animateParticles();
+  }
 });
