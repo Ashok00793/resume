@@ -1954,3 +1954,352 @@ body.light-mode .glass {
     text-shadow: -0.025em 0 0 rgba(255,0,0,.75), -0.025em -0.025em 0 rgba(0,255,0,.75), -0.025em -0.05em 0 rgba(0,0,255,.75);
   }
 }
+
+/* ==========================================================================
+   ACTIVE THEORY VISUAL GRID CONSOLE OVERRIDES
+   ========================================================================== */
+
+/* Disable Light Mode theme variations - Force absolute cyber-navy theme */
+body, body.light-mode {
+  background-color: #03050c !important;
+  color: #f8fafc !important;
+  --bg-primary: #03050c !important;
+  --bg-secondary: #080c16 !important;
+  --card-bg: rgba(8, 12, 22, 0.8) !important;
+  --border: rgba(16, 185, 129, 0.18) !important;
+  --border-hover: rgba(6, 182, 212, 0.6) !important;
+  --text: #f8fafc !important;
+  --text-muted: #94a3b8 !important;
+  --shadow: rgba(0, 0, 0, 0.8) !important;
+  --accent: #10b981 !important;
+  --accent-secondary: #06b6d4 !important;
+}
+
+/* Force sharp corners on all UI components */
+.glass, .stat-card, .btn, .hero-avatar-card, .hero-avatar-inner, 
+.db-tab-btn, .pub-card, .sup-card, .timeline-event-card, .timeline-card-content, 
+.footer-ref-card, .modal-card, #pub-search, #pub-sort, .tag-btn, .email-btn-copy {
+  border-radius: 0px !important;
+}
+
+/* Header Redesign as Floating Command Bar */
+.main-header {
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2) !important;
+  background: rgba(3, 5, 12, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.logo-text {
+  font-family: 'Share Tech Mono', monospace !important;
+  letter-spacing: 0.15em !important;
+}
+
+/* Hero Section Updates */
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  font-size: 3.8rem !important;
+}
+
+.hero-lead {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.05rem !important;
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25rem;
+}
+
+/* Cybernetic Buttons */
+.btn {
+  text-transform: uppercase;
+  font-family: 'Share Tech Mono', monospace !important;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--border) !important;
+  background: rgba(8, 12, 22, 0.6) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-primary {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+  box-shadow: none !important;
+}
+
+.btn-primary:hover {
+  background: var(--accent) !important;
+  color: #03050c !important;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.45) !important;
+  transform: translateY(-2px);
+}
+
+.btn-outline:hover {
+  background: var(--accent-secondary) !important;
+  border-color: var(--accent-secondary) !important;
+  color: #03050c !important;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.45) !important;
+}
+
+.btn-secondary {
+  border-color: var(--border) !important;
+  color: var(--accent) !important;
+}
+
+.btn-secondary:hover {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: var(--accent) !important;
+}
+
+/* Stats Dashboard Panel Overhaul */
+.stats-grid {
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 1px !important;
+  background: rgba(16, 185, 129, 0.15) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  padding: 1px !important;
+  margin: 2rem 0 !important;
+}
+
+.stat-card {
+  background: #03050c !important;
+  border: none !important;
+  padding: 1.25rem !important;
+  position: relative;
+}
+
+.stat-val {
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 2.5rem !important;
+  color: var(--accent-secondary) !important;
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.35);
+}
+
+.stat-lbl {
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.08em;
+  color: var(--text-muted) !important;
+}
+
+/* Scope target frame for Profile picture */
+.hero-avatar-card {
+  border: 1px dashed rgba(16, 185, 129, 0.35) !important;
+  padding: 8px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.hero-avatar-card::before {
+  display: none !important; /* Remove spinning animation border */
+}
+
+.hero-avatar-inner {
+  border: 1px solid var(--accent) !important;
+  background: #03050c !important;
+}
+
+/* File Browser Sidebar tabs */
+.dashboard-sidebar {
+  background: rgba(3, 5, 12, 0.6) !important;
+}
+
+.db-tab-btn {
+  border: 1px solid transparent !important;
+  font-family: 'Share Tech Mono', monospace !important;
+}
+
+.db-tab-btn:hover {
+  background: rgba(16, 185, 129, 0.06) !important;
+  border-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+.db-tab-btn.active {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border: 1px solid var(--accent) !important;
+  color: var(--accent) !important;
+}
+
+.db-tab-btn.active::before {
+  content: '// ';
+  color: var(--accent);
+}
+
+.db-tab-text h4 {
+  font-family: 'Share Tech Mono', monospace !important;
+  text-transform: uppercase;
+}
+
+/* Research details panel */
+.dashboard-content {
+  border-left: none !important;
+  background: rgba(8, 12, 22, 0.3) !important;
+}
+
+.scientific-visual {
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  background: rgba(3, 5, 12, 0.5) !important;
+}
+
+.vis-header {
+  border-bottom: 1px solid rgba(16, 185, 129, 0.15);
+  font-family: 'Share Tech Mono', monospace !important;
+}
+
+/* Database Entry styled Publication matrix */
+.pub-card {
+  border: 1px solid rgba(16, 185, 129, 0.18) !important;
+  background: rgba(8, 12, 22, 0.75) !important;
+  padding: 1.5rem !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.pub-card:hover {
+  border-color: var(--accent-secondary) !important;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.15) !important;
+  transform: translateX(4px);
+}
+
+.pub-journal {
+  font-family: 'Share Tech Mono', monospace !important;
+  text-transform: uppercase;
+  color: var(--accent-secondary) !important;
+}
+
+.pub-year-badge {
+  border: 1px solid var(--accent) !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+  color: var(--accent) !important;
+}
+
+.pub-title {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+
+.pub-title:hover {
+  color: var(--accent-secondary) !important;
+}
+
+.pub-meta-val {
+  font-family: 'Share Tech Mono', monospace !important;
+  color: #fff !important;
+}
+
+.pub-tag {
+  font-family: 'Share Tech Mono', monospace !important;
+  font-size: 0.7rem !important;
+  background: rgba(6, 182, 212, 0.06) !important;
+  border: 1px solid rgba(6, 182, 212, 0.12) !important;
+  color: var(--accent-secondary) !important;
+}
+
+/* Laser Citation charts in Sidebar */
+.chart-bar-fill {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-secondary) 100%) !important;
+  box-shadow: 0 0 8px var(--accent);
+  border-radius: 0px !important;
+}
+
+.chart-bar-label {
+  font-family: 'Share Tech Mono', monospace !important;
+}
+
+.chart-bar-val {
+  font-family: 'Share Tech Mono', monospace !important;
+  color: var(--accent-secondary) !important;
+}
+
+/* Monospace inputs & controls */
+#pub-search, #pub-sort {
+  font-family: 'Share Tech Mono', monospace !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  background: rgba(3, 5, 12, 0.8) !important;
+}
+
+#pub-search:focus, #pub-sort:focus {
+  border-color: var(--accent-secondary) !important;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.15) !important;
+}
+
+.tag-btn {
+  font-family: 'Share Tech Mono', monospace !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: rgba(3, 5, 12, 0.5) !important;
+  color: var(--text-muted) !important;
+}
+
+.tag-btn:hover, .tag-btn.active {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+}
+
+/* Chronological Pipeline Timeline */
+.timeline-event-card {
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  background: rgba(8, 12, 22, 0.65) !important;
+  box-shadow: none !important;
+  padding: 1px !important;
+}
+
+.timeline-card-content {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 1.5rem !important;
+}
+
+.timeline-date-badge {
+  background: rgba(6, 182, 212, 0.1) !important;
+  border: 1px solid rgba(6, 182, 212, 0.2) !important;
+  color: var(--accent-secondary) !important;
+}
+
+.timeline-center-line {
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-secondary) 100%) !important;
+  width: 2px !important;
+}
+
+.timeline-event-card::before {
+  background: #03050c !important;
+  border: 2px solid var(--accent) !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 0% !important; /* Sharp indicator dots */
+  transform: rotate(45deg);
+}
+
+/* Console modal overlays */
+.modal-card {
+  border: 1px solid var(--accent-secondary) !important;
+  background: rgba(3, 5, 12, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.modal-journal {
+  font-family: 'Share Tech Mono', monospace !important;
+  color: var(--accent-secondary) !important;
+}
+
+.modal-meta-pill {
+  font-family: 'Share Tech Mono', monospace !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0px !important;
+}
+
+.abstract-highlight-kw {
+  background: rgba(6, 182, 212, 0.15);
+  border-bottom: 1px solid var(--accent-secondary);
+  color: var(--accent-secondary);
+  padding: 0 0.15rem;
+}
+
+/* Refined copy indicator toast */
+.toast-toast {
+  font-family: 'Share Tech Mono', monospace !important;
+  border-radius: 0px !important;
+  border: 1px solid var(--accent) !important;
+  background: rgba(3, 5, 12, 0.95) !important;
+}
+
