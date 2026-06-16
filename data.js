@@ -15,7 +15,7 @@ const RESUME_DATA = {
     },
     summary: "Biotechnology and Microbiology Expert with a focus on molecular biology, metabolic engineering, and nanomaterials. Delivered sustainable technologies through research initiatives in wastewater treatment, environmental management, and biomaterial innovation."
   },
-  
+
   education: [
     {
       degree: "Ph.D. in Chemical Engineering (Microbial Biotechnology)",
@@ -46,18 +46,10 @@ const RESUME_DATA = {
 
   experience: [
     {
-      role: "Research Associate",
-      organization: "Bharat Institute of Higher Education and Research",
-      location: "Chennai, Tamil Nadu, India",
-      period: "Jan 2026 – Present",
-      mentor: "Prof. Dr. Palanivel Velmurugan",
-      details: "Conducting scientific research in biotechnology, collaborating on national level projects, and mentoring junior scholars in microbial processes."
-    },
-    {
       role: "Adjunct Professor",
       organization: "Academy of Maritime Education and Training (AMET) Deemed to be University",
       location: "Chennai, Tamil Nadu, India",
-      period: "Since Dec 2025",
+      period: "Jan 2026 – Present",
       details: "Concurrently delivering lectures and mentoring student projects at the Centre for Research and Innovation, focusing on marine biotechnology, eco-friendly nanomaterials, and environmental microbiology."
     },
     {
@@ -72,21 +64,21 @@ const RESUME_DATA = {
       organization: "National Taiwan University (NTU)",
       location: "Taipei, Taiwan",
       period: "Nov 2024 – Apr 2025",
-      details: "Worked on transforming agricultural waste (specifically peanut shell powder) into highly functional, high-performance Bacterial Cellulose (BC) membranes for sustainable packaging applications. Designed chemical and enzymatic pretreatment strategies that yielded a ~40% increase in BC tensile strength and superior mechanical characteristics."
+      details: "Worked on transforming agricultural waste (specifically peanut shell powder) into highly functional, high-performance Bacterial Cellulose (BC) membranes for sustainable packaging applications. Designed chemical and enzymatic pretreatment strategies that yielded a ~40% increase in BC tensile strength and superior mechanical characteristics. Delivered ~15 hours of lectures on biomaterials, modifications, and applications during research fellowship at NTU."
     },
     {
       role: "Ph.D. Researcher & Teaching Assistant",
       organization: "University of Ulsan",
       location: "Ulsan, South Korea",
-      period: "Mar 2019 – Feb 2024",
-      details: "Developed a novel microbial cell-surface display (MCSD) system in recombinant Escherichia coli to express cobalt-binding peptides on outer membranes (using OmpC and YiaT anchors). Reused bioadsorbed cobalt on cells to calcinate into highly functional cobalt oxide (Co3O4) nanoparticles, showing exceptional norfloxacin drug degradation, methylene blue dye degradation, and in vitro anticancer potential."
+      period: "Mar 2021 – Feb 2023",
+      details: "Two years as a Teaching Assistant during PhD (Biotechnology, Biochemistry, Molecular Biology, Genetics)."
     }
   ],
 
   skills: {
     molecular: [
       "Molecular cloning",
-      "Gene addition/Deletions/ mutations",
+      "Gene addition / Deletions / Mutations",
       "Metabolic engineering through genetic engineering in microbes",
       "Microbial cell culture",
       "Primer designing",
@@ -102,7 +94,7 @@ const RESUME_DATA = {
       "Photocatalytic Dye/Drug Degradation"
     ],
     analytical: [
-      "ICP-OES (Inductively coupled plasma-optical emission spectrometry)",
+      "ICP-OES",
       "X-ray Diffraction (XRD)",
       "FTIR & Raman spectroscopy",
       "XPS (X-ray Photoelectron Spectroscopy)",
@@ -121,6 +113,29 @@ const RESUME_DATA = {
       "Microsoft Office"
     ]
   },
+
+  githubProjects: [
+    {
+      title: "Codon Optimization & Bioinformatics",
+      status: "Finished",
+      description: "Bioinformatics pipeline for codon optimization of heterologous genes for enhanced expression in microbial hosts."
+    },
+    {
+      title: "Metabolic Engineering Toolkit",
+      status: "Dev",
+      description: "Software toolkit for designing and simulating metabolic pathway modifications in engineered microbes."
+    },
+    {
+      title: "Autonomous Molecular Docking Tool",
+      status: "Dev",
+      description: "Automated molecular docking pipeline for screening ligand-protein interactions in drug discovery."
+    },
+    {
+      title: "Autonomous Peptide-Metal Ion Binding Prediction with DFT",
+      status: "Dev",
+      description: "DFT-based computational tool for predicting peptide-metal ion binding affinities and selectivity."
+    }
+  ],
 
   awards: [
     {
@@ -163,21 +178,21 @@ const RESUME_DATA = {
     },
     {
       title: "Valorization of Peanut Shell Waste into High-Performance Bacterial Cellulose: Comparative Evaluation of Pretreatment Strategies and Process Integration",
-      authors: "Ashokkumar Kumaravel, Sathiyamoorthy Padmanaban, Saranya Shanmugasundaram Saranya, Likha Chandran",
+      authors: "Ashokkumar Kumaravel, Sathiyamoorthy Padmanaban, Saranya Shanmugasundaram, Likha Chandran",
       journal: "International Journal of Biological Macromolecules",
       impactFactor: "8.5",
       status: "Under Review (Q1)"
     },
     {
       title: "Phytochemical profiling and multifunctional biodiversity of Acorus calamus: Isolation of Isocaespitol and its antidiabetic and anti-inflammatory potential via In vitro and In silico approaches",
-      authors: "Ashokkumar Kumaravel, Sathiyamoorthy Padmanaban, Saranya Shanmugasundaram Saranya, Bharat Bhargawa",
+      authors: "Ashokkumar Kumaravel, Sathiyamoorthy Padmanaban, Saranya Shanmugasundaram, Bharat Bhargawa",
       journal: "Frontiers in Pharmacology",
       impactFactor: "4.8",
       status: "Under Review (Q1)"
     },
     {
       title: "Development and Evaluation of a Yogurt-Based Functional Formulation Enriched with Glycyrrhiza glabra and Solanum nigrum",
-      authors: "Ashokkumar Kumaravel, Sathiyamoorthy Padmanaban, Saranya Shanmugasundaram Saranya, Senthamil Selvi Poongavanam",
+      authors: "Ashokkumar Kumaravel, Sathiyamoorthy Padmanaban, Saranya Shanmugasundaram, Senthamil Selvi Poongavanam",
       journal: "Journal of Functional Foods",
       impactFactor: "4.0",
       status: "Under Review (Q1)"
@@ -189,7 +204,7 @@ const RESUME_DATA = {
       title: "Microbes in Water, Sanitation, and Public Health: A Data-Driven Analysis of Pathogen Dynamics and Intervention Efficacy",
       authors: "Sriya D., Ashokkumar Kumaravel, Saranya Shanmugasundaram",
       publisher: "Scopus Indexed",
-      status: "In Progress"
+      status: "Published"
     },
     {
       title: "The Role of Fusobacterium in Biofilm Development: A Central Bridge to Pathogenesis",
@@ -211,7 +226,7 @@ const RESUME_DATA = {
     },
     {
       title: "MicroRNA-Edited Gut Microbiota as an Epigenetic Vector",
-      authors: "Kotthapalli Prashanth, Ashokumar Kumarvel, Y. Aparna, S. Anju, Laurent Dufosse, Jamil Talukder, Sumana Kumar",
+      authors: "Kotthapalli Prashanth, Ashokumar Kumaravel, Y. Aparna, S. Anju, Laurent Dufosse, Jamil Talukder, Sumana Kumar",
       publisher: "Scopus Indexed",
       status: "In Progress"
     },
@@ -220,6 +235,96 @@ const RESUME_DATA = {
       authors: "Ashokkumar Kumaravel, K. Anuradha, Shalini Rachel, Kotthapalli Prashanth, Sumana Kumar",
       publisher: "Scopus Indexed",
       status: "In Progress"
+    }
+  ],
+
+  conferenceProceedings: [
+    {
+      year: 2025,
+      authors: "Vivek Kumar Gaur, Tayyab Islam, Thuan Phu Nguyen-Vo, Miri Kim, Satish Kumar Ainala, Ashok Kumar Kumaravel, Payal Mukherjee, Sakshi, Sunghoon Park",
+      title: "Metabolic engineering of Escherichia coli for efficient production of poly(3-hydroxypropionate-co-3-hydroxybutyrate) copolymer with tailored monomer composition",
+      conference: "IJBio",
+      date: "5-8 Nov 2025"
+    },
+    {
+      year: 2023,
+      authors: "Ashokkumar Kumaravel, Jh Jeong, SH Hong",
+      title: "Colocalization of SerB and EamA through Protein Scaffold for the High-Yield Fermentation of L-serine in Recombinant Escherichia coli",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Apr 2023",
+      page: "745"
+    },
+    {
+      year: 2023,
+      authors: "Jh Jeong, Ashokkumar Kumaravel, SH Hong",
+      title: "Displaying Neurospora crassa Glutamate Decarboxylase on the Surface of Escherichia coli for the Extracellular Gamma-aminobutyric Acid Production from High Cell Density Culture",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Apr 2023",
+      page: "746"
+    },
+    {
+      year: 2023,
+      authors: "Ashokkumar Kumaravel, Jh Jeong, SH Hong",
+      title: "High Yield Fermentation of L-serine in Recombinant Escherichia coli by Colocalization of Pathway Enzymes through the Protein Scaffold",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Oct 2023",
+      page: "886"
+    },
+    {
+      year: 2023,
+      authors: "Jh Jeong, Ashokkumar Kumaravel, SH Hong",
+      title: "Modification of the Escherichia coli Cellular Surface for the Extracellular Gamma-aminobutyric Acid Production from High Cell Density Culture",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Oct 2023",
+      page: "887"
+    },
+    {
+      year: 2022,
+      authors: "Ashokkumar Kumaravel, Jh Jeong, SH Hong",
+      title: "Cell Surface Display of Pyrococcus horikoshii Glutamate Decarboxylase in Escherichia coli for High-titer Extracellular Gamma-aminobutyric Acid Production",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Apr 2022",
+      page: "546"
+    },
+    {
+      year: 2022,
+      authors: "Jh Jeong, Ashokkumar Kumaravel, SH Hong",
+      title: "Construction of Pesticides Recovering Escherichia coli through the Cell Surface Display of Binding Peptide",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Apr 2022",
+      page: "365"
+    },
+    {
+      year: 2021,
+      authors: "Ashokkumar Kumaravel, Jh Jeong, SH Hong",
+      title: "Enhanced Production of L-serine in Escherichia coli Through Synthetic Protein Scaffold of SerB, SerC, and EamA",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Apr 2021",
+      page: "583"
+    },
+    {
+      year: 2021,
+      authors: "Jh Jeong, Ashokkumar Kumaravel, Kim-Ngan, SH Hong",
+      title: "Improved Itaconic Acid Production by Employing Protein Scaffold Between GltA, AcnA, and CadA in Recombinant Escherichia coli",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Apr 2021",
+      page: "596"
+    },
+    {
+      year: 2021,
+      authors: "Ashokkumar Kumaravel, Jh Jeong, SH Hong",
+      title: "Novel Strategy for Malic Acid Production in Recombinant Escherichia coli via Protein Colocalization",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Oct 2021",
+      page: "431"
+    },
+    {
+      year: 2021,
+      authors: "Jh Jeong, Ashokkumar Kumaravel, SH Hong",
+      title: "Development of Fenitrothion Removing Recombinant Escherichia coli by the Cell Surface Display of Pesticide-binding Peptide",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Oct 2021",
+      page: "432"
     }
   ],
 
@@ -279,7 +384,7 @@ const RESUME_DATA = {
       citations: 4,
       doi: "https://doi.org/10.1021/acsomega.3c10246",
       journal: "ACS Omega",
-      abstract: "Cell surface display engineering facilitated the development of a cobalt-binding hybrid Escherichia coli. OmpC served as the molecular anchor for showcasing the cobalt-binding peptides (CBPs), creating the structural model of the hybrid OmpC–CBPs (OmpC–CP, OmpC–CF). Subsequently, the recombinant peptide’s cobalt adsorption and retrieval effectiveness were evaluated at various concentrations. When subjected to a pH of 7 and a concentration of 2 mM, OmpC–CF exhibited a significantly higher cobalt recovery rate (2183.87 mol/g DCW) than OmpC–CP. The strain with bioadsorbed cobalt underwent thermal treatment at varying temperatures (400 °C, 500 °C, 600 °C, and 700 °C) and morphological characterization of the thermally decomposed cobalt nanoparticle oxides using diverse spectroscopy techniques. The analysis showed that nanoparticles confined themselves to metal ions, and EDS mapping detected the presence of cobalt on the cell surface. Finally, the nanoparticles’ anticancer potential was assessed by subjecting them to heating at 500 °C in a furnace; they demonstrated noteworthy cytotoxicity, as evidenced by IC50 values of 59 μg/mL. These findings suggest that these nanoparticles hold promise as potential anticancer agents. Overall, this study successfully engineered a recombinant E. coli capable of efficiently binding to cobalt, producing nanoparticles with anticancer properties. The results of this investigation could have significant implications for advancing novel cancer therapies.",
+      abstract: "Cell surface display engineering facilitated the development of a cobalt-binding hybrid Escherichia coli. OmpC served as the molecular anchor for showcasing the cobalt-binding peptides (CBPs), creating the structural model of the hybrid OmpC–CBPs (OmpC–CP, OmpC–CF). Subsequently, the recombinant peptide's cobalt adsorption and retrieval effectiveness were evaluated at various concentrations. When subjected to a pH of 7 and a concentration of 2 mM, OmpC–CF exhibited a significantly higher cobalt recovery rate (2183.87 mol/g DCW) than OmpC–CP. The strain with bioadsorbed cobalt underwent thermal treatment at varying temperatures (400 °C, 500 °C, 600 °C, and 700 °C) and morphological characterization of the thermally decomposed cobalt nanoparticle oxides using diverse spectroscopy techniques. The analysis showed that nanoparticles confined themselves to metal ions, and EDS mapping detected the presence of cobalt on the cell surface. Finally, the nanoparticles' anticancer potential was assessed by subjecting them to heating at 500 °C in a furnace; they demonstrated noteworthy cytotoxicity, as evidenced by IC50 values of 59 μg/mL. These findings suggest that these nanoparticles hold promise as potential anticancer agents. Overall, this study successfully engineered a recombinant E. coli capable of efficiently binding to cobalt, producing nanoparticles with anticancer properties. The results of this investigation could have significant implications for advancing novel cancer therapies.",
       pdf_url: "https://pubs.acs.org/doi/pdf/10.1021/acsomega.3c10246",
       tags: ["Nanoparticles", "Cobalt Oxide", "Anticancer", "Cell-Surface Display"],
       impactFactor: "4.3"
