@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dr. Ashokkumar Kumaravel | Biotechnology & Microbial Engineering Portfolio</title>
   <meta name="description" content="Scientific portfolio of Dr. Ashokkumar Kumaravel — Biotechnology researcher specializing in microbial cell surface display, metabolic engineering, nanoparticle synthesis, and bioremediation.">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -33,8 +31,8 @@
     </div>
   </div>
 
-  <!-- Canvas Background -->
-  <canvas id="dna-canvas"></canvas>
+  <!-- 3D Molecular Background Canvas -->
+  <canvas id="molecular-canvas"></canvas>
 
   <!-- Overlays -->
   <div class="grid-overlay"></div>
@@ -63,12 +61,15 @@
       <nav class="nav">
         <a href="#about" class="nav-link active">About</a>
         <a href="#research" class="nav-link">Research</a>
+        <a href="#network" class="nav-link">Network</a>
         <a href="#publications" class="nav-link">Publications</a>
-        <a href="#conferences" class="nav-link">Conferences</a>
-        <a href="#github" class="nav-link">Dev</a>
         <a href="#timeline" class="nav-link">Journey</a>
-        <a href="#awards" class="nav-link">Awards</a>
       </nav>
+      <div class="theme-switcher">
+        <button class="theme-btn active" data-theme="bio" title="Bio-Green">&#9679;</button>
+        <button class="theme-btn" data-theme="ocean" title="Deep Ocean">&#9679;</button>
+        <button class="theme-btn" data-theme="neon" title="Cyber-Neon">&#9679;</button>
+      </div>
     </div>
   </header>
 
@@ -77,7 +78,7 @@
     <div class="container">
       <div class="hero-section-num">/01</div>
       <div class="hero-grid">
-        <div class="hero-content">
+        <div class="hero-content reveal">
           <div class="badge-glass">
             <span class="pulse-dot"></span> Active Researcher
           </div>
@@ -85,26 +86,26 @@
             Dr. <span class="gradient-text">ASHOKKUMAR</span><br>
             <span class="gradient-text">KUMARAVEL</span>
           </h1>
-          <div class="hero-name-sub">BIOTECHNOLOGY &amp; MICROBIOLOGY RESEARCHER</div>
+          <div class="hero-name-sub">BIOTECHNOLOGY & MICROBIOLOGY RESEARCHER</div>
           <p class="hero-tagline">Engineering Microbes For <span class="highlight">Sustainable Innovation</span></p>
           <p class="hero-desc">Specialized in molecular biology, metabolic pathway engineering, and advanced biological nanomaterials. Bridging genetic design with industrial applications in bioremediation and biomaterials.</p>
 
-          <!-- Compact Stats -->
+          <!-- Live Animated Stats -->
           <div class="hero-stats" id="stats-container">
             <div class="hero-stat">
-              <div class="hero-stat-val" id="stat-citations">162</div>
+              <div class="hero-stat-val"><span class="count-up" data-target="162">0</span></div>
               <div class="hero-stat-lbl">Citations</div>
             </div>
             <div class="hero-stat">
-              <div class="hero-stat-val" id="stat-hindex">7</div>
+              <div class="hero-stat-val"><span class="count-up" data-target="7">0</span></div>
               <div class="hero-stat-lbl">h-index</div>
             </div>
             <div class="hero-stat">
-              <div class="hero-stat-val" id="stat-i10">5</div>
+              <div class="hero-stat-val"><span class="count-up" data-target="5">0</span></div>
               <div class="hero-stat-lbl">i10-index</div>
             </div>
             <div class="hero-stat">
-              <div class="hero-stat-val" id="stat-pubs">12</div>
+              <div class="hero-stat-val"><span class="count-up" data-target="12">0</span></div>
               <div class="hero-stat-lbl">Publications</div>
             </div>
           </div>
@@ -112,9 +113,10 @@
           <div class="hero-actions">
             <a href="#research" class="btn btn-primary">Explore Research</a>
             <a href="https://orcid.org/0000-0002-3669-4986" target="_blank" class="btn btn-outline">ORCID Profile</a>
+            <button class="btn btn-outline" id="pdf-download">Download CV</button>
           </div>
         </div>
-        <div class="hero-visual">
+        <div class="hero-visual reveal">
           <div class="hero-photo-wrapper">
             <div class="hero-photo-glow"></div>
             <div class="hero-photo-card">
@@ -137,44 +139,43 @@
   <!-- Marquee Divider -->
   <div class="marquee-section">
     <div class="marquee-track">
-      <span>///</span> BIOTECHNOLOGY <em>✦</em> MICROBIAL ENGINEERING <em>✦</em> NANOMATERIALS <em>✦</em> BIOREMEDIATION <em>✦</em> SYNTHETIC BIOLOGY <em>✦</em> METABOLIC PATHWAY DESIGN <em>✦</em> BIO-POLYMERS <em>✦</em>
-      <span>///</span> BIOTECHNOLOGY <em>✦</em> MICROBIAL ENGINEERING <em>✦</em> NANOMATERIALS <em>✦</em> BIOREMEDIATION <em>✦</em> SYNTHETIC BIOLOGY <em>✦</em> METABOLIC PATHWAY DESIGN <em>✦</em> BIO-POLYMERS <em>✦</em>
+      <span>///</span> BIOTECHNOLOGY <em>&#10025;</em> MICROBIAL ENGINEERING <em>&#10025;</em> NANOMATERIALS <em>&#10025;</em> BIOREMEDIATION <em>&#10025;</em> SYNTHETIC BIOLOGY <em>&#10025;</em> METABOLIC PATHWAY DESIGN <em>&#10025;</em> BIO-POLYMERS <em>&#10025;</em>
+      <span>///</span> BIOTECHNOLOGY <em>&#10025;</em> MICROBIAL ENGINEERING <em>&#10025;</em> NANOMATERIALS <em>&#10025;</em> BIOREMEDIATION <em>&#10025;</em> SYNTHETIC BIOLOGY <em>&#10025;</em> METABOLIC PATHWAY DESIGN <em>&#10025;</em> BIO-POLYMERS <em>&#10025;</em>
     </div>
   </div>
 
   <!-- ===== RESEARCH DASHBOARD ===== -->
   <section id="research" class="section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <div class="section-number">02</div>
-        <h2 class="section-title">Research &amp; Projects</h2>
+        <h2 class="section-title">Research & Projects</h2>
         <p class="section-subtitle">Deep dive into laboratory projects, academic fellowships, and technology transfer milestones.</p>
       </div>
-      <div class="dash">
+      <div class="dash reveal">
         <div class="dash-sidebar">
           <button class="dash-tab active" data-target="tab-unist">
-            <span class="tab-icon">⚗️</span>
-            <div class="tab-text"><h4>UNIST</h4><p>Post-Doctoral (2025–2026)</p></div>
+            <span class="tab-icon">&#x2697;&#xFE0F;</span>
+            <div class="tab-text"><h4>UNIST</h4><p>Post-Doctoral (2025-2026)</p></div>
           </button>
           <button class="dash-tab" data-target="tab-ntu">
-            <span class="tab-icon">🌿</span>
-            <div class="tab-text"><h4>National Taiwan Univ</h4><p>Research Fellow (2024–2025)</p></div>
+            <span class="tab-icon">&#x1F33F;</span>
+            <div class="tab-text"><h4>National Taiwan Univ</h4><p>Research Fellow (2024-2025)</p></div>
           </button>
           <button class="dash-tab" data-target="tab-phd">
-            <span class="tab-icon">🔬</span>
-            <div class="tab-text"><h4>University of Ulsan</h4><p>TA (2021–2023)</p></div>
+            <span class="tab-icon">&#x1F52C;</span>
+            <div class="tab-text"><h4>University of Ulsan</h4><p>TA (2021-2023)</p></div>
           </button>
           <button class="dash-tab" data-target="tab-skills">
-            <span class="tab-icon">🧬</span>
-            <div class="tab-text"><h4>Lab Expertise</h4><p>Techniques &amp; Instrumentation</p></div>
+            <span class="tab-icon">&#x1F9EC;</span>
+            <div class="tab-text"><h4>Lab Expertise</h4><p>Techniques & Instrumentation</p></div>
           </button>
         </div>
         <div class="dash-content">
-          <!-- UNIST -->
           <div class="dash-panel active" id="tab-unist">
             <div class="panel-hdr">
               <h3>Post-Doctoral Researcher <span class="highlight">@ UNIST</span></h3>
-              <span class="panel-date">Aug 2025 – Feb 2026</span>
+              <span class="panel-date">Aug 2025 - Feb 2026</span>
             </div>
             <p class="panel-lead">National project focused on engineering <strong>Pseudomonas denitrificans</strong> for efficient biosynthesis of <strong>Poly(3-hydroxypropionate)</strong> from glycerol and gluconate.</p>
             <ul class="panel-list">
@@ -183,11 +184,10 @@
               <li>Contributed to sustainable biopolymer production and carbon-neutral processing.</li>
             </ul>
           </div>
-          <!-- NTU -->
           <div class="dash-panel" id="tab-ntu">
             <div class="panel-hdr">
               <h3>Research Fellow <span class="highlight">@ National Taiwan University</span></h3>
-              <span class="panel-date">Nov 2024 – Apr 2025</span>
+              <span class="panel-date">Nov 2024 - Apr 2025</span>
             </div>
             <p class="panel-lead">Valorization of agricultural waste into premium structural <strong>Bacterial Cellulose (BC)</strong> for eco-friendly packaging.</p>
             <ul class="panel-list">
@@ -198,37 +198,35 @@
               <li>Delivered ~15 hours of lectures on biomaterials, modifications, and applications during research fellowship at NTU.</li>
             </ul>
           </div>
-          <!-- PhD -->
           <div class="dash-panel" id="tab-phd">
             <div class="panel-hdr">
               <h3>Teaching Assistant <span class="highlight">@ University of Ulsan</span></h3>
-              <span class="panel-date">Mar 2021 – Feb 2023</span>
+              <span class="panel-date">Mar 2021 - Feb 2023</span>
             </div>
             <ul class="panel-list">
               <li>Two years as a Teaching Assistant during PhD (Biotechnology, Biochemistry, Molecular Biology, Genetics).</li>
             </ul>
           </div>
-          <!-- Skills -->
           <div class="dash-panel" id="tab-skills">
             <div class="panel-hdr">
               <h3>Laboratory Technical Competence</h3>
-              <span class="panel-date">Molecular, Analytical &amp; Computational Skills</span>
+              <span class="panel-date">Molecular, Analytical & Computational Skills</span>
             </div>
             <div class="skills-grid">
               <div class="skill-cat">
-                <h5>🧬 Molecular &amp; Genetic</h5>
+                <h5>&#x1F9EC; Molecular & Genetic</h5>
                 <ul class="skill-pills" id="skills-molecular"></ul>
               </div>
               <div class="skill-cat">
-                <h5>🧪 Material &amp; Synthesis</h5>
+                <h5>&#x1F9EA; Material & Synthesis</h5>
                 <ul class="skill-pills" id="skills-material"></ul>
               </div>
               <div class="skill-cat">
-                <h5>🔬 Spectroscopy &amp; Analytical</h5>
+                <h5>&#x1F52C; Spectroscopy & Analytical</h5>
                 <ul class="skill-pills" id="skills-analytical"></ul>
               </div>
               <div class="skill-cat">
-                <h5>💻 Computational &amp; Software</h5>
+                <h5>&#x1F4BB; Computational & Software</h5>
                 <ul class="skill-pills" id="skills-software"></ul>
               </div>
             </div>
@@ -238,13 +236,103 @@
     </div>
   </section>
 
-  <!-- ===== PUBLICATIONS ===== -->
+  <!-- ===== RESEARCH NETWORK GRAPH + SKILL RADAR ===== -->
+  <section id="network" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-number">03</div>
+        <h2 class="section-title">Research Intelligence</h2>
+        <p class="section-subtitle">Interactive knowledge graph of research connections and proficiency radar.</p>
+      </div>
+      <div class="intel-grid">
+        <div class="intel-card graph-card reveal">
+          <div class="intel-hdr">
+            <h3>Research Knowledge Network</h3>
+            <span class="intel-badge">Interactive</span>
+          </div>
+          <canvas id="network-canvas"></canvas>
+          <p class="intel-hint">Hover over nodes to explore connections</p>
+        </div>
+        <div class="intel-card radar-card reveal">
+          <div class="intel-hdr">
+            <h3>Skill Proficiency Radar</h3>
+            <span class="intel-badge">6 Dimensions</span>
+          </div>
+          <canvas id="radar-canvas"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUPPLEMENTARY (Patent + Under Review + Book Chapters) ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-number">04</div>
+        <h2 class="section-title">IP & Publications Pipeline</h2>
+        <p class="section-subtitle">Patent, manuscripts under review, and book chapters.</p>
+      </div>
+      <div class="sup-layout">
+        <div class="sup-card reveal" id="patent-card">
+          <div class="sup-hdr">
+            <span class="sup-badge patent">PATENT</span>
+            <h3>Taebaek Patent Firm (South Korea)</h3>
+            <span class="sup-date">2023.09.14</span>
+          </div>
+          <div class="sup-body">
+            <h4 id="patent-title">Synthesis of cobalt oxide nanoparticles by recombinant microorganisms with modified cell surface and their use</h4>
+            <p id="patent-desc"></p>
+            <div class="patent-meta">
+              <div><strong>Application No:</strong> <span id="patent-appno"></span></div>
+              <div><strong>Inventors:</strong> <span id="patent-inventors"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="sup-card reveal">
+          <div class="ch-tabs">
+            <button class="ch-tab active" data-target="ch-review">Under Review (4)</button>
+            <button class="ch-tab" data-target="ch-chapters">Book Chapters (6)</button>
+          </div>
+          <div class="ch-panels">
+            <div class="ch-panel active" id="ch-review"></div>
+            <div class="ch-panel" id="ch-chapters"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONFERENCE PROCEEDINGS ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-number">05</div>
+        <h2 class="section-title">Conference Proceedings</h2>
+        <p class="section-subtitle">Presentations at international scientific conferences and symposia.</p>
+      </div>
+      <div id="conf-container" class="conf-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== GITHUB PROJECTS ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-number">06</div>
+        <h2 class="section-title">GitHub & Dev Projects</h2>
+        <p class="section-subtitle">Computational tools and bioinformatics pipelines under development.</p>
+      </div>
+      <div id="github-container" class="github-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== PUBLICATIONS (with Impact Gauges) ===== -->
   <section id="publications" class="section">
     <div class="container">
-      <div class="section-header">
-        <div class="section-number">03</div>
+      <div class="section-header reveal">
+        <div class="section-number">07</div>
         <h2 class="section-title">Scientific Publications</h2>
-        <p class="section-subtitle">Peer-reviewed articles indexed in SCI/ESCI. Search, filter, and explore each publication's abstract.</p>
+        <p class="section-subtitle">Peer-reviewed articles indexed in SCI/ESCI with impact gauges. Search, filter, and explore.</p>
       </div>
       <div class="pubs-layout">
         <div class="pubs-sidebar">
@@ -282,71 +370,12 @@
     </div>
   </section>
 
-  <!-- ===== SUPPLEMENTARY (Patent + Under Review + Book Chapters) ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="sup-layout">
-        <!-- Patent -->
-        <div class="sup-card" id="patent-card">
-          <div class="sup-hdr">
-            <span class="sup-badge patent">PATENT</span>
-            <h3>Taebaek Patent Firm (South Korea)</h3>
-            <span class="sup-date">2023.09.14</span>
-          </div>
-          <div class="sup-body">
-            <h4 id="patent-title">Synthesis of cobalt oxide nanoparticles by recombinant microorganisms with modified cell surface and their use</h4>
-            <p id="patent-desc"></p>
-            <div class="patent-meta">
-              <div><strong>Application No:</strong> <span id="patent-appno"></span></div>
-              <div><strong>Inventors:</strong> <span id="patent-inventors"></span></div>
-            </div>
-          </div>
-        </div>
-        <!-- Under Review + Book Chapters -->
-        <div class="sup-card">
-          <div class="ch-tabs">
-            <button class="ch-tab active" data-target="ch-review">Under Review (4)</button>
-            <button class="ch-tab" data-target="ch-chapters">Book Chapters (6)</button>
-          </div>
-          <div class="ch-panels">
-            <div class="ch-panel active" id="ch-review"></div>
-            <div class="ch-panel" id="ch-chapters"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONFERENCE PROCEEDINGS (NEW) ===== -->
-  <section id="conferences" class="section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-number">04</div>
-        <h2 class="section-title">Conference Proceedings</h2>
-        <p class="section-subtitle">Presentations at international scientific conferences and symposia.</p>
-      </div>
-      <div id="conf-container" class="conf-grid"></div>
-    </div>
-  </section>
-
-  <!-- ===== GITHUB PROJECTS (NEW) ===== -->
-  <section id="github" class="section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-number">05</div>
-        <h2 class="section-title">GitHub &amp; Dev Projects</h2>
-        <p class="section-subtitle">Computational tools and bioinformatics pipelines under development.</p>
-      </div>
-      <div id="github-container" class="github-grid"></div>
-    </div>
-  </section>
-
   <!-- ===== TIMELINE (Academic & Career) ===== -->
   <section id="timeline" class="section">
     <div class="container">
-      <div class="section-header">
-        <div class="section-number">06</div>
-        <h2 class="section-title">Academic &amp; Career Journey</h2>
+      <div class="section-header reveal">
+        <div class="section-number">08</div>
+        <h2 class="section-title">Academic & Career Journey</h2>
         <p class="section-subtitle">Chronological breakdown of degrees, research positions, and teaching experience.</p>
       </div>
       <div class="tl-wrapper">
@@ -356,12 +385,12 @@
     </div>
   </section>
 
-  <!-- ===== AWARDS & GRANTS (separate) ===== -->
-  <section id="awards" class="section">
+  <!-- ===== AWARDS & GRANTS ===== -->
+  <section class="section">
     <div class="container">
-      <div class="section-header">
-        <div class="section-number">07</div>
-        <h2 class="section-title">Awards &amp; Grants</h2>
+      <div class="section-header reveal">
+        <div class="section-number">09</div>
+        <h2 class="section-title">Awards & Grants</h2>
         <p class="section-subtitle">National scholarships and research funding received.</p>
       </div>
       <div id="awards-container" class="awards-grid"></div>
@@ -371,7 +400,7 @@
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container footer-grid">
-      <div class="footer-profile">
+      <div class="footer-profile reveal">
         <div class="logo">
           <svg class="logo-dna" viewBox="0 0 24 24" width="20" height="20">
             <path d="M3 6 C 3 6, 8 14, 13 6 C 18 -2, 21 6, 21 6" stroke="var(--accent)" fill="none" stroke-width="1.5"/>
@@ -381,20 +410,19 @@
         </div>
         <p class="text-muted">Pioneering biological solutions for ecological remediation and high-performance biomaterials. Let's collaborate.</p>
         <div class="social">
-          <a href="mailto:bioashok00793@gmail.com" class="social-btn" title="Email">📧</a>
-          <a href="https://orcid.org/0000-0002-3669-4986" target="_blank" class="social-btn" title="ORCID">🆔</a>
-          <a href="https://www.linkedin.com/in/ashokkumar-kumeravel" target="_blank" class="social-btn" title="LinkedIn">🔗</a>
+          <a href="mailto:bioashok00793@gmail.com" class="social-btn" title="Email">&#x1F4E7;</a>
+          <a href="https://orcid.org/0000-0002-3669-4986" target="_blank" class="social-btn" title="ORCID">&#x1F194;</a>
+          <a href="https://www.linkedin.com/in/ashokkumar-kumeravel" target="_blank" class="social-btn" title="LinkedIn">&#x1F517;</a>
         </div>
       </div>
-      <div class="footer-ref">
+      <div class="footer-ref reveal">
         <h4>References</h4>
         <div class="ref-card">
           <span class="ref-badge">PhD Mentor</span>
           <h5>Prof. Dr. Soon Ho Hong</h5>
-          <p class="text-muted">Chemical &amp; Bioengineering Dept, University of Ulsan, South Korea</p>
-          <button class="copy-email" data-email="shhong@ulsan.ac.kr">shhong@ulsan.ac.kr <span class="copy-icon">📋</span></button>
+          <p class="text-muted">Chemical & Bioengineering Dept, University of Ulsan, South Korea</p>
+          <button class="copy-email" data-email="shhong@ulsan.ac.kr">shhong@ulsan.ac.kr <span class="copy-icon">&#x1F4CB;</span></button>
         </div>
-
       </div>
     </div>
     <div class="footer-bottom">
@@ -403,12 +431,36 @@
     </div>
   </footer>
 
+  <!-- Research AI Chat Assistant -->
+  <div id="chat-toggle" class="chat-toggle" title="Ask Dr. Ashokkumar AI">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+  </div>
+  <div id="chat-widget" class="chat-widget">
+    <div class="chat-hdr">
+      <span>Research AI Assistant</span>
+      <button id="chat-close">&times;</button>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg bot">
+        <div class="msg-avatar">&#x1F9EC;</div>
+        <div class="msg-content">Hello! I'm Dr. Ashokkumar's virtual research assistant. Ask me about his publications, research, skills, or experience!</div>
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Ask about research..." autocomplete="off">
+      <button id="chat-send">Send</button>
+    </div>
+  </div>
+
   <!-- Modal -->
   <div id="abstract-modal" class="modal">
     <div class="modal-card">
-      <button class="modal-close" id="modal-close">✕</button>
+      <button class="modal-close" id="modal-close">&#x2715;</button>
       <div class="modal-hdr">
         <span id="modal-journal" class="modal-journal"></span>
+        <span id="modal-impact" class="modal-impact-badge"></span>
         <h3 id="modal-title"></h3>
         <div class="modal-meta">
           <span id="modal-year"></span>
