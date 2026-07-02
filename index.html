@@ -1,301 +1,211 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#07111f">
+  <meta name="theme-color" content="#05080e">
   <title>Dr. Ashokkumar Kumaravel | Biotechnology Research Portfolio</title>
-  <meta name="description" content="Research portfolio and CV of Dr. Ashokkumar Kumaravel, biotechnology researcher specializing in microbial cell-surface display, metabolic engineering, bio-nanomaterials, and sustainable bioprocessing.">
-  <meta property="og:title" content="Dr. Ashokkumar Kumaravel | Biotechnology Research Portfolio">
-  <meta property="og:description" content="Biotechnology researcher translating engineered microbes into sustainable metal recovery, biomaterials, and environmental remediation platforms.">
+  <meta name="description" content="Research portfolio of Dr. Ashokkumar Kumaravel — microbial cell-surface display, metabolic engineering, bio-nanomaterials, and sustainable bioprocessing.">
+  <meta property="og:title" content="Dr. Ashokkumar Kumaravel | Biotechnology Research">
+  <meta property="og:description" content="Engineering microbes into platforms for cleaner industry and functional biomaterials.">
   <meta property="og:type" content="website">
-  <link rel="preload" href="profile.png" as="image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🧬</text></svg>">
   <link rel="stylesheet" href="styles.css">
-  <script defer src="data.js"></script>
-  <script defer src="app.js"></script>
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <div id="three-canvas" aria-hidden="true"></div>
 
-  <div class="ambient" aria-hidden="true">
-    <span class="ambient-orb orb-one"></span>
-    <span class="ambient-orb orb-two"></span>
-    <span class="ambient-grid"></span>
-  </div>
-
-  <header class="site-header" data-header>
-    <div class="container header-inner">
-      <a class="brand" href="#profile" aria-label="Dr. Ashokkumar Kumaravel home">
-        <span class="brand-mark" aria-hidden="true">AK</span>
-        <span class="brand-copy">
-          <span class="brand-name">Dr. Ashokkumar Kumaravel</span>
-          <span class="brand-role">Biotechnology Researcher</span>
+  <nav class="glass-nav" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="nav-logo__mark">AK</span>
+        <span class="nav-logo__text">
+          <span class="nav-logo__name">Dr. Ashokkumar Kumaravel</span>
+          <span class="nav-logo__role">Biotechnology Researcher</span>
         </span>
       </a>
-
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#research" class="nav-link">Research</a></li>
+        <li><a href="#publications" class="nav-link">Publications</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
-
-      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
-        <a href="#profile">Profile</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="theme-switcher">
-        <button class="theme-btn active" data-theme="bio" title="Bio-Green">&#9679;</button>
-        <button class="theme-btn" data-theme="ocean" title="Deep Ocean">&#9679;</button>
-        <button class="theme-btn" data-theme="neon" title="Cyber-Neon">&#9679;</button>
-      </div>
     </div>
-  </header>
+  </nav>
 
-  <main id="main">
-    <section id="profile" class="hero section-pad">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Microbial engineering | Bio-nanomaterials | Sustainable biotechnology</p>
-          <h1>Engineering microbes into platforms for cleaner industry and functional biomaterials.</h1>
-          <p class="hero-lede">Dr. Ashokkumar Kumaravel is a biotechnology and microbiology researcher working across microbial cell-surface display, metabolic pathway engineering, nanoparticle synthesis, bioremediation, and bacterial cellulose-based materials.</p>
-
-          <div class="hero-tags" aria-label="Research focus areas">
-            <span>Cell-surface display</span>
-            <span>Metal recovery</span>
-            <span>Metabolic engineering</span>
-            <span>Bacterial cellulose</span>
-          </div>
-
-          <div class="hero-actions">
-            <a class="button button-primary" href="CV%20ASHOKKUMAR%20KUMARAVEL.pdf" download>Download CV</a>
-            <a class="button button-secondary" href="mailto:bioashok00793@gmail.com">Email</a>
-            <a class="button button-ghost" href="https://orcid.org/0000-0002-3669-4986" target="_blank" rel="noopener noreferrer">ORCID</a>
+  <main class="content-wrapper" id="main-content">
+    <section class="section section--hero" id="hero">
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__badge">Microbial Engineering &bull; Bio-nanomaterials &bull; Sustainable Biotech</span>
+          <h1 class="hero__title">Dr. Ashokkumar<br>Kumaravel</h1>
+          <p class="hero__subtitle">Engineering microbes into platforms for cleaner industry and functional biomaterials.</p>
+          <div class="hero__stats" id="hero-stats"></div>
+          <div class="hero__actions">
+            <a href="CV%20ASHOKKUMAR%20KUMARAVEL.pdf" download class="btn btn--primary">Download CV</a>
+            <a href="mailto:bioashok00793@gmail.com" class="btn btn--ghost">Email</a>
+            <a href="https://orcid.org/0000-0002-3669-4986" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">ORCID</a>
+            <a href="https://www.linkedin.com/in/ashokkumar-kumeravel" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">LinkedIn</a>
           </div>
         </div>
-
-        <aside class="profile-card reveal" aria-label="Research profile summary">
-          <div class="portrait-wrap">
-            <img src="profile.png" width="420" height="520" alt="Portrait of Dr. Ashokkumar Kumaravel" class="portrait" decoding="async">
-          </div>
-          <div class="profile-card-body">
-            <p class="card-kicker">Research signature</p>
-            <h2>Waste-to-value biotechnology</h2>
-            <p>Genetically engineered microbes are used as selective capture systems, biocatalysts, and conversion platforms for environmental and material applications.</p>
-            <div class="availability-pill">Open to research collaborations</div>
-          </div>
-        </aside>
       </div>
-
-      <div class="container impact-strip reveal" aria-label="Research metrics">
-        <article class="metric-card">
-          <span class="metric-value" data-stat="citations">162</span>
-          <span class="metric-label">Citations</span>
-        </article>
-        <article class="metric-card">
-          <span class="metric-value" data-stat="hIndex">7</span>
-          <span class="metric-label">h-index</span>
-        </article>
-        <article class="metric-card">
-          <span class="metric-value" data-stat="i10Index">5</span>
-          <span class="metric-label">i10-index</span>
-        </article>
-        <article class="metric-card">
-          <span class="metric-value" data-stat="totalPublications">12</span>
-          <span class="metric-label">Peer-reviewed publications</span>
-        </article>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
       </div>
     </section>
 
-    <section id="research" class="section-pad">
-      <div class="container section-heading reveal">
-        <p class="eyebrow">Research architecture</p>
-        <h2>Four connected research lines with one translation goal.</h2>
-        <p>From selective metal-binding peptides to engineered cells and biopolymer production, the work is organized around scalable biological solutions for environmental and industrial problems.</p>
-      </div>
-
-      <div class="container theme-grid" id="research-themes" aria-live="polite"></div>
-
-      <div class="container translation-panel reveal">
-        <div class="translation-copy">
-          <p class="eyebrow">Research translation map</p>
-          <h3>Biological design is connected to measurable outputs.</h3>
-          <p>The portfolio emphasizes systems that start with a real waste stream or bioprocessing need, use molecular engineering to create a biological function, and end with recoverable materials, removal performance, or improved fermentation output.</p>
+    <section class="section" id="research">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__label">Research</span>
+          <h2 class="section__title">Connected research lines with one translation goal.</h2>
+          <p class="section__desc">From selective metal-binding peptides to engineered cells and biopolymer production — the work is organized around scalable biological solutions for environmental and industrial problems.</p>
         </div>
-        <ol class="translation-steps" aria-label="Research workflow">
-          <li><span>Input</span><strong>Wastewater, biomass, or microbial pathway</strong></li>
-          <li><span>Engineering</span><strong>Peptides, scaffolds, enzymes, and process conditions</strong></li>
-          <li><span>Validation</span><strong>Adsorption, fermentation, spectroscopy, microscopy, and modeling</strong></li>
-          <li><span>Output</span><strong>Metal recovery, nanoparticles, biomaterials, and bioproducts</strong></li>
-        </ol>
+        <div class="research-grid" id="research-grid"></div>
       </div>
     </section>
 
-    <section id="publications" class="section-pad muted-section">
-      <div class="container section-heading reveal">
-        <p class="eyebrow">Scholarly output</p>
-        <h2>Selected publications and complete searchable record.</h2>
-        <p>Explore journal articles by research area, year, citation count, or keyword. Article details open in an accessible dialog with abstract and links.</p>
-      </div>
-
-      <div class="container selected-grid" id="selected-publications" aria-label="Selected publications"></div>
-
-      <div class="container publication-workbench reveal">
-        <div class="publication-controls" aria-label="Publication filters">
-          <label for="pub-search">Search publications</label>
-          <input id="pub-search" type="search" autocomplete="off" placeholder="Search title, journal, abstract, or tag">
-
-          <label for="pub-filter">Filter by topic</label>
-          <select id="pub-filter">
-            <option value="all">All topics</option>
-          </select>
-
-          <label for="pub-sort">Sort by</label>
-          <select id="pub-sort">
-            <option value="citations">Citations</option>
-            <option value="year">Year</option>
-            <option value="impact">Impact factor</option>
-          </select>
+    <section class="section section--alt" id="publications">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__label">Publications</span>
+          <h2 class="section__title">Peer-reviewed articles and scholarly output.</h2>
+          <p class="section__desc">Search, filter, and explore publications by topic, year, or impact factor.</p>
         </div>
-
-        <div class="publication-results">
-          <div class="results-bar">
-            <span id="results-count">Loading publications...</span>
-            <button class="text-button" id="reset-publications" type="button">Reset filters</button>
+        <div class="pub-controls">
+          <div class="pub-controls__group">
+            <input type="search" id="pub-search" placeholder="Search title, journal, or abstract..." autocomplete="off">
+            <select id="pub-filter">
+              <option value="all">All topics</option>
+            </select>
+            <select id="pub-sort">
+              <option value="year">Sort: Year</option>
+              <option value="citations">Sort: Citations</option>
+              <option value="impact">Sort: Impact Factor</option>
+            </select>
           </div>
-          <div id="publications-container" class="publication-list" aria-live="polite"></div>
+          <div class="pub-controls__info">
+            <span id="pub-count">Loading...</span>
+            <button class="btn btn--text" id="pub-reset" type="button">Reset</button>
+          </div>
         </div>
+        <div class="pub-list" id="pub-list"></div>
       </div>
-
-      <noscript>
-        <div class="container no-script-card">JavaScript is disabled. Please enable JavaScript to use publication search and filters.</div>
-      </noscript>
     </section>
 
-    <section id="scholarly" class="section-pad">
-      <div class="container scholarly-grid">
-        <article class="patent-card reveal" id="patent-card">
-          <p class="eyebrow">Patent</p>
-          <h2 id="patent-title">Synthesis of cobalt oxide nanoparticles by recombinant microorganisms with modified cell surface and their use</h2>
-          <p id="patent-description">Cell-surface engineered microbes bind heavy metals and enable conversion of metal-loaded biomass into functional metal oxide nanoparticles.</p>
-          <dl class="patent-meta">
-            <div><dt>Application</dt><dd id="patent-application">10-2023-0122295</dd></div>
-            <div><dt>Inventors</dt><dd id="patent-inventors">Ashokkumar Kumaravel, Soon Ho Hong, Sung Gu Kang</dd></div>
-          </dl>
-        </article>
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__label">Experience</span>
+          <h2 class="section__title">Academic path across India, South Korea, and Taiwan.</h2>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
 
-        <div class="output-card reveal" data-tab-group>
-          <div class="tab-list" role="tablist" aria-label="Additional scholarly outputs">
-            <button type="button" role="tab" aria-selected="true" aria-controls="under-review-panel" id="under-review-tab" data-tab-target="under-review-panel">Under review</button>
-            <button type="button" role="tab" aria-selected="false" aria-controls="chapters-panel" id="chapters-tab" data-tab-target="chapters-panel">Book chapters</button>
+    <section class="section section--alt" id="skills">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__label">Skills</span>
+          <h2 class="section__title">Bench, analytical, and computational capability.</h2>
+        </div>
+        <div class="skills-layout">
+          <div class="capability-card glass-card" id="capability-card">
+            <h3 class="capability-card__title">Core proficiency</h3>
+            <div class="capability-bars" id="capability-bars"></div>
           </div>
-          <div class="tab-panel active" role="tabpanel" id="under-review-panel" aria-labelledby="under-review-tab">
-            <div id="under-review-list" class="compact-list"></div>
+          <div class="skills-grid" id="skills-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--compact" id="more">
+      <div class="container">
+        <div class="compact-grid">
+          <div class="glass-card compact-card">
+            <h3 class="compact-card__title">Awards &amp; Scholarships</h3>
+            <div id="awards-list"></div>
           </div>
-          <div class="tab-panel" role="tabpanel" id="chapters-panel" aria-labelledby="chapters-tab" hidden>
-            <div id="chapters-list" class="compact-list"></div>
+          <div class="glass-card compact-card">
+            <h3 class="compact-card__title">Patent</h3>
+            <div id="patent-content"></div>
+          </div>
+          <div class="glass-card compact-card">
+            <h3 class="compact-card__title">Conferences</h3>
+            <div id="conferences-list"></div>
+          </div>
+          <div class="glass-card compact-card">
+            <h3 class="compact-card__title">Computational Projects</h3>
+            <div id="projects-list"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="section-pad muted-section">
-      <div class="container section-heading reveal">
-        <p class="eyebrow">Academic path</p>
-        <h2>Research, teaching, and training across India, South Korea, and Taiwan.</h2>
-      </div>
-      <div class="container timeline" id="timeline-container"></div>
-    </section>
-
-    <section id="skills" class="section-pad">
-      <div class="container section-heading reveal">
-        <p class="eyebrow">Technical capability</p>
-        <h2>Bench, analytical, and computational skills for translational biotechnology.</h2>
-      </div>
-      <div class="container skills-layout">
-        <div class="capability-panel reveal">
-          <h3>Core capability profile</h3>
-          <div id="capability-bars" class="capability-bars"></div>
-        </div>
-        <div class="skill-columns reveal" id="skills-container"></div>
-      </div>
-    </section>
-
-    <section id="awards" class="section-pad muted-section">
-      <div class="container section-heading reveal">
-        <p class="eyebrow">Recognition</p>
-        <h2>Awards, scholarships, and competitive research support.</h2>
-      </div>
-      <div class="container award-grid" id="awards-container"></div>
-    </section>
-
-    <section id="conferences" class="section-pad">
-      <div class="container section-heading reveal">
-        <p class="eyebrow">Scientific communication</p>
-        <h2>Conference presentations and computational projects.</h2>
-      </div>
-      <div class="container dual-output-grid">
-        <article class="surface-card reveal">
-          <div class="card-headline">
-            <h3>Conference proceedings</h3>
-            <span id="conference-count">0 records</span>
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-card glass-card">
+          <div class="contact-card__content">
+            <span class="section__label">Contact</span>
+            <h2 class="section__title" style="margin-bottom: 0.5rem;">For collaborations and inquiries.</h2>
+            <p class="section__desc">Open to research partnerships and academic conversations.</p>
           </div>
-          <div id="conference-list" class="scroll-list"></div>
-        </article>
-        <article class="surface-card reveal">
-          <div class="card-headline">
-            <h3>Computational development</h3>
-            <span>Bioinformatics and modeling</span>
+          <div class="contact-links">
+            <a href="mailto:bioashok00793@gmail.com" class="contact-link">
+              <span class="contact-link__label">Email</span>
+              <span class="contact-link__value">bioashok00793@gmail.com</span>
+            </a>
+            <a href="https://orcid.org/0000-0002-3669-4986" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-link__label">ORCID</span>
+              <span class="contact-link__value">0000-0002-3669-4986</span>
+            </a>
+            <a href="https://www.scopus.com/authid/detail.uri?authorId=57515216700" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-link__label">Scopus</span>
+              <span class="contact-link__value">57515216700</span>
+            </a>
+            <a href="https://www.linkedin.com/in/ashokkumar-kumeravel" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-link__label">LinkedIn</span>
+              <span class="contact-link__value">ashokkumar-kumeravel</span>
+            </a>
           </div>
-          <div id="project-list" class="project-list"></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" class="section-pad contact-section">
-      <div class="container contact-grid reveal">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2>For collaborations in microbial engineering, bio-nanomaterials, and sustainable bioprocessing.</h2>
-          <p>Use the CV, ORCID, Scopus, LinkedIn, or email links below to evaluate fit and start a focused research conversation.</p>
-        </div>
-        <div class="contact-actions">
-          <a class="contact-link" href="mailto:bioashok00793@gmail.com"><span>Email</span><strong>bioashok00793@gmail.com</strong></a>
-          <a class="contact-link" href="https://orcid.org/0000-0002-3669-4986" target="_blank" rel="noopener noreferrer"><span>ORCID</span><strong>0000-0002-3669-4986</strong></a>
-          <a class="contact-link" href="https://www.scopus.com/authid/detail.uri?authorId=57515216700" target="_blank" rel="noopener noreferrer"><span>Scopus</span><strong>57515216700</strong></a>
-          <a class="contact-link" href="https://www.linkedin.com/in/ashokkumar-kumeravel" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><strong>ashokkumar-kumeravel</strong></a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; 2026 Dr. Ashokkumar Kumaravel. Built as a fast static research portfolio.</p>
-      <a href="#profile">Back to top</a>
+    <div class="container">
+      <div class="footer-inner">
+        <p>&copy; 2026 Dr. Ashokkumar Kumaravel</p>
+        <a href="#hero" class="footer-top">Back to top</a>
+      </div>
     </div>
   </footer>
 
-  <dialog class="publication-dialog" id="publication-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-shell">
-      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close publication details">Close</button>
-      <p class="eyebrow" id="dialog-journal">Journal</p>
-      <h2 id="dialog-title">Publication title</h2>
-      <div class="dialog-meta" id="dialog-meta"></div>
-      <div class="dialog-body">
+  <dialog class="pub-dialog" id="pub-dialog">
+    <div class="pub-dialog__shell">
+      <button class="pub-dialog__close" id="pub-dialog-close" type="button" aria-label="Close">&times;</button>
+      <span class="pub-dialog__journal" id="pub-dialog-journal"></span>
+      <h2 class="pub-dialog__title" id="pub-dialog-title"></h2>
+      <div class="pub-dialog__meta" id="pub-dialog-meta"></div>
+      <div class="pub-dialog__body">
         <h3>Abstract</h3>
-        <p id="dialog-abstract"></p>
+        <p id="pub-dialog-abstract"></p>
       </div>
-      <div class="dialog-actions">
-        <a class="button button-primary" id="dialog-doi" target="_blank" rel="noopener noreferrer">Open DOI</a>
-        <a class="button button-secondary" id="dialog-article" target="_blank" rel="noopener noreferrer">Open article</a>
-      </div>
+      <div class="pub-dialog__actions" id="pub-dialog-actions"></div>
     </div>
   </dialog>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
