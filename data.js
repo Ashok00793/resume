@@ -494,6 +494,30 @@ const RESUME_DATA = {
       pdf_url: "https://doi.org/10.1007/s12257-021-0081-6",
       tags: ["Protein Scaffold", "Metabolic Engineering", "Amino Acid", "Synthetic Biology"],
       impactFactor: "3.0"
+    },
+    {
+      id: "W3175285345",
+      title: "Whole-cell display of Pyrococcus horikoshii glutamate decarboxylase in Escherichia coli for high-titer extracellular gamma-aminobutyric acid production",
+      year: 2021,
+      citations: 9,
+      doi: "https://doi.org/10.1093/jimb/kuab039",
+      journal: "Journal of Industrial Microbiology & Biotechnology",
+      abstract: "We investigated the effect of cell-surface display of glutamate decarboxylase (GadB) on gamma-aminobutyric acid (GABA) production in recombinant Escherichia coli. GadB from Pyrococcus horikoshii was fused to the C-terminus of the E. coli outer membrane protein C (OmpC). After 12 hr of culturing GadB-displaying cells, extracellular GABA increased to 3.2 g/L, eight times that obtained with cytosolic expression. At 60 C, GABA reached 4.62 g/L after 12 hr and 5.35 g/L after 24 hr, corresponding to a yield of 87.7%.",
+      pdf_url: "https://academic.oup.com/jimb/article-pdf/48/7-8/kuab039/42964483/kuab039.pdf",
+      tags: ["GABA Production", "Cell-Surface Display", "Archaeon GadB", "Bioprocess Engineering"],
+      impactFactor: "3.2"
+    },
+    {
+      id: "W4400567888",
+      title: "Optimized g-C3N4/TiO2 composites for visible-light-driven Sono photocatalysis in norfloxacin removal",
+      year: 2025,
+      citations: 0,
+      doi: "",
+      journal: "Environmental Research",
+      abstract: "Optimized g-C3N4/TiO2 composites were developed for visible-light-driven sonophotocatalysis to remove the antibiotic norfloxacin. The synergistic interaction between graphitic carbon nitride and titanium dioxide enhanced charge carrier separation and accelerated degradation kinetics, supporting advanced wastewater treatment and organic contaminant remediation applications.",
+      pdf_url: "",
+      tags: ["Sonophotocatalysis", "Norfloxacin Removal", "Wastewater", "Composites"],
+      impactFactor: "7.7"
     }
   ]
 };
