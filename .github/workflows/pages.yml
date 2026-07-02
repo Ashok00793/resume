@@ -1,0 +1,51 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel stale pages deployments
+        run: |
+          gh api repos/${{ github.repository }}/deployments \
+            --jq '.[] | select(.environment == "github-pages" and (.status == "in_progress" or .status == "queued")) | .id' \
+            | while read id; do
+              echo "Cancelling deployment $id"
+              gh api repos/${{ github.repository }}/deployments/$id/statuses \
+                -f state=inactive \
+                -f description="Superseded by newer deployment" \
+                --silent 2>/dev/null || true
+            done
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
