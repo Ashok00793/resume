@@ -1,0 +1,523 @@
+const RESUME_DATA = {
+  personal: {
+    name: "Dr. Ashokkumar Kumaravel",
+    title: "Biotechnology & Microbial Engineering Researcher",
+    email: "bioashok00793@gmail.com",
+    phone: "+91 8438330863",
+    orcid: "0000-0002-3669-4986",
+    linkedin: "https://www.linkedin.com/in/ashokkumar-kumeravel",
+    scopusId: "57515216700",
+    stats: {
+      citations: 162,
+      hIndex: 7,
+      i10Index: 5,
+      totalPublications: 12
+    },
+    summary: "Biotechnology and Microbiology Expert with a focus on molecular biology, metabolic engineering, and nanomaterials. Delivered sustainable technologies through research initiatives in wastewater treatment, environmental management, and biomaterial innovation."
+  },
+
+  education: [
+    {
+      degree: "Ph.D. in Chemical Engineering (Microbial Biotechnology)",
+      institution: "University of Ulsan",
+      location: "Ulsan, South Korea",
+      period: "Mar 2019 - Feb 2024",
+      mentor: "Prof. Dr. Soon Ho Hong",
+      grade: "Grade: 94%",
+      details: "Specialized in microbial cell surface display (MCSD), metabolic pathway engineering, and green synthesis of functional metal nanoparticles for bioremediation and cancer therapies."
+    },
+    {
+      degree: "Master of Science (M.Sc.) in Biotechnology",
+      institution: "Bharathiar University",
+      location: "Tamil Nadu, India",
+      period: "2016 - 2018",
+      grade: "Grade: 74%",
+      details: "Core focus on molecular genetics, immunology, plant/animal cell biotechnology, and industrial fermentation processes."
+    },
+    {
+      degree: "Bachelor of Science (B.Sc.) in Biotechnology",
+      institution: "Bharathiar University",
+      location: "Tamil Nadu, India",
+      period: "2011 - 2014",
+      grade: "Grade: 74%",
+      details: "Foundational training in cell biology, biochemistry, microbiology, biophysics, and organic chemistry."
+    }
+  ],
+
+  experience: [
+    {
+      role: "Adjunct Professor",
+      organization: "Academy of Maritime Education and Training (AMET) Deemed to be University",
+      location: "Chennai, Tamil Nadu, India",
+      period: "Jan 2026 - Present",
+      details: "Concurrently delivering lectures and mentoring student projects at the Centre for Research and Innovation, focusing on marine biotechnology, eco-friendly nanomaterials, and environmental microbiology."
+    },
+    {
+      role: "Post-Doctoral Researcher",
+      organization: "Ulsan National Institute of Science and Technology (UNIST)",
+      location: "Ulsan, South Korea",
+      period: "Aug 2025 - Feb 2026",
+      details: "Conducted a national project focused on engineering Pseudomonas denitrificans for efficient biosynthesis of Poly(3-hydroxypropionate) from glycerol and gluconate, contributing to sustainable biopolymer production."
+    },
+    {
+      role: "Research Fellow",
+      organization: "National Taiwan University (NTU)",
+      location: "Taipei, Taiwan",
+      period: "Nov 2024 - Apr 2025",
+      details: "Worked on transforming agricultural waste (specifically peanut shell powder) into highly functional, high-performance Bacterial Cellulose (BC) membranes for sustainable packaging applications. Designed chemical and enzymatic pretreatment strategies that yielded a ~40% increase in BC tensile strength and superior mechanical characteristics. Delivered ~15 hours of lectures on biomaterials, modifications, and applications during research fellowship at NTU."
+    },
+    {
+      role: "Ph.D. Researcher & Teaching Assistant",
+      organization: "University of Ulsan",
+      location: "Ulsan, South Korea",
+      period: "Mar 2021 - Feb 2023",
+      details: "Two years as a Teaching Assistant during PhD (Biotechnology, Biochemistry, Molecular Biology, Genetics)."
+    }
+  ],
+
+  skills: {
+    molecular: [
+      "Molecular cloning",
+      "Gene addition / Deletions / Mutations",
+      "Metabolic engineering through genetic engineering in microbes",
+      "Microbial cell culture",
+      "Primer designing",
+      "PCR & qPCR",
+      "AGE & SDS-PAGE",
+      "Proficient in operating bioreactors"
+    ],
+    material: [
+      "Green Synthesis of Nanoparticles",
+      "Chemical Synthesis of Nanoparticles",
+      "Microbial Synthesis of Nanoparticles",
+      "Metal Biosorption & Metal Recovery",
+      "Photocatalytic Dye/Drug Degradation"
+    ],
+    analytical: [
+      "ICP-OES",
+      "X-ray Diffraction (XRD)",
+      "FTIR & Raman spectroscopy",
+      "XPS (X-ray Photoelectron Spectroscopy)",
+      "TEM & SEM Imaging",
+      "Zeta Analyzer",
+      "HPLC & GC-MS"
+    ],
+    software: [
+      "Python & R Programming",
+      "Statistical Tools",
+      "Molecular Docking",
+      "Online Bioinformatic tools",
+      "Origin",
+      "Image and Diameter J",
+      "X'Pert high score plus",
+      "Microsoft Office"
+    ]
+  },
+
+  skillProficiency: {
+    labels: ["Molecular Biology", "Nanomaterials", "Analytical Tech", "Bioinformatics", "Metabolic Eng", "Bioremediation"],
+    values: [92, 88, 85, 78, 90, 82]
+  },
+
+  researchConnections: [
+    { source: "Bioremediation", target: "Nanomaterials", strength: 90 },
+    { source: "Bioremediation", target: "Metabolic Eng", strength: 65 },
+    { source: "Bioremediation", target: "Microbiology", strength: 85 },
+    { source: "Nanomaterials", target: "Analytical Tech", strength: 80 },
+    { source: "Nanomaterials", target: "Cancer Therapy", strength: 60 },
+    { source: "Metabolic Eng", target: "Synthetic Biology", strength: 88 },
+    { source: "Metabolic Eng", target: "Microbiology", strength: 75 },
+    { source: "Microbiology", target: "Cell-Surface Display", strength: 92 },
+    { source: "Cell-Surface Display", target: "Bioremediation", strength: 85 },
+    { source: "Cell-Surface Display", target: "Nanomaterials", strength: 70 },
+    { source: "Synthetic Biology", target: "Protein Scaffold", strength: 82 },
+    { source: "Protein Scaffold", target: "Metabolic Eng", strength: 78 },
+    { source: "Synthetic Biology", target: "Microbiology", strength: 70 },
+    { source: "Analytical Tech", target: "Nanomaterials", strength: 75 },
+    { source: "Cancer Therapy", target: "Nanomaterials", strength: 65 }
+  ],
+
+  researchAreas: [
+    "Bioremediation", "Nanomaterials", "Metabolic Eng", "Analytical Tech",
+    "Cancer Therapy", "Microbiology", "Synthetic Biology", "Cell-Surface Display", "Protein Scaffold"
+  ],
+
+  chatQA: [
+    { q: ["what is your research about", "tell me about your research", "what do you research", "research focus"], a: "My research focuses on microbial cell surface display engineering, metabolic pathway design, and green synthesis of functional nanoparticles. I work on bioremediation of heavy metals, sustainable biopolymer production, and photocatalytic degradation of environmental pollutants." },
+    { q: ["what is your phd about", "phd topic", "phd research", "doctoral research"], a: "My PhD at the University of Ulsan specialized in microbial cell surface display (MCSD), metabolic pathway engineering, and green synthesis of functional metal nanoparticles for bioremediation and cancer therapies. I achieved a 94% grade under Prof. Dr. Soon Ho Hong." },
+    { q: ["where did you do your postdoc", "postdoc", "post doctoral", "unist"], a: "I completed a Post-Doctoral position at UNIST (Ulsan National Institute of Science and Technology) from Aug 2025 to Feb 2026, where I engineered Pseudomonas denitrificans for efficient biosynthesis of Poly(3-hydroxypropionate) from glycerol and gluconate." },
+    { q: ["publications", "papers", "articles", "how many papers"], a: "I have 12 peer-reviewed publications with 162 citations, an h-index of 7, and an i10-index of 5. My work spans bioremediation, nanoparticle synthesis, metabolic engineering, and biomaterials." },
+    { q: ["what is your h-index", "h index", "citations"], a: "My h-index is 7 with 162 total citations and an i10-index of 5. Citation data is sourced from Scopus." },
+    { q: ["skills", "techniques", "what can you do", "expertise", "laboratory"], a: "I specialize in molecular cloning, metabolic engineering, microbial cell culture, nanoparticle synthesis (green/chemical/microbial), ICP-OES, XRD, FTIR, TEM, SEM, XPS, HPLC, GC-MS, Python/R programming, and molecular docking." },
+    { q: ["patent", "invention", "intellectual property"], a: "I hold a South Korean patent for 'Synthesis of cobalt oxide nanoparticles by recombinant microorganisms with modified cell surface and their use' (Application No: 10-2023-0122295)." },
+    { q: ["awards", "scholarships", "grants", "fellowship"], a: "I received the Taiwan Postdoctoral Fellowship (NSTC), Brain Korea 21 (BK21) National Scholarship, and the Low Carbon Green Energy Project Scholarship from the City of Ulsan." },
+    { q: ["contact", "email", "reach", "get in touch"], a: "You can reach me at bioashok00793@gmail.com or connect on LinkedIn at linkedin.com/in/ashokkumar-kumeravel. My ORCID is 0000-0002-3669-4986." },
+    { q: ["teaching", "professor", "lecture", "courses"], a: "I currently serve as an Adjunct Professor at AMET University, Chennai. Previously, I was a Teaching Assistant for 2 years at the University of Ulsan for Biotechnology, Biochemistry, Molecular Biology, and Genetics courses." },
+    { q: ["affiliation", "current position", "where do you work"], a: "I am currently an Adjunct Professor at the Academy of Maritime Education and Training (AMET) Deemed to be University, Chennai, India, at the Centre for Research and Innovation." },
+    { q: ["conference", "presentation", "talk", "proceedings"], a: "I have presented 11 conference proceedings at the Korean Society of Biological Engineering conferences from 2021-2025, covering metabolic engineering, protein scaffolds, and cell-surface display." },
+    { q: ["biopolymer", "bacterial cellulose", "bc", "p3hp", "poly"], a: "I've worked on Bacterial Cellulose (BC) from agricultural waste at NTU (Taiwan), achieving ~40% tensile strength improvement, and Poly(3-hydroxypropionate) biosynthesis at UNIST using engineered Pseudomonas denitrificans." },
+    { q: ["nanoparticle", "nanomaterials", "cobalt oxide", "silver", "nio"], a: "I synthesize nanoparticles through green, chemical, and microbial routes. Key work includes Co3O4 nanoparticles for photocatalysis/anticancer, NiO from battery wastewater, and silver nanoparticles from plant extracts for antimicrobial textiles." },
+    { q: ["hello", "hi", "hey", "greetings"], a: "Hello! I'm Dr. Ashokkumar's virtual research assistant. You can ask me about his publications, research focus, skills, awards, experience, or any aspect of his scientific work." },
+    { q: ["who are you", "what is this", "assistant"], a: "I'm an AI research assistant powered by the Dr. Ashokkumar knowledge base. I can answer questions about his biotechnology research, publications, skills, experience, and scientific achievements." }
+  ],
+  githubProjects: [
+    {
+      title: "Codon Optimization & Bioinformatics",
+      status: "Finished",
+      description: "Bioinformatics pipeline for codon optimization of heterologous genes for enhanced expression in microbial hosts."
+    },
+    {
+      title: "Metabolic Engineering Toolkit",
+      status: "Dev",
+      description: "Software toolkit for designing and simulating metabolic pathway modifications in engineered microbes."
+    },
+    {
+      title: "Autonomous Molecular Docking Tool",
+      status: "Dev",
+      description: "Automated molecular docking pipeline for screening ligand-protein interactions in drug discovery."
+    },
+    {
+      title: "Autonomous Peptide-Metal Ion Binding Prediction with DFT",
+      status: "Dev",
+      description: "DFT-based computational tool for predicting peptide-metal ion binding affinities and selectivity."
+    }
+  ],
+
+  awards: [
+    {
+      title: "Taiwan Postdoctoral Fellowship",
+      agency: "National Science and Technology Council (NSTC) - Taiwan",
+      period: "Nov 2024 - May 2025",
+      description: "Postdoctoral research scholarship for optimizing bio-active components in Ganoderma lucidum mycelium using PCS bioreactors."
+    },
+    {
+      title: "Brain Korea 21 (BK21) National Scholarship",
+      agency: "Government of South Korea",
+      period: "Apr 2020 - Mar 2022",
+      description: "Highly competitive national scholarship awarded to outstanding doctoral scholars in engineering and technology fields."
+    },
+    {
+      title: "Low Carbon Green Energy Project Scholarship",
+      agency: "City of Ulsan, South Korea",
+      period: "Jul 2022 - Feb 2024",
+      description: "Scholarship funding for PhD research addressing industrial heavy metal recovery and environmental remediation."
+    }
+  ],
+
+  patent: {
+    title: "Synthesis of cobalt oxide nanoparticles by recombinant microorganisms with modified cell surface and their use",
+    inventors: "Ashokkumar Kumaravel, Soon Ho Hong, Sung Gu Kang",
+    agency: "South Korea Taebaek Patent Firm",
+    applicationNo: "10-2023-0122295 / 1-1-2023-1017641-54",
+    date: "Sept 14, 2023",
+    status: "Published / Taebaek Patent Firm Ref: 9-2008-100101-3",
+    description: "Covers the cell-surface engineering of recombinant microbes to express binding peptides, biological adsorption of heavy metal ions, and thermal calcination of metal-bound biomass to synthesize highly active metal oxide nanoparticles."
+  },
+
+  underReview: [
+    {
+      title: "Electrospun Polymeric Biomaterials: From Fundamental Design to Advanced Biomedical Applications",
+      authors: "Chandran, L., Kumaravel, A., Yohan, R. K., Tota, J., Jagannathan, M., Ben Moussa, S., Alzahrani, A.",
+      journal: "Advanced Industrial and Engineering Polymer Research",
+      impactFactor: "12.0",
+      status: "Under Review (Q1)"
+    },
+    {
+      title: "Valorization of Peanut Shell Waste into High-Performance Bacterial Cellulose: Comparative Evaluation of Pretreatment Strategies and Process Integration",
+      authors: "Ashokkumar Kumaravel, Sathiyamoorthy Padmanaban, Saranya Shanmugasundaram, Likha Chandran",
+      journal: "International Journal of Biological Macromolecules",
+      impactFactor: "8.5",
+      status: "Under Review (Q1)"
+    },
+    {
+      title: "Phytochemical profiling and multifunctional biodiversity of Acorus calamus: Isolation of Isocaespitol and its antidiabetic and anti-inflammatory potential via In vitro and In silico approaches",
+      authors: "Ashokkumar Kumaravel, Sathiyamoorthy Padmanaban, Saranya Shanmugasundaram, Bharat Bhargawa",
+      journal: "Frontiers in Pharmacology",
+      impactFactor: "4.8",
+      status: "Under Review (Q1)"
+    },
+    {
+      title: "Development and Evaluation of a Yogurt-Based Functional Formulation Enriched with Glycyrrhiza glabra and Solanum nigrum",
+      authors: "Ashokkumar Kumaravel, Sathiyamoorthy Padmanaban, Saranya Shanmugasundaram, Senthamil Selvi Poongavanam",
+      journal: "Journal of Functional Foods",
+      impactFactor: "4.0",
+      status: "Under Review (Q1)"
+    }
+  ],
+
+  bookChapters: [
+    {
+      title: "Microbes in Water, Sanitation, and Public Health: A Data-Driven Analysis of Pathogen Dynamics and Intervention Efficacy",
+      authors: "Sriya D., Ashokkumar Kumaravel, Saranya Shanmugasundaram",
+      publisher: "Scopus Indexed",
+      status: "Published"
+    },
+    {
+      title: "The Role of Fusobacterium in Biofilm Development: A Central Bridge to Pathogenesis",
+      authors: "Ashokkumar Kumaravel, Saranya Shanmugasundaram, Likha Chandran, Senthamil Selvi Poongavanam",
+      publisher: "Scopus Indexed",
+      status: "In Progress"
+    },
+    {
+      title: "Hidden Threats: Chemical and Biological Contaminants in water and their adverse impact in human health",
+      authors: "Ashokkumar Kumaravel, Likha Chandran, Saranya Shanmugasundaram",
+      publisher: "Scopus Indexed",
+      status: "In Progress"
+    },
+    {
+      title: "Microplastics and Organic Pollutants: Accumulation, Bioavailability, and Ecological Consequences in Coastal and Estuarine Systems",
+      authors: "Sriya D., Ashokkumar Kumaravel, Saranya Shanmugasundaram",
+      publisher: "Scopus Indexed",
+      status: "In Progress"
+    },
+    {
+      title: "MicroRNA-Edited Gut Microbiota as an Epigenetic Vector",
+      authors: "Kotthapalli Prashanth, Ashokumar Kumaravel, Y. Aparna, S. Anju, Laurent Dufosse, Jamil Talukder, Sumana Kumar",
+      publisher: "Scopus Indexed",
+      status: "In Progress"
+    },
+    {
+      title: "Post-COVID-19 Era: A Bloom in Antibiotic Resistance in Microbial Community",
+      authors: "Ashokkumar Kumaravel, K. Anuradha, Shalini Rachel, Kotthapalli Prashanth, Sumana Kumar",
+      publisher: "Scopus Indexed",
+      status: "In Progress"
+    }
+  ],
+
+  conferenceProceedings: [
+    {
+      year: 2025,
+      authors: "Vivek Kumar Gaur, Tayyab Islam, Thuan Phu Nguyen-Vo, Miri Kim, Satish Kumar Ainala, Ashok Kumar Kumaravel, Payal Mukherjee, Sakshi, Sunghoon Park",
+      title: "Metabolic engineering of Escherichia coli for efficient production of poly(3-hydroxypropionate-co-3-hydroxybutyrate) copolymer with tailored monomer composition",
+      conference: "IJBio",
+      date: "5-8 Nov 2025"
+    },
+    {
+      year: 2023,
+      authors: "Ashokkumar Kumaravel, Jh Jeong, SH Hong",
+      title: "Colocalization of SerB and EamA through Protein Scaffold for the High-Yield Fermentation of L-serine in Recombinant Escherichia coli",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Apr 2023",
+      page: "745"
+    },
+    {
+      year: 2023,
+      authors: "Jh Jeong, Ashokkumar Kumaravel, SH Hong",
+      title: "Displaying Neurospora crassa Glutamate Decarboxylase on the Surface of Escherichia coli for the Extracellular Gamma-aminobutyric Acid Production from High Cell Density Culture",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Apr 2023",
+      page: "746"
+    },
+    {
+      year: 2023,
+      authors: "Ashokkumar Kumaravel, Jh Jeong, SH Hong",
+      title: "High Yield Fermentation of L-serine in Recombinant Escherichia coli by Colocalization of Pathway Enzymes through the Protein Scaffold",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Oct 2023",
+      page: "886"
+    },
+    {
+      year: 2023,
+      authors: "Jh Jeong, Ashokkumar Kumaravel, SH Hong",
+      title: "Modification of the Escherichia coli Cellular Surface for the Extracellular Gamma-aminobutyric Acid Production from High Cell Density Culture",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Oct 2023",
+      page: "887"
+    },
+    {
+      year: 2022,
+      authors: "Ashokkumar Kumaravel, Jh Jeong, SH Hong",
+      title: "Cell Surface Display of Pyrococcus horikoshii Glutamate Decarboxylase in Escherichia coli for High-titer Extracellular Gamma-aminobutyric Acid Production",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Apr 2022",
+      page: "546"
+    },
+    {
+      year: 2022,
+      authors: "Jh Jeong, Ashokkumar Kumaravel, SH Hong",
+      title: "Construction of Pesticides Recovering Escherichia coli through the Cell Surface Display of Binding Peptide",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Apr 2022",
+      page: "365"
+    },
+    {
+      year: 2021,
+      authors: "Ashokkumar Kumaravel, Jh Jeong, SH Hong",
+      title: "Enhanced Production of L-serine in Escherichia coli Through Synthetic Protein Scaffold of SerB, SerC, and EamA",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Apr 2021",
+      page: "583"
+    },
+    {
+      year: 2021,
+      authors: "Jh Jeong, Ashokkumar Kumaravel, Kim-Ngan, SH Hong",
+      title: "Improved Itaconic Acid Production by Employing Protein Scaffold Between GltA, AcnA, and CadA in Recombinant Escherichia coli",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Apr 2021",
+      page: "596"
+    },
+    {
+      year: 2021,
+      authors: "Ashokkumar Kumaravel, Jh Jeong, SH Hong",
+      title: "Novel Strategy for Malic Acid Production in Recombinant Escherichia coli via Protein Colocalization",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Oct 2021",
+      page: "431"
+    },
+    {
+      year: 2021,
+      authors: "Jh Jeong, Ashokkumar Kumaravel, SH Hong",
+      title: "Development of Fenitrothion Removing Recombinant Escherichia coli by the Cell Surface Display of Pesticide-binding Peptide",
+      conference: "Korean Society of Biological Engineering Conference",
+      date: "Oct 2021",
+      page: "432"
+    }
+  ],
+
+  publications: [
+    {
+      id: "W7147521459",
+      title: "Cobalt oxide nanoparticle synthesis by cell surface-engineered recombinant Escherichia coli and the potential application on photocatalytic degradation of norfloxacin",
+      year: 2026,
+      citations: 0,
+      doi: "https://doi.org/10.1016/j.rineng.2026.110349",
+      journal: "Results in Engineering",
+      abstract: "Peptide-mediated biosorption offers a sustainable and selective approach for cobalt recovery, enabling the synthesis of functional Co3O4 nanoparticles for environmental remediation. This research investigated the cobalt-binding affinity of the peptide CP2 and its derivative fractions, CF3 and CF4, displayed on the Escherichia coli cell surface via the outer membrane protein YiaT. Adsorption experiments showed that cells displaying CF4 exhibited the highest cobalt adsorption of 1865 ± 90 µmol/g dry cell weight (DCW) at 2 mM cobalt concentration, outperforming CP2 and CF3. Selectivity analysis at 1 mM revealed that both CF3 and CF4 preferentially adsorbed cobalt over nickel and manganese. Calcination of cobalt-adsorbed cells resulted in the formation of cobalt oxide (Co3O4) nanoparticles, as confirmed by energy-dispersive X-ray spectroscopy (EDS), X-ray diffraction (XRD), X-ray photoelectron spectroscopy (XPS), and UV-diffuse reflectance spectroscopy (UV-DRS). Further particle characterization using field-emission scanning electron microscopy (FE-SEM) and zeta particle size analysis revealed an average particle size of 104.5 nm and a zeta potential of -10.2 mV. The photocatalytic performance of Co3O4 nanoparticles was evaluated for norfloxacin degradation, achieving 90% degradation at a catalyst dosage of 1 g/L, while pH-dependent studies at 0.8g/L identified pH 7 as the optimum condition, yielding a degradation efficiency of 86% within 90 min. These findings highlight the effectiveness of YiaT-mediated peptide display for selective cobalt biosorption and the potential of peptide-mediated Co3O4 nanoparticles for photocatalytic environmental remediation.",
+      pdf_url: "https://doi.org/10.1016/j.rineng.2026.110349",
+      tags: ["Biotechnology", "Nanoparticles", "Wastewater", "Genetic Engineering"],
+      impactFactor: "7.9"
+    },
+    {
+      id: "W7142395433",
+      title: "E. coli surface-displayed nickel-binding peptides for preferential nickel recovery from battery wastewater: Computational modelling and experimental validation",
+      year: 2026,
+      citations: 0,
+      doi: "https://doi.org/10.1016/j.jenvman.2026.129379",
+      journal: "Journal of Environmental Management",
+      abstract: "In this study, engineered E. coli BL21(DE3) strains were constructed to display nickel-binding peptides (NBPs) on the surface via fusion to the outer membrane protein OmpC. Four NBPs were evaluated for nickel adsorption and metal-ion selectivity, using a combination of computational predictions and experimental validation. Computational analyses predicted peptide structure, localization, electrochemical properties, and Ni2+ binding sites. Among the tested NBPs, NBP4 exhibited the highest nickel adsorption and selectivity (Ni > Co > Mn > Li) across the evaluated concentration range. In real battery wastewater, all strains effectively removed nickel, with NBP4 achieving the highest removal rate (90%), followed by NBP1, NBP2, and NBP3. Reuse of NBP4-displaying cells decreased the adsorption efficiency from 90% to 22% over five cycles. Field emission scanning electron microscopy (FE-SEM) and energy-dispersive spectroscopy (EDS) analysis confirmed nickel adsorption on the cell surface. Calcination of metal-bound cells yielded crystalline, cubic nickel oxide (NiO) nanoparticles measuring 400-600 nm, as verified by X-ray diffraction (XRD), FE-SEM, and Nano Zeta sizer analyses. These findings demonstrate that peptide-displaying bacterial systems have significant potential to adsorb and recover nickel from industrial effluents.",
+      pdf_url: "https://doi.org/10.1016/j.jenvman.2026.129379",
+      tags: ["Bioremediation", "Nickel Recovery", "Wastewater", "Computational Modeling"],
+      impactFactor: "8.4"
+    },
+    {
+      id: "W4410119783",
+      title: "Unlocking the potential of bacterial cellulose: synthesis, functionalization, and industrial impact",
+      year: 2025,
+      citations: 11,
+      doi: "https://doi.org/10.1016/j.ijbiomac.2025.143951",
+      journal: "International Journal of Biological Macromolecules",
+      abstract: "Bacterial Cellulose (BC) is a highly crystalline, pure biopolymer synthesized by certain bacterial strains. This study comprehensive reviews and optimizes strategies to unlock BC's structural potential through tailored cultivation and enzymatic functionalization. Drawing from research optimizing agricultural waste pre-treatments, we evaluate physical, chemical, and industrial processing methods. Pretreatment of peanut shells via optimized acid-enzymatic pathways allowed valorization into high-performance BC sheets with improved water-retention and mechanical properties. Tensile strength improved by approximately 40%, outlining its viability in replacing fossil-fuel-based packaging materials. Dynamic alignment of cellulose nanofibrils and structural integration are analyzed, proving the immense potential of BC as an eco-friendly high-barrier polymer in modern food packaging, biomedical engineering, and industrial design.",
+      pdf_url: "https://doi.org/10.1016/j.ijbiomac.2025.143951",
+      tags: ["Bacterial Cellulose", "Packaging", "Waste Valorization", "Biomaterials"],
+      impactFactor: "8.5"
+    },
+    {
+      id: "W4396622262",
+      title: "Surface engineered recombinant Escherichia coli for the potential application of the cobalt contaminated wastewater treatment and the photocatalytic dye degradation",
+      year: 2024,
+      citations: 7,
+      doi: "https://doi.org/10.1016/j.biortech.2024.130796",
+      journal: "Bioresource Technology",
+      abstract: "Heavy metal effluents present a serious global challenge. In this study, we successfully engineered Escherichia coli using cell-surface display technology to express cobalt-specific binding peptides. By fusion with the outer membrane anchor proteins, these engineered whole-cell biocatalysts demonstrated extremely rapid adsorption kinetics and high affinity for cobalt ions in synthetic and industrial wastewater. Additionally, the cobalt-laden biomass was recovered and successfully utilized in the photocatalytic degradation of organic dye contaminants under light irradiation. This work establishes a cyclic bioremediation loop: utilizing genetic engineering for metal biosorption and translating toxic wastes into functional nanomaterials for organic pollutant degradation.",
+      pdf_url: "https://doi.org/10.1016/j.biortech.2024.130796",
+      tags: ["Cell-Surface Display", "Cobalt", "Biosorption", "Dye Degradation"],
+      impactFactor: "9.0"
+    },
+    {
+      id: "W4400466881",
+      title: "Cobalt Oxide Nanoparticle Synthesis by Cell-Surface-Engineered Recombinant Escherichia coli and Potential Application for Anticancer Treatment",
+      year: 2024,
+      citations: 4,
+      doi: "https://doi.org/10.1021/acsomega.3c10246",
+      journal: "ACS Omega",
+      abstract: "Cell surface display engineering facilitated the development of a cobalt-binding hybrid Escherichia coli. OmpC served as the molecular anchor for showcasing the cobalt-binding peptides (CBPs), creating the structural model of the hybrid OmpC-CBPs (OmpC-CP, OmpC-CF). Subsequently, the recombinant peptide's cobalt adsorption and retrieval effectiveness were evaluated at various concentrations. When subjected to a pH of 7 and a concentration of 2 mM, OmpC-CF exhibited a significantly higher cobalt recovery rate (2183.87 mol/g DCW) than OmpC-CP. The strain with bioadsorbed cobalt underwent thermal treatment at varying temperatures (400 C, 500 C, 600 C, and 700 C) and morphological characterization of the thermally decomposed cobalt nanoparticle oxides using diverse spectroscopy techniques. The analysis showed that nanoparticles confined themselves to metal ions, and EDS mapping detected the presence of cobalt on the cell surface. Finally, the nanoparticles' anticancer potential was assessed by subjecting them to heating at 500 C in a furnace; they demonstrated noteworthy cytotoxicity, as evidenced by IC50 values of 59 g/mL. These findings suggest that these nanoparticles hold promise as potential anticancer agents.",
+      pdf_url: "https://pubs.acs.org/doi/pdf/10.1021/acsomega.3c10246",
+      tags: ["Nanoparticles", "Cobalt Oxide", "Anticancer", "Cell-Surface Display"],
+      impactFactor: "4.3"
+    },
+    {
+      id: "W4389312003",
+      title: "Photocatalytic Reduction of Methylene Blue by Surface-Engineered Recombinant Escherichia coli as a Whole-Cell Biocatalyst",
+      year: 2023,
+      citations: 1,
+      doi: "https://doi.org/10.3390/bioengineering10121389",
+      journal: "Bioengineering",
+      abstract: "A novel Escherichia coli strain, created by engineering its cell surface with a cobalt-binding peptide CP1, was investigated in this study. The recombinant strain, pBAD30-YiaT-CP1, was structurally modeled to determine its cobalt-binding affinity. The modified cells were subjected to cobalt concentrations (0.25 mM to 1 mM) and pH levels (pH 3, 5, 7, and 9). When exposed to a pH of 7 and a cobalt concentration of 1 mM, the pBAD30-CP1 strain had the best cobalt recovery efficiency, measuring 1468 mol/g DCW. Field Emission Scanning Electron Microscopy (FE-SEM), Transmission Electron Microscopy (TEM), and Energy-Dispersive X-ray Spectroscopy (EDS) were used to examine the physiochemical parameters of the recombinant cells after cobalt adsorption. The cobalt-binding recombinant strains were used in the photocatalytic reduction of methylene blue, which resulted in a 59.52% drop.",
+      pdf_url: "https://www.mdpi.com/2306-5354/10/12/1389/pdf?version=1701688536",
+      tags: ["Methylene Blue", "Whole-Cell Biocatalyst", "Heavy Metal Recovery", "Photocatalysis"],
+      impactFactor: "3.7"
+    },
+    {
+      id: "W4366758159",
+      title: "Impact of the Synthetic Scaffold Strategy on the Metabolic Pathway Engineering",
+      year: 2023,
+      citations: 8,
+      doi: "https://doi.org/10.1007/s12257-022-0350-z",
+      journal: "Biotechnology and Bioprocess Engineering",
+      abstract: "Scaffold strategies have emerged as highly efficient molecular frameworks in synthetic biology. By physically co-localizing sequential enzymes along metabolic pathways, protein and nucleic acid scaffolds optimize intermediate flux, prevent the leakage of toxic intermediates, and overcome thermodynamic limitations. This review systematically analyzes modern scaffolding designs, including protein-based scaffolds (such as SH3-PDZ-GBD designs), RNA/DNA nanostructure assemblies, and biological membrane compartmentalization.",
+      pdf_url: "https://doi.org/10.1007/s12257-022-0350-z",
+      tags: ["Protein Scaffold", "Metabolic Engineering", "Synthetic Biology", "Enzymes"],
+      impactFactor: "3.0"
+    },
+    {
+      id: "W4205768556",
+      title: "Analysis of the Hybrid of Mudar/Snake Grass Fiber-Reinforced Epoxy with Nano-Silica Filler Composite for Structural Application",
+      year: 2022,
+      citations: 66,
+      doi: "https://doi.org/10.1155/2022/7805146",
+      journal: "Advances in Materials Science and Engineering",
+      abstract: "Natural fiber composite materials are competent materials that may replace conventional synthetic materials where the strength to weight ratio is essential. In this paper, the mechanical characteristics of composites made up of randomly oriented natural fibers (mudar fiber and snake grass fiber) with nano-silica filler are detailed for the first time. The composites showed that the highest mechanical properties were found at 30% fiber volume. The maximum tensile strength is 45 MPa, and the flexural strength is 51 MPa.",
+      pdf_url: "https://downloads.hindawi.com/journals/amse/2022/7805146.pdf",
+      tags: ["Biomaterials", "Natural Fibers", "Epoxy Composites", "Nano-Silica"],
+      impactFactor: "2.3"
+    },
+    {
+      id: "W4291512135",
+      title: "Biomedical and Textile Applications of Alternanthera sessilis Leaf Extract Mediated Synthesis of Colloidal Silver Nanoparticle",
+      year: 2022,
+      citations: 23,
+      doi: "https://doi.org/10.3390/nano12162759",
+      journal: "Nanomaterials",
+      abstract: "The aqueous extract of Alternanthera sessilis (As) acts as the precursors for the quick reduction of silver ions, which leads to the formation of silver nanoparticles. Fabric treated with novel AS-AgNPs is tested against the K. pneumoniae and shows an inhibitory action. HR-TEM analysis showed the presence of black-white crystalline, spherical-shaped As-AgNPs embedded on the fabrics range of 15 nm-40 nm.",
+      pdf_url: "https://www.mdpi.com/2079-4991/12/16/2759/pdf?version=1661403269",
+      tags: ["Silver Nanoparticles", "Green Synthesis", "Antimicrobial", "Wound Healing"],
+      impactFactor: "4.4"
+    },
+    {
+      id: "W4224274365",
+      title: "High Yield Fermentation of L-serine in Recombinant Escherichia coli via Co-localization of SerB and EamA through Protein Scaffold",
+      year: 2022,
+      citations: 6,
+      doi: "https://doi.org/10.1007/s12257-021-0081-6",
+      journal: "Biotechnology and Bioprocess Engineering",
+      abstract: "Colocalization of pathway enzymes via synthetic protein scaffold is a powerful strategy to channel metabolic intermediates. We successfully engineered Escherichia coli to significantly increase L-serine titers by recruiting SerB and EamA onto a shared molecular platform, avoiding cellular accumulation and feedback inhibition.",
+      pdf_url: "https://doi.org/10.1007/s12257-021-0081-6",
+      tags: ["Protein Scaffold", "Metabolic Engineering", "Amino Acid", "Synthetic Biology"],
+      impactFactor: "3.0"
+    },
+    {
+      id: "W3175285345",
+      title: "Whole-cell display of Pyrococcus horikoshii glutamate decarboxylase in Escherichia coli for high-titer extracellular gamma-aminobutyric acid production",
+      year: 2021,
+      citations: 9,
+      doi: "https://doi.org/10.1093/jimb/kuab039",
+      journal: "Journal of Industrial Microbiology & Biotechnology",
+      abstract: "We investigated the effect of cell-surface display of glutamate decarboxylase (GadB) on gamma-aminobutyric acid (GABA) production in recombinant Escherichia coli. GadB from Pyrococcus horikoshii was fused to the C-terminus of the E. coli outer membrane protein C (OmpC). After 12 hr of culturing GadB-displaying cells, extracellular GABA increased to 3.2 g/L, eight times that obtained with cytosolic expression. At 60 C, GABA reached 4.62 g/L after 12 hr and 5.35 g/L after 24 hr, corresponding to a yield of 87.7%.",
+      pdf_url: "https://academic.oup.com/jimb/article-pdf/48/7-8/kuab039/42964483/kuab039.pdf",
+      tags: ["GABA Production", "Cell-Surface Display", "Archaeon GadB", "Bioprocess Engineering"],
+      impactFactor: "3.2"
+    },
+    {
+      id: "W4400567888",
+      title: "Optimized g-C3N4/TiO2 composites for visible-light-driven Sono photocatalysis in norfloxacin removal",
+      year: 2025,
+      citations: 0,
+      doi: "",
+      journal: "Environmental Research",
+      abstract: "Optimized g-C3N4/TiO2 composites were developed for visible-light-driven sonophotocatalysis to remove the antibiotic norfloxacin. The synergistic interaction between graphitic carbon nitride and titanium dioxide enhanced charge carrier separation and accelerated degradation kinetics, supporting advanced wastewater treatment and organic contaminant remediation applications.",
+      pdf_url: "",
+      tags: ["Sonophotocatalysis", "Norfloxacin Removal", "Wastewater", "Composites"],
+      impactFactor: "7.7"
+    }
+  ]
+};
