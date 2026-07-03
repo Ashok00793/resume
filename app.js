@@ -559,7 +559,7 @@
   }
 
   function fetchNewPapers() {
-    var cacheKey = 'papers_v2_' + D.personal.orcid;
+    var cacheKey = 'papers_v3_' + D.personal.orcid;
     var cached = getCache(cacheKey);
     if (cached) { mergeNewPapers(cached); return; }
 
@@ -608,6 +608,10 @@
     fresh = fresh.filter(function (p) { return p.journal && !/zenodo/i.test(p.journal); });
     if (fresh.length === 0) return;
     D.publications = D.publications.filter(function (p) { return !p.autoDetected || !/zenodo/i.test(p.journal); });
+    var existingTitles = {};
+    D.publications.forEach(function (p) { existingTitles[(p.title || '').toLowerCase().trim()] = true; });
+    fresh = fresh.filter(function (p) { var t = (p.title || '').toLowerCase().trim(); if (!t || existingTitles[t]) return false; existingTitles[t] = true; return true; });
+    if (fresh.length === 0) return;
     fresh.forEach(function (p) { D.publications.unshift(p); });
     D.personal.stats.totalPublications = D.publications.length;
     var container = document.getElementById('hero-stats');
