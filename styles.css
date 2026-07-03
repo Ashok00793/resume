@@ -135,6 +135,17 @@ ul { list-style: none; }
   letter-spacing: 0.02em;
 }
 
+.header__logo-mark--icon svg {
+  width: 20px;
+  height: 20px;
+  animation: pulseDna 4s ease-in-out infinite;
+}
+
+@keyframes pulseDna {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.08); }
+}
+
 .header__logo-text {
   display: grid;
   line-height: 1.2;
@@ -430,13 +441,24 @@ ul { list-style: none; }
 }
 
 .section__number {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-family: var(--font-heading);
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--accent-gold);
   letter-spacing: 0.06em;
   margin-bottom: 0.5rem;
+}
+
+.section__number::after {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-gold), transparent);
+  opacity: 0.4;
 }
 
 .section__title {
@@ -503,6 +525,13 @@ ul { list-style: none; }
   background: rgba(var(--accent-rgb), 0.08);
   display: grid;
   place-items: center;
+  transition: all var(--transition);
+}
+
+.research-card:hover .research-card__icon {
+  background: rgba(var(--accent-rgb), 0.15);
+  border-radius: 14px;
+  transform: scale(1.05);
 }
 
 .research-card__icon svg {
@@ -511,6 +540,11 @@ ul { list-style: none; }
   stroke: var(--accent);
   fill: none;
   stroke-width: 1.5;
+  transition: transform var(--transition);
+}
+
+.research-card:hover .research-card__icon svg {
+  transform: scale(1.1) rotate(-3deg);
 }
 
 .research-card__title {
@@ -688,16 +722,40 @@ ul { list-style: none; }
   padding-bottom: 1rem;
 }
 
-.timeline-group__title {
+.timeline-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   position: relative;
   left: -200px;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-group__icon {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+  flex-shrink: 0;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+.timeline-group__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.timeline-group__title {
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--primary);
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--accent);
   display: inline-block;
@@ -853,6 +911,30 @@ ul { list-style: none; }
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow);
+  transition: all var(--transition);
+}
+
+.skill-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.skill-card__icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+  transition: transform var(--transition);
+}
+
+.skill-card:hover .skill-card__icon {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.skill-card__icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .skill-card__title {
@@ -983,6 +1065,7 @@ ul { list-style: none; }
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
   padding: 1rem 1.25rem;
   border-radius: var(--radius-md);
   background: var(--bg-card);
@@ -995,6 +1078,24 @@ ul { list-style: none; }
   border-color: rgba(var(--accent-rgb), 0.2);
   box-shadow: var(--shadow-hover);
   transform: translateY(-1px);
+}
+
+.contact__link:hover .contact__link-icon {
+  color: var(--accent);
+  transform: scale(1.1);
+}
+
+.contact__link-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.contact__link-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .contact__link-label {
@@ -1199,7 +1300,8 @@ ul { list-style: none; }
 
   .timeline { padding-left: 30px; }
   .timeline::before { left: 15px; }
-  .timeline-group__title { left: 0; font-size: 0.95rem; }
+  .timeline-group { left: 0; }
+  .timeline-group__title { font-size: 0.95rem; }
   .timeline-item::before { left: -30px; width: 12px; height: 12px; top: 4px; }
   .timeline-item__date { position: relative; left: auto; top: auto; width: auto; text-align: left; padding: 0 0 0.25rem 0; font-size: 0.8rem; }
   .timeline-item__date-sub { display: inline; font-size: 0.75rem; }

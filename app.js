@@ -97,9 +97,19 @@
 
   var SVG_ICONS = {
     dna: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4c6 4 10 10 10 16"/><path d="M20 4c-6 4-10 10-10 16"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="16" x2="16" y2="16"/><line x1="4" y1="4" x2="4" y2="4"/><circle cx="4" cy="4" r="0.5"/><circle cx="20" cy="4" r="0.5"/></svg>',
-    flask: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12"/><path d="M12 2v8"/><path d="M7 10h10"/><path d="M5 22h14l-4.5-12h-5L5 22z"/></svg>',
-    cell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.5"/><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/></svg>',
-    leaf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="M12 10c-3 0-5.5 2-5.5 5s2.5 5 5.5 5 5.5-2 5.5-5-2.5-5-5.5-5z"/><path d="M12 10v12"/></svg>'
+    flask: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12"/><path d="M12 2v8"/><path d="M7 10h10"/><path d="M5 22h14l-4.5-12h-5L5 22z"/><path d="M9 16c1.5 1 4.5 1 6 0" opacity="0.5"/><path d="M10 19c1.5 0.5 3.5 0.5 5 0" opacity="0.3"/></svg>',
+    cell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.5"/><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="M7 7l2 2" opacity="0.4"/><path d="M17 7l-2 2" opacity="0.4"/></svg>',
+    leaf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-4 0-7 3-7 7v5"/><path d="M12 2v14"/><path d="M5 14c0 4 3 7 7 7s7-3 7-7V9c0-4-3-7-7-7z"/><path d="M8 10c1.5-1 4.5-1 6 0" opacity="0.4"/><path d="M9 13c1.5-0.5 4.5-0.5 6 0" opacity="0.3"/></svg>',
+    microbe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="10" rx="7" ry="4"/><path d="M5 10v2c0 2.2 3.1 4 7 4s7-1.8 7-4v-2"/><path d="M5 14v2c0 2.2 3.1 4 7 4s7-1.8 7-4v-2"/><circle cx="10" cy="9" r="0.8" opacity="0.5"/><circle cx="14" cy="9" r="0.8" opacity="0.5"/></svg>',
+    atom: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5" fill="currentColor"/><ellipse cx="12" cy="12" rx="9" ry="3" transform="rotate(0 12 12)" opacity="0.5"/><ellipse cx="12" cy="12" rx="9" ry="3" transform="rotate(60 12 12)" opacity="0.5"/><ellipse cx="12" cy="12" rx="9" ry="3" transform="rotate(120 12 12)" opacity="0.5"/></svg>',
+    gene: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16"/><path d="M8 8h12"/><path d="M6 12h14"/><path d="M4 16h16"/><path d="M8 20h12"/><circle cx="4" cy="4" r="0.8" fill="currentColor"/><circle cx="4" cy="12" r="0.8" fill="currentColor"/><circle cx="4" cy="20" r="0.8" fill="currentColor"/></svg>',
+    code: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 7 3 12 8 17"/><polyline points="16 7 21 12 16 17"/><line x1="14" y1="5" x2="10" y2="19"/></svg>',
+    grad: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10l-10-5L2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M2 10v6"/></svg>',
+    work: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M12 12v4"/><path d="M8 14h8"/></svg>',
+    email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>',
+    link: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
+    phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
+    molecule: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><line x1="7.5" y1="7.5" x2="10.5" y2="16.5"/><line x1="16.5" y1="7.5" x2="13.5" y2="16.5"/><line x1="8" y1="6" x2="16" y2="6"/></svg>'
   };
 
   /* ============ DOM Helper ============ */
@@ -351,12 +361,17 @@
     eduItems.sort(function (a, b) { return eduOrder.indexOf(a.title) - eduOrder.indexOf(b.title); });
     expItems.sort(function (a, b) { return expOrder.indexOf(a.title) - expOrder.indexOf(b.title); });
 
+    var groupIcons = {
+      'Academic Path': SVG_ICONS.grad,
+      'Professional Experience': SVG_ICONS.work
+    };
     function renderSection(title, items) {
       container.appendChild(ce('div', { className: 'timeline-group' }, [
+        ce('span', { className: 'timeline-group__icon', innerHTML: groupIcons[title] || '' }),
         ce('h3', { className: 'timeline-group__title' }, [title])
       ]));
       items.forEach(function (item) {
-        container.appendChild(ce('div', { className: 'timeline-item' }, [
+        container.appendChild(ce('div', { className: 'timeline-item' + (item.type === 'edu' ? ' timeline-item--edu' : ' timeline-item--exp') }, [
           ce('div', { className: 'timeline-item__date' }, [
             item.date,
             item.sub ? ce('span', { className: 'timeline-item__date-sub' }, [item.sub]) : null
@@ -395,6 +410,7 @@
       });
     }
 
+    var skillIcons = [SVG_ICONS.microbe, SVG_ICONS.molecule, SVG_ICONS.atom, SVG_ICONS.code];
     var groups = [
       { title: 'Molecular Biology', items: D.skills.molecular },
       { title: 'Nanomaterials', items: D.skills.material },
@@ -402,8 +418,9 @@
       { title: 'Computational', items: D.skills.software }
     ];
 
-    groups.forEach(function (g) {
+    groups.forEach(function (g, i) {
       grid.appendChild(ce('div', { className: 'skill-card' }, [
+        ce('div', { className: 'skill-card__icon' }, [ce('div', { innerHTML: skillIcons[i] })]),
         ce('h3', { className: 'skill-card__title' }, [g.title]),
         ce('ul', { className: 'skill-card__list' }, g.items.map(function (item) { return ce('li', {}, [item]); }))
       ]));
