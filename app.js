@@ -318,41 +318,43 @@
 
   function renderTimeline() {
     var container = document.getElementById('timeline');
-    if (!container) return;
+    if (!container || !D.education || !D.experience) return;
 
-    if (D.education) {
-      D.education.forEach(function (edu) {
-        var gradeInfo = edu.grade ? ' | ' + edu.grade : '';
-        var mentorInfo = edu.mentor ? ' | Mentor: ' + edu.mentor : '';
-        container.appendChild(ce('div', { className: 'timeline-item' }, [
-          ce('div', { className: 'timeline-item__date' }, [
-            edu.period,
-            ce('span', { className: 'timeline-item__date-sub' }, [edu.grade || ''])
-          ]),
-          ce('div', { className: 'timeline-item__card' }, [
-            ce('h3', { className: 'timeline-item__title' }, [edu.degree]),
-            ce('p', { className: 'timeline-item__org' }, [edu.institution + (edu.location ? ', ' + edu.location : '')]),
-            ce('p', { className: 'timeline-item__desc' }, [edu.details || ''])
-          ])
-        ]));
-      });
-    }
+    var items = [];
+    D.education.forEach(function (e) {
+      items.push({ type: 'edu', date: e.period, title: e.degree, org: e.institution + (e.location ? ', ' + e.location : ''), desc: e.details || '', sub: e.grade || '' });
+    });
+    D.experience.forEach(function (e) {
+      items.push({ type: 'exp', date: e.period, title: e.role, org: e.organization, desc: e.details, sub: e.location || '' });
+    });
 
-    if (D.experience) {
-      D.experience.forEach(function (exp) {
-        container.appendChild(ce('div', { className: 'timeline-item' }, [
-          ce('div', { className: 'timeline-item__date' }, [
-            exp.period,
-            exp.location ? ce('span', { className: 'timeline-item__date-sub' }, [exp.location]) : null
-          ]),
-          ce('div', { className: 'timeline-item__card' }, [
-            ce('h3', { className: 'timeline-item__title' }, [exp.role]),
-            ce('p', { className: 'timeline-item__org' }, [exp.organization]),
-            ce('p', { className: 'timeline-item__desc' }, [exp.details])
-          ])
-        ]));
-      });
-    }
+    var order = [
+      'Adjunct Professor',
+      'Post-Doctoral Researcher',
+      'Research Fellow',
+      'Ph.D. in Chemical Engineering (Microbial Biotechnology)',
+      'Ph.D. Researcher & Teaching Assistant',
+      'Master of Science (M.Sc.) in Biotechnology',
+      'Bachelor of Science (B.Sc.) in Biotechnology'
+    ];
+
+    items.sort(function (a, b) {
+      return order.indexOf(a.title) - order.indexOf(b.title);
+    });
+
+    items.forEach(function (item) {
+      container.appendChild(ce('div', { className: 'timeline-item' }, [
+        ce('div', { className: 'timeline-item__date' }, [
+          item.date,
+          item.sub ? ce('span', { className: 'timeline-item__date-sub' }, [item.sub]) : null
+        ]),
+        ce('div', { className: 'timeline-item__card' }, [
+          ce('h3', { className: 'timeline-item__title' }, [item.title]),
+          ce('p', { className: 'timeline-item__org' }, [item.org]),
+          ce('p', { className: 'timeline-item__desc' }, [item.desc])
+        ])
+      ]));
+    });
   }
 
   /* ============ Skills ============ */
