@@ -531,6 +531,15 @@
     }).catch(function () {});
   }
 
+  function computeI10() {
+    var counts = [];
+    D.publications.forEach(function (p) { counts.push(p.citations); });
+    counts.sort(function (a, b) { return b - a; });
+    var i10 = 0;
+    counts.forEach(function (c) { if (c >= 10) i10++; });
+    return i10;
+  }
+
   function applyLiveMetrics(metrics) {
     var changed = false;
     if (metrics.authorHIndex || metrics.authorTotalCitations || metrics.authorWorks) {
@@ -538,23 +547,6 @@
       if (metrics.authorHIndex) { s.hIndex = metrics.authorHIndex; changed = true; }
       if (metrics.authorTotalCitations) { s.citations = metrics.authorTotalCitations; changed = true; }
       if (metrics.authorWorks) { s.totalPublications = metrics.authorWorks; changed = true; }
-      if (changed) {
-        var container = document.getElementById('hero-stats');
-        if (container) {
-          container.innerHTML = '';
-          [
-            { val: s.citations, label: 'Citations' },
-            { val: s.hIndex, label: 'h-index' },
-            { val: s.i10Index, label: 'i10-index' },
-            { val: s.totalPublications, label: 'Publications' }
-          ].forEach(function (item) {
-            container.appendChild(ce('div', { className: 'hero__stat' }, [
-              ce('span', { className: 'hero__stat-value' }, ['' + item.val]),
-              ce('span', { className: 'hero__stat-label' }, [item.label])
-            ]));
-          });
-        }
-      }
     }
 
     var anyUpdate = false;
@@ -565,7 +557,25 @@
         if (live !== p.citations && live > 0) { p.citations = live; anyUpdate = true; }
       }
     });
-    if (anyUpdate) {
+
+    if (anyUpdate || changed) {
+      var s = D.personal.stats;
+      s.i10Index = computeI10();
+      var container = document.getElementById('hero-stats');
+      if (container) {
+        container.innerHTML = '';
+        [
+          { val: s.citations, label: 'Citations' },
+          { val: s.hIndex, label: 'h-index' },
+          { val: s.i10Index, label: 'i10-index' },
+          { val: s.totalPublications, label: 'Publications' }
+        ].forEach(function (item) {
+          container.appendChild(ce('div', { className: 'hero__stat' }, [
+            ce('span', { className: 'hero__stat-value' }, ['' + item.val]),
+            ce('span', { className: 'hero__stat-label' }, [item.label])
+          ]));
+        });
+      }
       var search = document.getElementById('pub-search');
       if (search) {
         var evt = document.createEvent('Event');
