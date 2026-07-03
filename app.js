@@ -456,6 +456,19 @@
     ]));
   }
 
+  function renderBookChapters(container) {
+    if (!D.bookChapters) return;
+    D.bookChapters.forEach(function (b) {
+      var statusClass = 'scholarly-item__status--' + (b.status === 'Published' ? 'finished' : 'progress');
+      container.appendChild(ce('div', { className: 'scholarly-item' }, [
+        ce('div', { className: 'scholarly-item__title' }, [b.title.substring(0, 90) + (b.title.length > 90 ? '...' : '')]),
+        ce('div', { className: 'scholarly-item__detail' }, [b.authors]),
+        ce('div', { className: 'scholarly-item__detail' }, [b.publisher]),
+        ce('span', { className: 'scholarly-item__status ' + statusClass }, [b.status])
+      ]));
+    });
+  }
+
   function renderConferences(container) {
     if (!D.conferenceProceedings) return;
     var allItems = [];
@@ -688,6 +701,7 @@
     renderScholarCard('patent-content', null, renderPatent);
     renderScholarCard('conferences-list', null, renderConferences);
     renderScholarCard('projects-list', null, renderProjects);
+    renderScholarCard('bookchapters-list', null, renderBookChapters);
     initReveal();
     fetchLiveMetrics();
     fetchNewPapers();

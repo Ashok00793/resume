@@ -977,6 +977,10 @@ ul { list-style: none; }
   box-shadow: var(--shadow);
 }
 
+.scholarly-card--full {
+  grid-column: 1 / -1;
+}
+
 .scholarly-card__title {
   font-family: var(--font-heading);
   font-size: 1.1rem;
