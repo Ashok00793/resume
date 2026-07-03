@@ -1041,6 +1041,81 @@ ul { list-style: none; }
   color: var(--bg);
 }
 
+/* ============ Project Cards ============ */
+
+.project-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-card:last-child {
+  border-bottom: none;
+}
+
+.project-card__icon-wrap {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: rgba(var(--accent-rgb), 0.08);
+  display: grid;
+  place-items: center;
+  transition: all var(--transition);
+}
+
+.project-card:hover .project-card__icon-wrap {
+  background: rgba(var(--accent-rgb), 0.15);
+  transform: scale(1.08);
+}
+
+.project-card__icon-wrap svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.project-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-card__title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 0.15rem;
+}
+
+.project-card__desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.2rem;
+}
+
+.project-card__status {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.1rem 0.55rem;
+  border-radius: 99px;
+}
+
+.project-card__status--finished {
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent);
+}
+
+.project-card__status--dev {
+  background: rgba(234, 179, 8, 0.1);
+  color: rgb(234, 179, 8);
+}
+
 .scholarly-item__status--finished {
   background: rgba(var(--accent-rgb), 0.1);
   color: var(--accent);

@@ -109,7 +109,11 @@
     email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>',
     link: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
     phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
-    molecule: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><line x1="7.5" y1="7.5" x2="10.5" y2="16.5"/><line x1="16.5" y1="7.5" x2="13.5" y2="16.5"/><line x1="8" y1="6" x2="16" y2="6"/></svg>'
+    molecule: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><line x1="7.5" y1="7.5" x2="10.5" y2="16.5"/><line x1="16.5" y1="7.5" x2="13.5" y2="16.5"/><line x1="8" y1="6" x2="16" y2="6"/></svg>',
+    bio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+    gear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>',
+    dock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M4 4h3l5 8-5 8H4l5-8-5-8z"/><path d="M13 4h3l5 8-5 8h-3l5-8-5-8z"/><path d="M13 12h4" opacity="0.5"/></svg>',
+    cpu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M1 9h3"/><path d="M1 15h3"/><path d="M20 9h3"/><path d="M20 15h3"/></svg>'
   };
 
   /* ============ DOM Helper ============ */
@@ -170,7 +174,7 @@
   /* ============ Scroll Reveal ============ */
 
   function initReveal() {
-    var els = document.querySelectorAll('.research-card, .pub-card, .timeline-item__card, .skill-card, .scholarly-card, .contact__link, .proficiency-card, .section__header');
+    var els = document.querySelectorAll('.research-card, .pub-card, .timeline-item__card, .skill-card, .scholarly-card, .project-card, .contact__link, .proficiency-card, .section__header');
     if (!els.length) return;
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -458,15 +462,31 @@
 
   function renderBookChapters(container) {
     if (!D.bookChapters) return;
+    var allItems = [];
+    var expanded = false;
     D.bookChapters.forEach(function (b) {
       var statusClass = 'scholarly-item__status--' + (b.status === 'Published' ? 'finished' : 'progress');
-      container.appendChild(ce('div', { className: 'scholarly-item' }, [
+      allItems.push(ce('div', { className: 'scholarly-item' }, [
         ce('div', { className: 'scholarly-item__title' }, [b.title.substring(0, 90) + (b.title.length > 90 ? '...' : '')]),
         ce('div', { className: 'scholarly-item__detail' }, [b.authors]),
         ce('div', { className: 'scholarly-item__detail' }, [b.publisher]),
         ce('span', { className: 'scholarly-item__status ' + statusClass }, [b.status])
       ]));
     });
+    var visible = allItems.slice(0, 3);
+    var hidden = allItems.slice(3);
+    visible.forEach(function (el) { container.appendChild(el); });
+    if (hidden.length > 0) {
+      var hiddenWrap = ce('div', { style: 'display:none;' });
+      hidden.forEach(function (el) { hiddenWrap.appendChild(el); });
+      container.appendChild(hiddenWrap);
+      var toggle = ce('button', { className: 'scholarly-toggle', onClick: function () {
+        expanded = !expanded;
+        hiddenWrap.style.display = expanded ? '' : 'none';
+        toggle.textContent = expanded ? 'Show less' : '+ ' + hidden.length + ' more';
+      } }, ['+ ' + hidden.length + ' more']);
+      container.appendChild(toggle);
+    }
   }
 
   function renderConferences(container) {
@@ -479,8 +499,8 @@
         ce('div', { className: 'scholarly-item__detail' }, [c.conference + ', ' + c.year])
       ]));
     });
-    var visible = allItems.slice(0, 6);
-    var hidden = allItems.slice(6);
+    var visible = allItems.slice(0, 3);
+    var hidden = allItems.slice(3);
     visible.forEach(function (el) { container.appendChild(el); });
     if (hidden.length > 0) {
       var hiddenWrap = ce('div', { id: 'hidden-confs', style: 'display:none;' });
@@ -497,12 +517,16 @@
 
   function renderProjects(container) {
     if (!D.githubProjects) return;
-    D.githubProjects.forEach(function (p) {
-      var statusClass = p.status === 'Finished' ? 'scholarly-item__status--finished' : 'scholarly-item__status--progress';
-      container.appendChild(ce('div', { className: 'scholarly-item' }, [
-        ce('div', { className: 'scholarly-item__title' }, [p.title]),
-        ce('div', { className: 'scholarly-item__detail' }, [p.description]),
-        ce('span', { className: 'scholarly-item__status ' + statusClass }, [p.status])
+    var projIcons = [SVG_ICONS.bio, SVG_ICONS.gear, SVG_ICONS.dock, SVG_ICONS.cpu];
+    D.githubProjects.forEach(function (p, i) {
+      var statusClass = p.status === 'Finished' ? 'project-card__status--finished' : 'project-card__status--dev';
+      container.appendChild(ce('div', { className: 'project-card' }, [
+        ce('div', { className: 'project-card__icon-wrap', innerHTML: projIcons[i % projIcons.length] }),
+        ce('div', { className: 'project-card__body' }, [
+          ce('div', { className: 'project-card__title' }, [p.title]),
+          ce('div', { className: 'project-card__desc' }, [p.description]),
+          ce('span', { className: 'project-card__status ' + statusClass }, [p.status])
+        ])
       ]));
     });
   }
