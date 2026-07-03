@@ -440,14 +440,27 @@
 
   function renderConferences(container) {
     if (!D.conferenceProceedings) return;
-    D.conferenceProceedings.slice(0, 6).forEach(function (c) {
-      container.appendChild(ce('div', { className: 'scholarly-item' }, [
+    var allItems = [];
+    var expanded = false;
+    D.conferenceProceedings.forEach(function (c) {
+      allItems.push(ce('div', { className: 'scholarly-item' }, [
         ce('div', { className: 'scholarly-item__title' }, [c.title.substring(0, 80) + (c.title.length > 80 ? '...' : '')]),
         ce('div', { className: 'scholarly-item__detail' }, [c.conference + ', ' + c.year])
       ]));
     });
-    if (D.conferenceProceedings.length > 6) {
-      container.appendChild(ce('div', { style: 'padding-top:0.5rem;font-size:0.82rem;color:var(--accent);font-weight:600;' }, ['+' + (D.conferenceProceedings.length - 6) + ' more']));
+    var visible = allItems.slice(0, 6);
+    var hidden = allItems.slice(6);
+    visible.forEach(function (el) { container.appendChild(el); });
+    if (hidden.length > 0) {
+      var hiddenWrap = ce('div', { id: 'hidden-confs', style: 'display:none;' });
+      hidden.forEach(function (el) { hiddenWrap.appendChild(el); });
+      container.appendChild(hiddenWrap);
+      var toggle = ce('button', { className: 'scholarly-toggle', onClick: function () {
+        expanded = !expanded;
+        hiddenWrap.style.display = expanded ? '' : 'none';
+        toggle.textContent = expanded ? 'Show less' : '+ ' + hidden.length + ' more';
+      } }, ['+ ' + hidden.length + ' more']);
+      container.appendChild(toggle);
     }
   }
 
