@@ -325,10 +325,13 @@
         var gradeInfo = edu.grade ? ' | ' + edu.grade : '';
         var mentorInfo = edu.mentor ? ' | Mentor: ' + edu.mentor : '';
         container.appendChild(ce('div', { className: 'timeline-item' }, [
-          ce('div', { className: 'timeline-item__date' }, [edu.period]),
+          ce('div', { className: 'timeline-item__date' }, [
+            edu.period,
+            ce('span', { className: 'timeline-item__date-sub' }, [edu.grade || ''])
+          ]),
           ce('div', { className: 'timeline-item__card' }, [
             ce('h3', { className: 'timeline-item__title' }, [edu.degree]),
-            ce('p', { className: 'timeline-item__org' }, [edu.institution + (edu.location ? ', ' + edu.location : '') + gradeInfo + mentorInfo]),
+            ce('p', { className: 'timeline-item__org' }, [edu.institution + (edu.location ? ', ' + edu.location : '')]),
             ce('p', { className: 'timeline-item__desc' }, [edu.details || ''])
           ])
         ]));
@@ -338,10 +341,13 @@
     if (D.experience) {
       D.experience.forEach(function (exp) {
         container.appendChild(ce('div', { className: 'timeline-item' }, [
-          ce('div', { className: 'timeline-item__date' }, [exp.period]),
+          ce('div', { className: 'timeline-item__date' }, [
+            exp.period,
+            exp.location ? ce('span', { className: 'timeline-item__date-sub' }, [exp.location]) : null
+          ]),
           ce('div', { className: 'timeline-item__card' }, [
             ce('h3', { className: 'timeline-item__title' }, [exp.role]),
-            ce('p', { className: 'timeline-item__org' }, [exp.organization + (exp.location ? ', ' + exp.location : '')]),
+            ce('p', { className: 'timeline-item__org' }, [exp.organization]),
             ce('p', { className: 'timeline-item__desc' }, [exp.details])
           ])
         ]));
