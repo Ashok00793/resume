@@ -542,7 +542,7 @@
   }
 
   function fetchNewPapers() {
-    var cacheKey = 'papers_' + D.personal.orcid;
+    var cacheKey = 'papers_v2_' + D.personal.orcid;
     var cached = getCache(cacheKey);
     if (cached) { mergeNewPapers(cached); return; }
 
@@ -553,12 +553,17 @@
         var doi = (p.doi || '').replace('https://doi.org/', '').toLowerCase();
         if (doi) existing[doi] = true;
       });
+      var seenTitles = {};
       var fresh = [];
       results.forEach(function (w) {
         var doi = ((w.doi || '')).replace('https://doi.org/', '').toLowerCase();
         if (!doi || existing[doi]) return;
         var journal = '';
         if (w.primary_location && w.primary_location.source) journal = w.primary_location.source.display_name || '';
+        if (/zenodo/i.test(journal)) return;
+        var title = (w.title || '').toLowerCase().trim();
+        if (title && seenTitles[title]) return;
+        if (title) seenTitles[title] = true;
         fresh.push({
           id: 'auto_' + w.id,
           title: w.title || 'Untitled',
@@ -582,7 +587,10 @@
   }
 
   function mergeNewPapers(fresh) {
-    if (!fresh || fresh.length === 0) return;
+    if (!fresh) return;
+    fresh = fresh.filter(function (p) { return p.journal && !/zenodo/i.test(p.journal); });
+    if (fresh.length === 0) return;
+    D.publications = D.publications.filter(function (p) { return !p.autoDetected || !/zenodo/i.test(p.journal); });
     fresh.forEach(function (p) { D.publications.unshift(p); });
     D.personal.stats.totalPublications = D.publications.length;
     var container = document.getElementById('hero-stats');
