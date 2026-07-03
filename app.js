@@ -320,41 +320,57 @@
     var container = document.getElementById('timeline');
     if (!container || !D.education || !D.experience) return;
 
-    var items = [];
+    function makeTItem(e) {
+      return { type: e.type, date: e.date, title: e.title, org: e.org, desc: e.desc, sub: e.sub };
+    }
+
+    var eduItems = [];
     D.education.forEach(function (e) {
-      items.push({ type: 'edu', date: e.period, title: e.degree, org: e.institution + (e.location ? ', ' + e.location : ''), desc: e.details || '', sub: e.grade || '' });
-    });
-    D.experience.forEach(function (e) {
-      items.push({ type: 'exp', date: e.period, title: e.role, org: e.organization, desc: e.details, sub: e.location || '' });
+      eduItems.push(makeTItem({ type: 'edu', date: e.period, title: e.degree, org: e.institution + (e.location ? ', ' + e.location : ''), desc: e.details || '', sub: e.grade || '' }));
     });
 
-    var order = [
-      'Adjunct Professor',
-      'Post-Doctoral Researcher',
-      'Research Fellow',
+    var expItems = [];
+    D.experience.forEach(function (e) {
+      expItems.push(makeTItem({ type: 'exp', date: e.period, title: e.role, org: e.organization, desc: e.details, sub: e.location || '' }));
+    });
+
+    var eduOrder = [
       'Ph.D. in Chemical Engineering (Microbial Biotechnology)',
-      'Ph.D. Researcher & Teaching Assistant',
       'Master of Science (M.Sc.) in Biotechnology',
       'Bachelor of Science (B.Sc.) in Biotechnology'
     ];
 
-    items.sort(function (a, b) {
-      return order.indexOf(a.title) - order.indexOf(b.title);
-    });
+    var expOrder = [
+      'Adjunct Professor',
+      'Post-Doctoral Researcher',
+      'Research Fellow',
+      'Ph.D. Researcher & Teaching Assistant'
+    ];
 
-    items.forEach(function (item) {
-      container.appendChild(ce('div', { className: 'timeline-item' }, [
-        ce('div', { className: 'timeline-item__date' }, [
-          item.date,
-          item.sub ? ce('span', { className: 'timeline-item__date-sub' }, [item.sub]) : null
-        ]),
-        ce('div', { className: 'timeline-item__card' }, [
-          ce('h3', { className: 'timeline-item__title' }, [item.title]),
-          ce('p', { className: 'timeline-item__org' }, [item.org]),
-          ce('p', { className: 'timeline-item__desc' }, [item.desc])
-        ])
+    eduItems.sort(function (a, b) { return eduOrder.indexOf(a.title) - eduOrder.indexOf(b.title); });
+    expItems.sort(function (a, b) { return expOrder.indexOf(a.title) - expOrder.indexOf(b.title); });
+
+    function renderSection(title, items) {
+      container.appendChild(ce('div', { className: 'timeline-group' }, [
+        ce('h3', { className: 'timeline-group__title' }, [title])
       ]));
-    });
+      items.forEach(function (item) {
+        container.appendChild(ce('div', { className: 'timeline-item' }, [
+          ce('div', { className: 'timeline-item__date' }, [
+            item.date,
+            item.sub ? ce('span', { className: 'timeline-item__date-sub' }, [item.sub]) : null
+          ]),
+          ce('div', { className: 'timeline-item__card' }, [
+            ce('h4', { className: 'timeline-item__title' }, [item.title]),
+            ce('p', { className: 'timeline-item__org' }, [item.org]),
+            ce('p', { className: 'timeline-item__desc' }, [item.desc])
+          ])
+        ]));
+      });
+    }
+
+    renderSection('Academic Path', eduItems);
+    renderSection('Professional Experience', expItems);
   }
 
   /* ============ Skills ============ */

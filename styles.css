@@ -669,6 +669,26 @@ ul { list-style: none; }
   opacity: 0.25;
 }
 
+.timeline-group {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.timeline-group__title {
+  position: relative;
+  left: -200px;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
 .timeline-item {
   position: relative;
   padding-bottom: 2.5rem;
@@ -1146,6 +1166,7 @@ ul { list-style: none; }
 
   .timeline { padding-left: 30px; }
   .timeline::before { left: 15px; }
+  .timeline-group__title { left: 0; font-size: 0.95rem; }
   .timeline-item::before { left: -30px; width: 12px; height: 12px; top: 4px; }
   .timeline-item__date { position: relative; left: auto; top: auto; width: auto; text-align: left; padding: 0 0 0.25rem 0; font-size: 0.8rem; }
   .timeline-item__date-sub { display: inline; font-size: 0.75rem; }
