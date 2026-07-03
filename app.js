@@ -264,8 +264,9 @@
       } else {
         filtered.forEach(function (p) {
           var tagsEl = (p.tags || []).map(function (t) { return ce('span', { className: 'pub-card__tag' }, [t]); });
+          if (p.autoDetected) tagsEl.unshift(ce('span', { className: 'pub-card__tag pub-card__tag--auto' }, ['auto']));
           list.appendChild(ce('div', { className: 'pub-card' }, [
-            ce('button', { className: 'pub-card__title', onClick: function () { openDialog(p); } }, [p.title]),
+            ce('button', { className: 'pub-card__title' + (p.autoDetected ? ' pub-card__title--auto' : ''), onClick: function () { openDialog(p); } }, [p.title]),
             ce('p', { className: 'pub-card__journal' }, [p.journal + ' (' + p.year + ')']),
             ce('div', { className: 'pub-card__meta' }, tagsEl.concat([
               ce('span', { style: 'font-size:0.8rem;color:var(--text-muted);margin-left:auto;' }, [p.citations + ' cites'])
@@ -540,6 +541,69 @@
     return i10;
   }
 
+  function fetchNewPapers() {
+    var cacheKey = 'papers_' + D.personal.orcid;
+    var cached = getCache(cacheKey);
+    if (cached) { mergeNewPapers(cached); return; }
+
+    fetchJSON('https://api.openalex.org/works?filter=authorships.author.orcid:' + D.personal.orcid + '&sort=publication_year:desc&per_page=200').then(function (data) {
+      var results = data.results || [];
+      var existing = {};
+      D.publications.forEach(function (p) {
+        var doi = (p.doi || '').replace('https://doi.org/', '').toLowerCase();
+        if (doi) existing[doi] = true;
+      });
+      var fresh = [];
+      results.forEach(function (w) {
+        var doi = ((w.doi || '')).replace('https://doi.org/', '').toLowerCase();
+        if (!doi || existing[doi]) return;
+        var journal = '';
+        if (w.primary_location && w.primary_location.source) journal = w.primary_location.source.display_name || '';
+        fresh.push({
+          id: 'auto_' + w.id,
+          title: w.title || 'Untitled',
+          year: w.publication_year || 0,
+          citations: w.cited_by_count || 0,
+          doi: 'https://doi.org/' + doi,
+          journal: journal,
+          abstract: '',
+          pdf_url: '',
+          tags: [],
+          impactFactor: '',
+          autoDetected: true
+        });
+        existing[doi] = true;
+      });
+      if (fresh.length > 0) {
+        setCache(cacheKey, fresh, 86400000);
+        mergeNewPapers(fresh);
+      }
+    }).catch(function () {});
+  }
+
+  function mergeNewPapers(fresh) {
+    if (!fresh || fresh.length === 0) return;
+    fresh.forEach(function (p) { D.publications.unshift(p); });
+    D.personal.stats.totalPublications = D.publications.length;
+    var container = document.getElementById('hero-stats');
+    if (container) {
+      container.innerHTML = '';
+      var s = D.personal.stats;
+      [
+        { val: s.citations, label: 'Citations' },
+        { val: s.hIndex, label: 'h-index' },
+        { val: s.i10Index, label: 'i10-index' },
+        { val: s.totalPublications, label: 'Publications' }
+      ].forEach(function (item) {
+        container.appendChild(ce('div', { className: 'hero__stat' }, [
+          ce('span', { className: 'hero__stat-value' }, ['' + item.val]),
+          ce('span', { className: 'hero__stat-label' }, [item.label])
+        ]));
+      });
+    }
+    initPublications();
+  }
+
   function applyLiveMetrics(metrics) {
     var changed = false;
     if (metrics.authorHIndex || metrics.authorTotalCitations || metrics.authorWorks) {
@@ -601,6 +665,7 @@
     renderScholarCard('projects-list', null, renderProjects);
     initReveal();
     fetchLiveMetrics();
+    fetchNewPapers();
   }
 
   if (document.readyState === 'loading') {
