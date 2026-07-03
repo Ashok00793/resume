@@ -507,17 +507,5 @@ const RESUME_DATA = {
       tags: ["GABA Production", "Cell-Surface Display", "Archaeon GadB", "Bioprocess Engineering"],
       impactFactor: "3.2"
     },
-    {
-      id: "W4400567888",
-      title: "Optimized g-C3N4/TiO2 composites for visible-light-driven Sono photocatalysis in norfloxacin removal",
-      year: 2025,
-      citations: 13,
-      doi: "",
-      journal: "Environmental Research",
-      abstract: "Optimized g-C3N4/TiO2 composites were developed for visible-light-driven sonophotocatalysis to remove the antibiotic norfloxacin. The synergistic interaction between graphitic carbon nitride and titanium dioxide enhanced charge carrier separation and accelerated degradation kinetics, supporting advanced wastewater treatment and organic contaminant remediation applications.",
-      pdf_url: "",
-      tags: ["Sonophotocatalysis", "Norfloxacin Removal", "Wastewater", "Composites"],
-      impactFactor: "7.7"
-    }
   ]
 };
