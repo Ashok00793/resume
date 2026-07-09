@@ -175,6 +175,7 @@
 
   function initReveal() {
     var els = document.querySelectorAll('.research-card, .pub-card, .timeline-item__card, .skill-card, .scholarly-card, .project-card, .contact__link, .proficiency-card, .section__header');
+    document.querySelectorAll('.research-grid, .pub-list, .skills-grid, .scholarly-grid').forEach(function(g) { g.classList.add('reveal-stagger'); });
     if (!els.length) return;
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
