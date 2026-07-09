@@ -473,8 +473,8 @@
         ce('span', { className: 'scholarly-item__status ' + statusClass }, [b.status])
       ]));
     });
-    var visible = allItems.slice(0, 3);
-    var hidden = allItems.slice(3);
+    var visible = allItems.slice(0, 2);
+    var hidden = allItems.slice(2);
     visible.forEach(function (el) { container.appendChild(el); });
     if (hidden.length > 0) {
       var hiddenWrap = ce('div', { style: 'display:none;' });
