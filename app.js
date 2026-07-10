@@ -317,7 +317,7 @@
     var meta = document.getElementById('pub-dialog-meta');
     meta.innerHTML = '';
     meta.appendChild(ce('span', {}, ['Citations: ' + pub.citations]));
-    meta.appendChild(ce('span', {}, ['IF: ' + pub.impactFactor]));
+    meta.appendChild(ce('span', {}, ['IF: ' + pub.impactFactor + (pub.quartile ? ' (' + pub.quartile + ')' : '')]));
     (pub.tags || []).forEach(function (t) { meta.appendChild(ce('span', {}, [t])); });
 
     var actions = document.getElementById('pub-dialog-actions');

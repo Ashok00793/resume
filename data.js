@@ -11,7 +11,7 @@ const RESUME_DATA = {
       citations: 166,
       hIndex: 7,
       i10Index: 5,
-      totalPublications: 14
+      totalPublications: 12
     },
     summary: "Biotechnology and Microbiology Expert with a focus on molecular biology, metabolic engineering, and nanomaterials. Delivered sustainable technologies through research initiatives in wastewater treatment, environmental management, and biomaterial innovation."
   },
@@ -49,7 +49,7 @@ const RESUME_DATA = {
       role: "Adjunct Professor",
       organization: "Academy of Maritime Education and Training (AMET) Deemed to be University",
       location: "Chennai, Tamil Nadu, India",
-      period: "Jan 2026 - Present",
+      period: "Dec 2025 - Present",
       details: "Concurrently delivering lectures and mentoring student projects at the Centre for Research and Innovation, focusing on marine biotechnology, eco-friendly nanomaterials, and environmental microbiology."
     },
     {
@@ -63,8 +63,8 @@ const RESUME_DATA = {
       role: "Research Fellow",
       organization: "National Taiwan University (NTU)",
       location: "Taipei, Taiwan",
-      period: "Nov 2024 - Apr 2025",
-      details: "Worked on transforming agricultural waste (specifically peanut shell powder) into highly functional, high-performance Bacterial Cellulose (BC) membranes for sustainable packaging applications. Designed chemical and enzymatic pretreatment strategies that yielded a ~40% increase in BC tensile strength and superior mechanical characteristics. Delivered ~15 hours of lectures on biomaterials, modifications, and applications during research fellowship at NTU."
+      period: "Nov 2024 - Feb 2025",
+      details: "Transformed agricultural waste (peanut shell powder) into high-performance Bacterial Cellulose (BC) membranes for sustainable packaging. Designed chemical and enzymatic pretreatment strategies yielding ~40% increase in BC tensile strength. Delivered ~15 hours of lectures on biomaterials and modifications during research fellowship at NTU."
     },
     {
       role: "Ph.D. Researcher & Teaching Assistant",
@@ -187,8 +187,8 @@ const RESUME_DATA = {
     {
       title: "Taiwan Postdoctoral Fellowship",
       agency: "National Science and Technology Council (NSTC) - Taiwan",
-      period: "Nov 2024 - May 2025",
-      description: "Postdoctoral research scholarship for optimizing bio-active components in Ganoderma lucidum mycelium using PCS bioreactors."
+      period: "Nov 2024 - Feb 2025",
+      description: "Optimizing the production of components that inhibit melanin production in Ganoderma lucidum mycelium using PCS bioreactor."
     },
     {
       title: "Brain Korea 21 (BK21) National Scholarship",
@@ -226,7 +226,7 @@ const RESUME_DATA = {
       title: "Valorization of Peanut Shell Waste into High-Performance Bacterial Cellulose: Comparative Evaluation of Pretreatment Strategies and Process Integration",
       authors: "Ashokkumar Kumaravel, Sathiyamoorthy Padmanaban, Saranya Shanmugasundaram, Likha Chandran",
       journal: "International Journal of Biological Macromolecules",
-      impactFactor: "8.5",
+      impactFactor: "8.7",
       status: "Under Review (Q1)"
     },
     {
@@ -385,7 +385,8 @@ const RESUME_DATA = {
       abstract: "Peptide-mediated biosorption offers a sustainable and selective approach for cobalt recovery, enabling the synthesis of functional Co3O4 nanoparticles for environmental remediation. This research investigated the cobalt-binding affinity of the peptide CP2 and its derivative fractions, CF3 and CF4, displayed on the Escherichia coli cell surface via the outer membrane protein YiaT. Adsorption experiments showed that cells displaying CF4 exhibited the highest cobalt adsorption of 1865 ± 90 µmol/g dry cell weight (DCW) at 2 mM cobalt concentration, outperforming CP2 and CF3. Selectivity analysis at 1 mM revealed that both CF3 and CF4 preferentially adsorbed cobalt over nickel and manganese. Calcination of cobalt-adsorbed cells resulted in the formation of cobalt oxide (Co3O4) nanoparticles, as confirmed by energy-dispersive X-ray spectroscopy (EDS), X-ray diffraction (XRD), X-ray photoelectron spectroscopy (XPS), and UV-diffuse reflectance spectroscopy (UV-DRS). Further particle characterization using field-emission scanning electron microscopy (FE-SEM) and zeta particle size analysis revealed an average particle size of 104.5 nm and a zeta potential of -10.2 mV. The photocatalytic performance of Co3O4 nanoparticles was evaluated for norfloxacin degradation, achieving 90% degradation at a catalyst dosage of 1 g/L, while pH-dependent studies at 0.8g/L identified pH 7 as the optimum condition, yielding a degradation efficiency of 86% within 90 min. These findings highlight the effectiveness of YiaT-mediated peptide display for selective cobalt biosorption and the potential of peptide-mediated Co3O4 nanoparticles for photocatalytic environmental remediation.",
       pdf_url: "https://doi.org/10.1016/j.rineng.2026.110349",
       tags: ["Biotechnology", "Nanoparticles", "Wastewater", "Genetic Engineering"],
-      impactFactor: "4.2"
+      impactFactor: "9.4",
+      quartile: "Q1"
     },
     {
       id: "W7142395433",
@@ -397,9 +398,10 @@ const RESUME_DATA = {
       abstract: "In this study, engineered E. coli BL21(DE3) strains were constructed to display nickel-binding peptides (NBPs) on the surface via fusion to the outer membrane protein OmpC. Four NBPs were evaluated for nickel adsorption and metal-ion selectivity, using a combination of computational predictions and experimental validation. Computational analyses predicted peptide structure, localization, electrochemical properties, and Ni2+ binding sites. Among the tested NBPs, NBP4 exhibited the highest nickel adsorption and selectivity (Ni > Co > Mn > Li) across the evaluated concentration range. In real battery wastewater, all strains effectively removed nickel, with NBP4 achieving the highest removal rate (90%), followed by NBP1, NBP2, and NBP3. Reuse of NBP4-displaying cells decreased the adsorption efficiency from 90% to 22% over five cycles. Field emission scanning electron microscopy (FE-SEM) and energy-dispersive spectroscopy (EDS) analysis confirmed nickel adsorption on the cell surface. Calcination of metal-bound cells yielded crystalline, cubic nickel oxide (NiO) nanoparticles measuring 400-600 nm, as verified by X-ray diffraction (XRD), FE-SEM, and Nano Zeta sizer analyses. These findings demonstrate that peptide-displaying bacterial systems have significant potential to adsorb and recover nickel from industrial effluents.",
       pdf_url: "https://doi.org/10.1016/j.jenvman.2026.129379",
       tags: ["Bioremediation", "Nickel Recovery", "Wastewater", "Computational Modeling"],
-      impactFactor: "8.7"
+      impactFactor: "9.2",
+      quartile: "Q1"
     },
-{
+    {
       id: "W4410119783",
       title: "Unlocking the potential of bacterial cellulose: synthesis, functionalization, and industrial impact",
       year: 2025,
@@ -409,7 +411,21 @@ const RESUME_DATA = {
       abstract: "Bacterial Cellulose (BC) is a highly crystalline, pure biopolymer synthesized by certain bacterial strains. This study comprehensive reviews and optimizes strategies to unlock BC's structural potential through tailored cultivation and enzymatic functionalization. Drawing from research optimizing agricultural waste pre-treatments, we evaluate physical, chemical, and industrial processing methods. Pretreatment of peanut shells via optimized acid-enzymatic pathways allowed valorization into high-performance BC sheets with improved water-retention and mechanical properties. Tensile strength improved by approximately 40%, illustrating its viability in replacing fossil-fuel-based packaging materials. Dynamic alignment of cellulose nanofibrils and structural integration are analyzed, proving the immense potential of BC as an eco-friendly high-barrier polymer in modern food packaging, biomedical engineering, and industrial design.",
       pdf_url: "https://doi.org/10.1016/j.ijbiomac.2025.143951",
       tags: ["Bacterial Cellulose", "Packaging", "Waste Valorization", "Biomaterials"],
-      impactFactor: "8.2"
+      impactFactor: "8.7",
+      quartile: "Q1"
+    },
+    {
+      id: "auto_envres_2025",
+      title: "Optimized g-C3N4/TiO2 composites for visible-light-driven sonophotocatalysis in norfloxacin removal",
+      year: 2025,
+      citations: 14,
+      doi: "https://doi.org/10.1016/j.envres.2025.121645",
+      journal: "Environmental Research",
+      abstract: "Abstract not available.",
+      pdf_url: "https://doi.org/10.1016/j.envres.2025.121645",
+      tags: ["Photocatalysis", "Nanomaterials", "Wastewater", "Antibiotic Removal"],
+      impactFactor: "8.2",
+      quartile: "Q1"
     },
     {
       id: "W4396622262",
@@ -421,7 +437,8 @@ const RESUME_DATA = {
       abstract: "Heavy metal effluents present a serious global challenge. In this study, we successfully engineered Escherichia coli using cell-surface display technology to express cobalt-specific binding peptides. By fusion with the outer membrane anchor proteins, these engineered whole-cell biocatalysts demonstrated extremely rapid adsorption kinetics and high affinity for cobalt ions in synthetic and industrial wastewater. Additionally, the cobalt-laden biomass was recovered and successfully utilized in the photocatalytic degradation of organic dye contaminants under light irradiation. This work establishes a cyclic bioremediation loop: utilizing genetic engineering for metal biosorption and translating toxic wastes into functional nanomaterials for organic pollutant degradation.",
       pdf_url: "https://doi.org/10.1016/j.biortech.2024.130796",
       tags: ["Cell-Surface Display", "Cobalt", "Biosorption", "Dye Degradation"],
-      impactFactor: "9.8"
+      impactFactor: "8.2",
+      quartile: "Q1"
     },
     {
       id: "W4400466881",
@@ -433,7 +450,8 @@ const RESUME_DATA = {
       abstract: "Cell surface display engineering facilitated the development of a cobalt-binding hybrid Escherichia coli. OmpC served as the molecular anchor for showcasing the cobalt-binding peptides (CBPs), creating the structural model of the hybrid OmpC-CBPs (OmpC-CP, OmpC-CF). Subsequently, the recombinant peptide's cobalt adsorption and retrieval effectiveness were evaluated at various concentrations. When subjected to a pH of 7 and a concentration of 2 mM, OmpC-CF exhibited a significantly higher cobalt recovery rate (2183.87 mol/g DCW) than OmpC-CP. The strain with bioadsorbed cobalt underwent thermal treatment at varying temperatures (400 C, 500 C, 600 C, and 700 C) and morphological characterization of the thermally decomposed cobalt nanoparticle oxides using diverse spectroscopy techniques. The analysis showed that nanoparticles confined themselves to metal ions, and EDS mapping detected the presence of cobalt on the cell surface. Finally, the nanoparticles' anticancer potential was assessed by subjecting them to heating at 500 C in a furnace; they demonstrated noteworthy cytotoxicity, as evidenced by IC50 values of 59 g/mL. These findings suggest that these nanoparticles hold promise as potential anticancer agents.",
       pdf_url: "https://pubs.acs.org/doi/pdf/10.1021/acsomega.3c10246",
       tags: ["Nanoparticles", "Cobalt Oxide", "Anticancer", "Cell-Surface Display"],
-      impactFactor: "4.1"
+      impactFactor: "5.2",
+      quartile: "Q1"
     },
     {
       id: "W4389312003",
@@ -445,7 +463,8 @@ const RESUME_DATA = {
       abstract: "A novel Escherichia coli strain, created by engineering its cell surface with a cobalt-binding peptide CP1, was investigated in this study. The recombinant strain, pBAD30-YiaT-CP1, was structurally modeled to determine its cobalt-binding affinity. The modified cells were subjected to cobalt concentrations (0.25 mM to 1 mM) and pH levels (pH 3, 5, 7, and 9). When exposed to a pH of 7 and a cobalt concentration of 1 mM, the pBAD30-CP1 strain had the best cobalt recovery efficiency, measuring 1468 mol/g DCW. Field Emission Scanning Electron Microscopy (FE-SEM), Transmission Electron Microscopy (TEM), and Energy-Dispersive X-ray Spectroscopy (EDS) were used to examine the physiochemical parameters of the recombinant cells after cobalt adsorption. The cobalt-binding recombinant strains were used in the photocatalytic reduction of methylene blue, which resulted in a 59.52% drop.",
       pdf_url: "https://www.mdpi.com/2306-5354/10/12/1389/pdf?version=1701688536",
       tags: ["Methylene Blue", "Whole-Cell Biocatalyst", "Heavy Metal Recovery", "Photocatalysis"],
-      impactFactor: "3.6"
+      impactFactor: "4.4",
+      quartile: "Q2"
     },
     {
       id: "W4366758159",
@@ -457,7 +476,8 @@ const RESUME_DATA = {
       abstract: "Scaffold strategies have emerged as highly efficient molecular frameworks in synthetic biology. By physically co-localizing sequential enzymes along metabolic pathways, protein and nucleic acid scaffolds optimize intermediate flux, prevent the leakage of toxic intermediates, and overcome thermodynamic limitations. This review systematically analyzes modern scaffolding designs, including protein-based scaffolds (such as SH3-PDZ-GBD designs), RNA/DNA nanostructure assemblies, and biological membrane compartmentalization.",
       pdf_url: "https://doi.org/10.1007/s12257-022-0350-z",
       tags: ["Protein Scaffold", "Metabolic Engineering", "Synthetic Biology", "Enzymes"],
-      impactFactor: "2.5"
+      impactFactor: "2.8",
+      quartile: "Q2"
     },
     {
       id: "W4205768556",
@@ -469,7 +489,8 @@ const RESUME_DATA = {
       abstract: "Natural fiber composite materials are competent materials that may replace conventional synthetic materials where the strength to weight ratio is essential. In this paper, the mechanical characteristics of composites made up of randomly oriented natural fibers (mudar fiber and snake grass fiber) with nano-silica filler are detailed for the first time. The composites showed that the highest mechanical properties were found at 30% fiber volume. The maximum tensile strength is 45 MPa, and the flexural strength is 51 MPa.",
       pdf_url: "https://downloads.hindawi.com/journals/amse/2022/7805146.pdf",
       tags: ["Biomaterials", "Natural Fibers", "Epoxy Composites", "Nano-Silica"],
-      impactFactor: "2.0"
+      impactFactor: "2.99",
+      quartile: "Q2"
     },
     {
       id: "W4291512135",
@@ -481,9 +502,10 @@ const RESUME_DATA = {
       abstract: "The aqueous extract of Alternanthera sessilis (As) acts as the precursors for the quick reduction of silver ions, which leads to the formation of silver nanoparticles. Fabric treated with novel AS-AgNPs is tested against the K. pneumoniae and shows an inhibitory action. HR-TEM analysis showed the presence of black-white crystalline, spherical-shaped As-AgNPs embedded on the fabrics range of 15 nm-40 nm.",
       pdf_url: "https://www.mdpi.com/2079-4991/12/16/2759/pdf?version=1661403269",
       tags: ["Silver Nanoparticles", "Green Synthesis", "Antimicrobial", "Wound Healing"],
-      impactFactor: "4.7"
+      impactFactor: "4.8",
+      quartile: "Q1"
     },
-{
+    {
       id: "W4224274365",
       title: "High Yield Fermentation of L-serine in Recombinant Escherichia coli via Co-localization of SerB and EamA through Protein Scaffold",
       year: 2022,
@@ -493,7 +515,8 @@ const RESUME_DATA = {
       abstract: "Colocalization of pathway enzymes via synthetic protein scaffold is a powerful strategy to channel metabolic intermediates. We successfully engineered Escherichia coli to significantly increase L-serine titers by recruiting SerB and EamA onto a shared molecular platform, avoiding cellular accumulation and feedback inhibition.",
       pdf_url: "https://doi.org/10.1007/s12257-021-0081-6",
       tags: ["Protein Scaffold", "Metabolic Engineering", "Amino Acid", "Synthetic Biology"],
-      impactFactor: "2.5"
+      impactFactor: "2.8",
+      quartile: "Q2"
     },
     {
       id: "W3175285345",
@@ -505,7 +528,8 @@ const RESUME_DATA = {
       abstract: "We investigated the effect of cell-surface display of glutamate decarboxylase (GadB) on gamma-aminobutyric acid (GABA) production in recombinant Escherichia coli. GadB from Pyrococcus horikoshii was fused to the C-terminus of the E. coli outer membrane protein C (OmpC). After 12 hr of culturing GadB-displaying cells, extracellular GABA increased to 3.2 g/L, eight times that obtained with cytosolic expression. At 60 C, GABA reached 4.62 g/L after 12 hr and 5.35 g/L after 24 hr, corresponding to a yield of 87.7%.",
       pdf_url: "https://academic.oup.com/jimb/article-pdf/48/7-8/kuab039/42964483/kuab039.pdf",
       tags: ["GABA Production", "Cell-Surface Display", "Archaeon GadB", "Bioprocess Engineering"],
-      impactFactor: "3.5"
+      impactFactor: "4.5",
+      quartile: "Q1"
     },
   ]
 };
