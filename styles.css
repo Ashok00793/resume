@@ -125,17 +125,6 @@ ul { list-style: none; }
   height: 20px;
 }
 
-/* ============ Research Network Graph ============ */
-
-#research-graph {
-  display: block;
-  transition: border-color var(--transition);
-}
-
-#research-graph:hover {
-  border-color: rgba(var(--accent-rgb), 0.25);
-}
-
 /* ============ Chat Assistant ============ */
 
 .chat-bubble {
