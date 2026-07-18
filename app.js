@@ -722,6 +722,10 @@
     var canvas = document.createElement('canvas');
     canvas.id = 'research-graph';
     canvas.style.cssText = 'width:100%;height:360px;border-radius:var(--radius-lg);background:var(--bg-card);border:1px solid var(--border);box-shadow:var(--shadow);margin-top:1.5rem;grid-column:1/-1;cursor:pointer;display:block;';
+    var label = document.createElement('div');
+    label.style.cssText = 'grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;margin-top:1rem;';
+    label.innerHTML = '<span style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--primary);">Research Landscape</span><span style="font-size:0.75rem;color:var(--text-muted);">hover to explore</span>';
+    container.parentNode.insertBefore(label, container.nextSibling);
     container.parentNode.insertBefore(canvas, container.nextSibling);
     var ctx = canvas.getContext('2d');
     var W, H;
@@ -778,14 +782,19 @@
       });
     }
 
+    function getCSS(varName, fallback) {
+      return getComputedStyle(document.documentElement).getPropertyValue(varName).trim() || fallback;
+    }
+
     function drawGraph() {
       var w = canvas.width / (window.devicePixelRatio || 1);
       var h = 360;
       ctx.clearRect(0, 0, w, h);
 
-      var accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#2d8f6c';
-      var textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#1a1a1a';
-      var mutedColor = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#8e9399';
+      var accent = getCSS('--accent', '#2d8f6c');
+      var textColor = getCSS('--text', '#1a1a1a');
+      var bgCard = getCSS('--bg-card', '#ffffff');
+      var nodeBg = getCSS('--bg', '#fafaf9');
 
       edges.forEach(function (e) {
         var a = nodes[e.source], b = nodes[e.target];
@@ -794,31 +803,34 @@
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
         ctx.strokeStyle = accent;
-        ctx.globalAlpha = e.strength / 100 * 0.3;
-        ctx.lineWidth = 1 + e.strength / 50;
+        ctx.globalAlpha = e.strength / 100 * 0.25;
+        ctx.lineWidth = 1 + e.strength / 60;
         ctx.stroke();
         ctx.globalAlpha = 1;
       });
 
       nodeList.forEach(function (n) {
         var isHover = hovered === n.name;
+        var r = isHover ? 34 : 28;
+
         ctx.beginPath();
-        ctx.arc(n.x, n.y, isHover ? 32 : 28, 0, Math.PI * 2);
-        var grad = ctx.createRadialGradient(n.x - 6, n.y - 6, 2, n.x, n.y, 30);
-        grad.addColorStop(0, isHover ? accent : '#ffffff');
-        grad.addColorStop(1, isHover ? '#1a6b4a' : accent);
+        ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+        var grad = ctx.createRadialGradient(n.x - 5, n.y - 5, 2, n.x, n.y, r);
+        grad.addColorStop(0, isHover ? accent : bgCard);
+        grad.addColorStop(1, isHover ? '#0f4f35' : accent);
         ctx.fillStyle = grad;
         ctx.fill();
-        ctx.lineWidth = isHover ? 3 : 2;
-        ctx.strokeStyle = isHover ? accent : 'rgba(45,143,108,0.3)';
+
+        ctx.lineWidth = isHover ? 2.5 : 1.5;
+        ctx.strokeStyle = isHover ? accent : 'rgba(45,143,108,0.2)';
         ctx.stroke();
 
-        ctx.fillStyle = isHover ? '#fff' : '#fff';
-        ctx.font = 'bold 10px Inter, sans-serif';
+        ctx.fillStyle = isHover ? '#ffffff' : textColor;
+        ctx.font = isHover ? 'bold 11px Inter, sans-serif' : '500 11px Inter, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        var label = n.name.replace('Eng', 'Eng.');
-        ctx.fillText(label.length > 12 ? label.substring(0, 11) + '…' : label, n.x, n.y);
+        var label = n.name.replace('Eng', 'Eng.').replace('Cell-Surface Display', 'Cell-Surface');
+        ctx.fillText(label.length > 12 ? label.substring(0, 11) + '' : label, n.x, n.y);
       });
     }
 
