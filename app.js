@@ -714,6 +714,277 @@
     }
   }
 
+  /* ============ Research Network Graph (Force-Directed) ============ */
+
+  function initResearchGraph() {
+    var container = document.getElementById('research-grid');
+    if (!container || !D.researchConnections || !D.researchAreas) return;
+    var canvas = document.createElement('canvas');
+    canvas.id = 'research-graph';
+    canvas.style.cssText = 'width:100%;height:360px;border-radius:var(--radius-lg);background:var(--bg-card);border:1px solid var(--border);box-shadow:var(--shadow);margin-top:1.5rem;grid-column:1/-1;cursor:pointer;display:block;';
+    container.parentNode.insertBefore(canvas, container.nextSibling);
+    var ctx = canvas.getContext('2d');
+    var W, H;
+
+    var nodes = {};
+    D.researchAreas.forEach(function (name) { nodes[name] = { name: name, x: 0, y: 0, vx: 0, vy: 0, radius: 28 }; });
+    var edges = [];
+    D.researchConnections.forEach(function (c) {
+      if (nodes[c.source] && nodes[c.target]) edges.push({ source: c.source, target: c.target, strength: c.strength });
+    });
+    var nodeList = Object.keys(nodes).map(function (k) { return nodes[k]; });
+
+    function resize() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      W = canvas.width = rect.width * dpr;
+      H = canvas.height = 360 * dpr;
+      ctx.scale(dpr, dpr);
+      nodeList.forEach(function (n) {
+        if (!n._placed) { n.x = rect.width * (0.15 + Math.random() * 0.7); n.y = 180 * (0.15 + Math.random() * 0.7); n._placed = true; }
+      });
+    }
+
+    var hovered = null;
+
+    function simStep() {
+      var w = canvas.width / (window.devicePixelRatio || 1);
+      var h = 360;
+      var repel = 6000, attractLen = 120, spring = 0.005, damp = 0.85;
+      nodeList.forEach(function (n) { n.vx *= damp; n.vy *= damp; });
+      for (var i = 0; i < nodeList.length; i++) {
+        for (var j = i + 1; j < nodeList.length; j++) {
+          var a = nodeList[i], b = nodeList[j];
+          var dx = a.x - b.x, dy = a.y - b.y;
+          var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          var force = repel / (dist * dist);
+          a.vx += (dx / dist) * force; a.vy += (dy / dist) * force;
+          b.vx -= (dx / dist) * force; b.vy -= (dy / dist) * force;
+        }
+      }
+      edges.forEach(function (e) {
+        var a = nodes[e.source], b = nodes[e.target];
+        if (!a || !b) return;
+        var dx = b.x - a.x, dy = b.y - a.y;
+        var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        var force = (dist - attractLen) * spring * (e.strength / 50);
+        a.vx += (dx / dist) * force; a.vy += (dy / dist) * force;
+        b.vx -= (dx / dist) * force; b.vy -= (dy / dist) * force;
+      });
+      nodeList.forEach(function (n) {
+        n.x += n.vx; n.y += n.vy;
+        n.x = Math.max(40, Math.min(w - 40, n.x));
+        n.y = Math.max(40, Math.min(h - 40, n.y));
+      });
+    }
+
+    function drawGraph() {
+      var w = canvas.width / (window.devicePixelRatio || 1);
+      var h = 360;
+      ctx.clearRect(0, 0, w, h);
+
+      var accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#2d8f6c';
+      var textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#1a1a1a';
+      var mutedColor = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#8e9399';
+
+      edges.forEach(function (e) {
+        var a = nodes[e.source], b = nodes[e.target];
+        if (!a || !b) return;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = accent;
+        ctx.globalAlpha = e.strength / 100 * 0.3;
+        ctx.lineWidth = 1 + e.strength / 50;
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+      });
+
+      nodeList.forEach(function (n) {
+        var isHover = hovered === n.name;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, isHover ? 32 : 28, 0, Math.PI * 2);
+        var grad = ctx.createRadialGradient(n.x - 6, n.y - 6, 2, n.x, n.y, 30);
+        grad.addColorStop(0, isHover ? accent : '#ffffff');
+        grad.addColorStop(1, isHover ? '#1a6b4a' : accent);
+        ctx.fillStyle = grad;
+        ctx.fill();
+        ctx.lineWidth = isHover ? 3 : 2;
+        ctx.strokeStyle = isHover ? accent : 'rgba(45,143,108,0.3)';
+        ctx.stroke();
+
+        ctx.fillStyle = isHover ? '#fff' : '#fff';
+        ctx.font = 'bold 10px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        var label = n.name.replace('Eng', 'Eng.');
+        ctx.fillText(label.length > 12 ? label.substring(0, 11) + '…' : label, n.x, n.y);
+      });
+    }
+
+    function loop() { for (var i = 0; i < 5; i++) simStep(); drawGraph(); requestAnimationFrame(loop); }
+
+    function onMove(e) {
+      var rect = canvas.getBoundingClientRect();
+      var mx = (e.clientX || e.touches?.[0]?.clientX || 0) - rect.left;
+      var my = (e.clientY || e.touches?.[0]?.clientY || 0) - rect.top;
+      hovered = null;
+      nodeList.forEach(function (n) {
+        if (Math.sqrt((mx - n.x) ** 2 + (my - n.y) ** 2) < 32) hovered = n.name;
+      });
+      canvas.style.cursor = hovered ? 'pointer' : 'default';
+    }
+
+    function onClick(e) {
+      onMove(e);
+      if (hovered) {
+        var card = container.querySelector('.research-card');
+        if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    resize();
+    loop();
+    canvas.addEventListener('mousemove', onMove);
+    canvas.addEventListener('click', onClick);
+    window.addEventListener('resize', resize);
+  }
+
+  /* ============ Floating Chat Assistant ============ */
+
+  function initChat() {
+    var bubble = document.getElementById('chat-bubble');
+    var panel = document.getElementById('chat-panel');
+    var close = document.getElementById('chat-close');
+    var input = document.getElementById('chat-input');
+    var send = document.getElementById('chat-send');
+    var messages = document.getElementById('chat-messages');
+    if (!bubble || !panel) return;
+
+    var open = false;
+    bubble.addEventListener('click', function () {
+      open = !open;
+      panel.classList.toggle('chat-panel--open', open);
+      bubble.classList.toggle('chat-bubble--active', open);
+      if (open) input.focus();
+    });
+    if (close) close.addEventListener('click', function () {
+      open = false;
+      panel.classList.remove('chat-panel--open');
+      bubble.classList.remove('chat-bubble--active');
+    });
+
+    function findAnswer(q) {
+      var ql = q.toLowerCase().trim();
+      var best = null, bestScore = 0;
+      D.chatQA.forEach(function (item) {
+        item.q.forEach(function (keyword) {
+          var kw = keyword.toLowerCase();
+          var score = 0;
+          var words = kw.split(' ');
+          words.forEach(function (w) {
+            if (ql.indexOf(w) !== -1) score++;
+          });
+          if (score > bestScore) { bestScore = score; best = item.a; }
+        });
+      });
+      return best || "I don't have that information. Please check my CV or contact me at bioashok00793@gmail.com.";
+    }
+
+    function addMsg(text, isUser) {
+      var div = document.createElement('div');
+      div.className = 'chat-msg ' + (isUser ? 'chat-msg--user' : 'chat-msg--bot');
+      div.textContent = text;
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function handleSend() {
+      var text = input.value.trim();
+      if (!text) return;
+      addMsg(text, true);
+      input.value = '';
+      setTimeout(function () {
+        var answer = findAnswer(text);
+        addMsg(answer, false);
+      }, 300 + Math.random() * 400);
+    }
+
+    send.addEventListener('click', handleSend);
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') handleSend(); });
+  }
+
+  /* ============ Animated Stat Counters ============ */
+
+  function initAnimatedCounters() {
+    var statsEl = document.getElementById('hero-stats');
+    if (!statsEl) return;
+    var s = D.personal.stats;
+    var items = [
+      { val: s.citations, label: 'Citations' },
+      { val: s.hIndex, label: 'h-index' },
+      { val: s.i10Index, label: 'i10-index' },
+      { val: s.totalPublications, label: 'Publications' }
+    ];
+
+    statsEl.innerHTML = '';
+    var valueEls = [];
+    items.forEach(function (item) {
+      var stat = document.createElement('div');
+      stat.className = 'hero__stat';
+      var valEl = document.createElement('span');
+      valEl.className = 'hero__stat-value';
+      valEl.textContent = '0';
+      var labEl = document.createElement('span');
+      labEl.className = 'hero__stat-label';
+      labEl.textContent = item.label;
+      stat.appendChild(valEl);
+      stat.appendChild(labEl);
+      statsEl.appendChild(stat);
+      valueEls.push({ el: valEl, target: item.val, current: 0 });
+    });
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          observer.unobserve(entry.target);
+          valueEls.forEach(function (v) {
+            var duration = 1200;
+            var start = performance.now();
+            function step(now) {
+              var p = Math.min((now - start) / duration, 1);
+              var eased = 1 - Math.pow(1 - p, 3);
+              v.current = Math.round(eased * v.target);
+              v.el.textContent = v.current;
+              if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(statsEl);
+  }
+
+  /* ============ Magnetic Hover on Buttons ============ */
+
+  function initMagneticHover() {
+    document.querySelectorAll('.btn, .btn-text').forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var rect = btn.getBoundingClientRect();
+        var x = e.clientX - rect.left - rect.width / 2;
+        var y = e.clientY - rect.top - rect.height / 2;
+        var dist = Math.sqrt(x * x + y * y);
+        var maxDist = 60;
+        var strength = Math.max(0, 1 - dist / maxDist) * 6;
+        btn.style.transform = 'translate(' + (x * strength / 30) + 'px, ' + (y * strength / 30) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function () {
+        btn.style.transform = '';
+      });
+    });
+  }
+
   /* ============ Scroll Progress ============ */
 
   function initProgressBar() {
@@ -750,6 +1021,7 @@
     initNav();
     renderStats();
     renderResearch();
+    initResearchGraph();
     initPublications();
     renderTimeline();
     renderSkills();
@@ -758,6 +1030,9 @@
     renderScholarCard('conferences-list', null, renderConferences);
     renderScholarCard('projects-list', null, renderProjects);
     renderScholarCard('bookchapters-list', null, renderBookChapters);
+    initChat();
+    initAnimatedCounters();
+    initMagneticHover();
     initReveal();
     fetchLiveMetrics();
     fetchNewPapers();
