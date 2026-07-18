@@ -714,152 +714,157 @@
     }
   }
 
-  /* ============ Research Network Graph (Force-Directed) ============ */
+  /* ============ Research Network Graph (Clean Radial) ============ */
 
   function initResearchGraph() {
     var container = document.getElementById('research-grid');
-    if (!container || !D.researchConnections || !D.researchAreas) return;
+    if (!container || !D.researchConnections || !D.researchAreas || D.researchAreas.length === 0) return;
+
     var canvas = document.createElement('canvas');
     canvas.id = 'research-graph';
-    canvas.style.cssText = 'width:100%;height:360px;border-radius:var(--radius-lg);background:var(--bg-card);border:1px solid var(--border);box-shadow:var(--shadow);margin-top:1.5rem;grid-column:1/-1;cursor:pointer;display:block;';
+    canvas.style.cssText = 'width:100%;height:400px;border-radius:var(--radius-lg);background:var(--bg-card);border:1px solid var(--border-light);box-shadow:var(--shadow);margin-top:1rem;grid-column:1/-1;cursor:default;display:block;';
     var label = document.createElement('div');
-    label.style.cssText = 'grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;margin-top:1rem;';
-    label.innerHTML = '<span style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--primary);">Research Landscape</span><span style="font-size:0.75rem;color:var(--text-muted);">hover to explore</span>';
+    label.style.cssText = 'grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;margin-top:0.75rem;';
+    label.innerHTML = '<span style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--primary);">Research Landscape</span><span style="font-size:0.75rem;color:var(--text-muted);">Hover to explore</span>';
     container.parentNode.insertBefore(label, container.nextSibling);
     container.parentNode.insertBefore(canvas, container.nextSibling);
+
     var ctx = canvas.getContext('2d');
-    var W, H;
+    var dpr, cw, ch, nodes, edges, hovered;
 
-    var nodes = {};
-    D.researchAreas.forEach(function (name) { nodes[name] = { name: name, x: 0, y: 0, vx: 0, vy: 0, radius: 28 }; });
-    var edges = [];
-    D.researchConnections.forEach(function (c) {
-      if (nodes[c.source] && nodes[c.target]) edges.push({ source: c.source, target: c.target, strength: c.strength });
-    });
-    var nodeList = Object.keys(nodes).map(function (k) { return nodes[k]; });
+    function css(v, f) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || f; }
 
-    function resize() {
+    function setup() {
+      readCSS();
       var rect = canvas.getBoundingClientRect();
-      var dpr = window.devicePixelRatio || 1;
-      W = canvas.width = rect.width * dpr;
-      H = canvas.height = 360 * dpr;
+      dpr = window.devicePixelRatio || 1;
+      cw = rect.width;
+      ch = 400;
+      canvas.width = cw * dpr;
+      canvas.height = ch * dpr;
       ctx.scale(dpr, dpr);
-      nodeList.forEach(function (n) {
-        if (!n._placed) { n.x = rect.width * (0.15 + Math.random() * 0.7); n.y = 180 * (0.15 + Math.random() * 0.7); n._placed = true; }
-      });
-    }
 
-    var hovered = null;
+      var names = D.researchAreas;
+      var N = names.length;
+      nodes = [];
+      var map = {};
+      var cx = cw / 2, cy = ch / 2 - 8;
+      var rx = Math.min(cw, ch) * 0.32, ry = Math.min(cw, ch) * 0.30;
 
-    function simStep() {
-      var w = canvas.width / (window.devicePixelRatio || 1);
-      var h = 360;
-      var repel = 6000, attractLen = 120, spring = 0.005, damp = 0.85;
-      nodeList.forEach(function (n) { n.vx *= damp; n.vy *= damp; });
-      for (var i = 0; i < nodeList.length; i++) {
-        for (var j = i + 1; j < nodeList.length; j++) {
-          var a = nodeList[i], b = nodeList[j];
-          var dx = a.x - b.x, dy = a.y - b.y;
-          var dist = Math.sqrt(dx * dx + dy * dy) || 1;
-          var force = repel / (dist * dist);
-          a.vx += (dx / dist) * force; a.vy += (dy / dist) * force;
-          b.vx -= (dx / dist) * force; b.vy -= (dy / dist) * force;
-        }
+      for (var i = 0; i < N; i++) {
+        var a = (i / N) * Math.PI * 2 - Math.PI / 2;
+        nodes.push({
+          name: names[i],
+          x: cx + Math.cos(a) * rx,
+          y: cy + Math.sin(a) * ry,
+          r: 38
+        });
+        map[names[i]] = nodes[i];
       }
-      edges.forEach(function (e) {
-        var a = nodes[e.source], b = nodes[e.target];
-        if (!a || !b) return;
-        var dx = b.x - a.x, dy = b.y - a.y;
-        var dist = Math.sqrt(dx * dx + dy * dy) || 1;
-        var force = (dist - attractLen) * spring * (e.strength / 50);
-        a.vx += (dx / dist) * force; a.vy += (dy / dist) * force;
-        b.vx -= (dx / dist) * force; b.vy -= (dy / dist) * force;
+      edges = [];
+      D.researchConnections.forEach(function (c) {
+        if (map[c.source] && map[c.target]) {
+          edges.push({ a: map[c.source], b: map[c.target], s: c.strength });
+        }
       });
-      nodeList.forEach(function (n) {
-        n.x += n.vx; n.y += n.vy;
-        n.x = Math.max(40, Math.min(w - 40, n.x));
-        n.y = Math.max(40, Math.min(h - 40, n.y));
-      });
+      hovered = null;
     }
 
-    function getCSS(varName, fallback) {
-      return getComputedStyle(document.documentElement).getPropertyValue(varName).trim() || fallback;
-    }
+    function readCSS() { /* force re-read on theme change */ css('--accent', ''); }
 
-    function drawGraph() {
-      var w = canvas.width / (window.devicePixelRatio || 1);
-      var h = 360;
+    function draw() {
+      var accent = css('--accent', '#2d8f6c');
+      var textC = css('--text', '#1a1a1a');
+      var muteC = css('--text-muted', '#8e9399');
+      var bgC = css('--bg-card', '#ffffff');
+      var w = cw, h = ch;
+
       ctx.clearRect(0, 0, w, h);
 
-      var accent = getCSS('--accent', '#2d8f6c');
-      var textColor = getCSS('--text', '#1a1a1a');
-      var bgCard = getCSS('--bg-card', '#ffffff');
-      var nodeBg = getCSS('--bg', '#fafaf9');
-
+      // Edges as tapered bezier curves
       edges.forEach(function (e) {
-        var a = nodes[e.source], b = nodes[e.target];
-        if (!a || !b) return;
+        var a = e.a, b = e.b;
+        var isH = hovered && (hovered === a.name || hovered === b.name);
+        var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+        var dx = b.x - a.x, dy = b.y - a.y;
+        var d = Math.sqrt(dx * dx + dy * dy) || 1;
+        var ox = (dy / d) * (isH ? 50 : 25);
+        var oy = -(dx / d) * (isH ? 50 : 25);
+
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
-        ctx.lineTo(b.x, b.y);
+        ctx.quadraticCurveTo(mx + ox, my + oy, b.x, b.y);
+        ctx.globalAlpha = isH ? 0.55 : 0.08 + e.s / 180;
         ctx.strokeStyle = accent;
-        ctx.globalAlpha = e.strength / 100 * 0.25;
-        ctx.lineWidth = 1 + e.strength / 60;
+        ctx.lineWidth = isH ? 2.5 : 0.6 + e.s / 60;
         ctx.stroke();
         ctx.globalAlpha = 1;
       });
 
-      nodeList.forEach(function (n) {
-        var isHover = hovered === n.name;
-        var r = isHover ? 34 : 28;
+      // Nodes
+      nodes.forEach(function (n) {
+        var ih = hovered === n.name;
+        var r = ih ? 42 : 38;
 
+        // Soft glow on hover
+        if (ih) {
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, r + 8, 0, Math.PI * 2);
+          ctx.fillStyle = accent;
+          ctx.globalAlpha = 0.08;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+
+        // Circle fill
         ctx.beginPath();
         ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
-        var grad = ctx.createRadialGradient(n.x - 5, n.y - 5, 2, n.x, n.y, r);
-        grad.addColorStop(0, isHover ? accent : bgCard);
-        grad.addColorStop(1, isHover ? '#0f4f35' : accent);
-        ctx.fillStyle = grad;
+        var g = ctx.createRadialGradient(n.x - 10, n.y - 10, 4, n.x, n.y, r);
+        g.addColorStop(0, '#ffffff');
+        g.addColorStop(0.35, accent);
+        g.addColorStop(1, '#0d4f35');
+        ctx.fillStyle = g;
         ctx.fill();
 
-        ctx.lineWidth = isHover ? 2.5 : 1.5;
-        ctx.strokeStyle = isHover ? accent : 'rgba(45,143,108,0.2)';
+        // Subtle border
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = 'rgba(255,255,255,0.25)';
         ctx.stroke();
 
-        ctx.fillStyle = isHover ? '#ffffff' : textColor;
-        ctx.font = isHover ? 'bold 11px Inter, sans-serif' : '500 11px Inter, sans-serif';
+        // Name text
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '600 12px Inter, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        var label = n.name.replace('Eng', 'Eng.').replace('Cell-Surface Display', 'Cell-Surface');
-        ctx.fillText(label.length > 12 ? label.substring(0, 11) + '' : label, n.x, n.y);
+        var lbl = n.name.replace('Cell-Surface Display', 'Cell-Surface');
+        ctx.fillText(lbl, n.x, n.y - 4);
+
+        // Connection count
+        var cnt = 0;
+        edges.forEach(function (e) { if (e.a.name === n.name || e.b.name === n.name) cnt++; });
+        ctx.fillStyle = 'rgba(255,255,255,0.55)';
+        ctx.font = '10px Inter, sans-serif';
+        ctx.fillText(cnt + ' links', n.x, n.y + 16);
       });
     }
 
-    function loop() { for (var i = 0; i < 5; i++) simStep(); drawGraph(); requestAnimationFrame(loop); }
+    function loop() { draw(); requestAnimationFrame(loop); }
 
     function onMove(e) {
       var rect = canvas.getBoundingClientRect();
-      var mx = (e.clientX || e.touches?.[0]?.clientX || 0) - rect.left;
-      var my = (e.clientY || e.touches?.[0]?.clientY || 0) - rect.top;
+      var mx = (e.clientX || 0) - rect.left;
+      var my = (e.clientY || 0) - rect.top;
       hovered = null;
-      nodeList.forEach(function (n) {
-        if (Math.sqrt((mx - n.x) ** 2 + (my - n.y) ** 2) < 32) hovered = n.name;
+      nodes.forEach(function (n) {
+        if (Math.sqrt((mx - n.x) ** 2 + (my - n.y) ** 2) < 42) hovered = n.name;
       });
       canvas.style.cursor = hovered ? 'pointer' : 'default';
     }
 
-    function onClick(e) {
-      onMove(e);
-      if (hovered) {
-        var card = container.querySelector('.research-card');
-        if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }
-
-    resize();
+    setup();
     loop();
     canvas.addEventListener('mousemove', onMove);
-    canvas.addEventListener('click', onClick);
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', setup);
   }
 
   /* ============ Floating Chat Assistant ============ */
