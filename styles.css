@@ -26,6 +26,26 @@
   --max-width: 1120px;
 }
 
+[data-theme="dark"] {
+  --bg: #111714;
+  --bg-alt: #161f1a;
+  --bg-card: #1a241f;
+  --text: #e6eae7;
+  --text-secondary: #a3b0a8;
+  --text-muted: #6d7d73;
+  --primary: #6fcf97;
+  --primary-rgb: 111, 207, 151;
+  --primary-light: #5bbf89;
+  --accent: #4ec489;
+  --accent-rgb: 78, 196, 137;
+  --accent-gold: #d4a854;
+  --accent-gold-rgb: 212, 168, 84;
+  --border: #2a3830;
+  --border-light: #1f2b25;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.3);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.4), 0 12px 40px rgba(0,0,0,0.4);
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
@@ -58,6 +78,51 @@ ul { list-style: none; }
 .container {
   width: min(100% - 48px, var(--max-width));
   margin-inline: auto;
+}
+
+/* ============ Progress Bar ============ */
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--primary-light));
+  z-index: 200;
+  width: 0;
+  transition: width 50ms linear;
+  will-change: width;
+}
+
+/* ============ Theme Toggle ============ */
+
+.theme-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 150;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-hover);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  color: var(--text-secondary);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.theme-toggle__icon {
+  width: 20px;
+  height: 20px;
 }
 
 /* ============ Canvas Bio Background ============ */
@@ -730,6 +795,17 @@ ul { list-style: none; }
   font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 500;
+}
+
+.pub-card__if {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 /* ============ Timeline ============ */

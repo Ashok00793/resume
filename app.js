@@ -280,12 +280,14 @@
         filtered.forEach(function (p) {
           var tagsEl = (p.tags || []).map(function (t) { return ce('span', { className: 'pub-card__tag' }, [t]); });
           if (p.autoDetected) tagsEl.unshift(ce('span', { className: 'pub-card__tag pub-card__tag--auto' }, ['auto']));
+          var ifBadge = p.impactFactor ? ce('span', { className: 'pub-card__if' }, ['IF: ' + p.impactFactor + (p.quartile ? ' ' + p.quartile : '')]) : null;
           list.appendChild(ce('div', { className: 'pub-card' }, [
             ce('button', { className: 'pub-card__title' + (p.autoDetected ? ' pub-card__title--auto' : ''), onClick: function () { openDialog(p); } }, [p.title]),
             ce('p', { className: 'pub-card__journal' }, [p.journal + ' (' + p.year + ')']),
             ce('div', { className: 'pub-card__meta' }, tagsEl.concat([
-              ce('span', { style: 'font-size:0.8rem;color:var(--text-muted);margin-left:auto;' }, [p.citations + ' cites'])
-            ]))
+              ce('span', { className: 'pub-card__citations' }, [p.citations + ' cites']),
+              ifBadge
+            ]).filter(Boolean))
           ]));
         });
       }
@@ -712,9 +714,38 @@
     }
   }
 
+  /* ============ Scroll Progress ============ */
+
+  function initProgressBar() {
+    var bar = document.getElementById('progress-bar');
+    if (!bar) return;
+    window.addEventListener('scroll', function () {
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    }, { passive: true });
+  }
+
+  /* ============ Dark Mode ============ */
+
+  function initTheme() {
+    var toggle = document.getElementById('theme-toggle');
+    if (!toggle) return;
+    var stored = localStorage.getItem('theme');
+    if (stored === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    toggle.addEventListener('click', function () {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  }
+
   /* ============ Init ============ */
 
   function init() {
+    initProgressBar();
+    initTheme();
     initCanvas();
     initNav();
     renderStats();
