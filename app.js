@@ -224,8 +224,27 @@
       { title: 'Waste Valorization & Biomaterials', desc: 'Converting agricultural waste into high-performance bacterial cellulose membranes and engineering P. denitrificans for sustainable biopolymer production.', tags: ['Bacterial cellulose', 'P3HP', '~40% improvement'] }
     ];
 
+    var contentMap = [
+      {
+        detail: 'I engineer E. coli to display metal-binding peptides on its outer membrane by fusing them with anchor proteins (OmpC, YiaT). This creates whole-cell biocatalysts that selectively adsorb heavy metals (Ni²+, Co²+) from industrial wastewater — a living filtration platform. The metal-laden biomass can then be calcined into functional metal oxide nanoparticles.',
+        related: ['Bioremediation', 'Cell-Surface Display', 'Wastewater']
+      },
+      {
+        detail: 'I synthesize functional nanoparticles (Co₃O₄, NiO, Ag, TiO₂) through green, chemical, and microbial routes. These nanomaterials are applied in photocatalytic dye degradation, antibacterial textiles, and anticancer treatments. My work on green synthesis uses plant extracts (Alternanthera sessilis) to produce colloidal silver nanoparticles for biomedical and textile applications.',
+        related: ['Nanomaterials', 'Photocatalysis', 'Wound Healing']
+      },
+      {
+        detail: 'I use synthetic protein scaffolds to colocalize pathway enzymes, optimizing metabolic flux for high-yield bioproduction. Successfully engineered E. coli for L-serine (via SerB/EamA scaffold), GABA (via GadB surface display), and isopropanol production. My scaffold strategies overcome thermodynamic limitations and prevent toxic intermediate accumulation.',
+        related: ['Metabolic Eng', 'Protein Scaffold', 'Synthetic Biology']
+      },
+      {
+        detail: 'I convert agricultural waste into bacterial cellulose membranes for biomedical applications and engineer Paracoccus denitrificans for sustainable biopolymer (P3HP) production. This line integrates circular economy principles with industrial biotechnology — turning waste streams into high-value biomaterials.',
+        related: ['Biomaterials', 'Microbiology', 'Bioprocess Engineering']
+      }
+    ];
+
     themes.forEach(function (t, i) {
-      var card = ce('div', { className: 'research-card' }, [
+      var card = ce('div', { className: 'research-card', onClick: function () { openResearchDialog(t, contentMap[i]); } }, [
         ce('div', { className: 'research-card__icon' }, [
           ce('div', { innerHTML: icons[i] })
         ]),
@@ -235,8 +254,38 @@
           return ce('span', { className: 'research-card__tag' }, [tag]);
         }))
       ]);
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
       grid.appendChild(card);
     });
+  }
+
+  /* ============ Research Dialog ============ */
+
+  function openResearchDialog(topic, content) {
+    var dialog = document.getElementById('pub-dialog');
+    if (!dialog) return;
+    document.getElementById('pub-dialog-journal').textContent = 'Research Focus';
+    document.getElementById('pub-dialog-title').textContent = topic.title;
+    document.getElementById('pub-dialog-abstract').textContent = content.detail;
+
+    var meta = document.getElementById('pub-dialog-meta');
+    meta.innerHTML = '';
+    (content.related || []).forEach(function (tag) { meta.appendChild(ce('span', {}, [tag])); });
+
+    var actions = document.getElementById('pub-dialog-actions');
+    actions.innerHTML = '';
+    var btn = ce('button', { className: 'btn btn--primary', onClick: function () {
+      dialog.close();
+      document.getElementById('publications').scrollIntoView({ behavior: 'smooth' });
+      var search = document.getElementById('pub-search');
+      if (search) { search.value = topic.title; search.dispatchEvent(new Event('input')); }
+    } }, ['View Related Publications']);
+    actions.appendChild(btn);
+    actions.appendChild(ce('button', { className: 'btn btn--outline', onClick: function () { dialog.close(); } }, ['Close']));
+
+    dialog.showModal();
+    dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); }, { once: true });
   }
 
   /* ============ Publications ============ */

@@ -772,6 +772,7 @@ ul { list-style: none; }
   transition: all var(--transition-slow);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .research-card::before {
