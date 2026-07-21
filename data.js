@@ -46,6 +46,13 @@ const RESUME_DATA = {
 
   experience: [
     {
+      role: "Assistant Professor",
+      organization: "School of Science and Humanities, Department of Basic Science (Biotechnology), SR University",
+      location: "Warangal, India",
+      period: "Jul 2026 - Present",
+      details: "Appointed as Assistant Professor in the Department of Basic Science (Biotechnology), School of Science and Humanities at SR University, Warangal. Responsible for teaching and research in biotechnology and allied life sciences."
+    },
+    {
       role: "Adjunct Professor",
       organization: "Academy of Maritime Education and Training (AMET) Deemed to be University",
       location: "Chennai, Tamil Nadu, India",

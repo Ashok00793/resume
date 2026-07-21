@@ -408,6 +408,7 @@
     ];
 
     var expOrder = [
+      'Assistant Professor',
       'Adjunct Professor',
       'Post-Doctoral Researcher',
       'Research Fellow',
@@ -441,8 +442,8 @@
       });
     }
 
-    renderSection('Academic Path', eduItems);
     renderSection('Professional Experience', expItems);
+    renderSection('Academic Path', eduItems);
   }
 
   /* ============ Skills ============ */
