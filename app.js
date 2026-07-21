@@ -219,7 +219,7 @@
     var icons = [SVG_ICONS.dna, SVG_ICONS.flask, SVG_ICONS.cell, SVG_ICONS.leaf];
     var themes = [
       { title: 'Cell-Surface Display', desc: 'Engineered E. coli surface display via outer membrane protein anchors (OmpC, YiaT) for selective heavy metal binding and whole-cell biocatalysis.', tags: ['Peptide display', 'Metal selectivity', 'Biocatalysis'] },
-      { title: 'Nanomaterial Synthesis', desc: 'Green, chemical, and microbial routes to functional nanoparticles (Co3O4, NiO, Ag) for photocatalytic wastewater treatment and anticancer applications.', tags: ['Co3O4 NPs', 'NiO NPs', 'Photocatalysis'] },
+      { title: 'Nanomaterial Synthesis', desc: 'Green, chemical, and microbial routes to functional nanoparticles (Co3O4, NiO, Ag) for photocatalytic wastewater treatment and anticancer applications.', tags: ['Co₃O₄ NPs', 'NiO NPs', 'Photocatalysis'] },
       { title: 'Metabolic Engineering', desc: 'Pathway colocalization via synthetic protein scaffolds for high-yield bioproduction of L-serine, GABA, and malic acid in recombinant E. coli.', tags: ['Protein scaffolds', 'Amino acids', 'Flux optimization'] },
       { title: 'Waste Valorization & Biomaterials', desc: 'Converting agricultural waste into high-performance bacterial cellulose membranes and engineering P. denitrificans for sustainable biopolymer production.', tags: ['Bacterial cellulose', 'P3HP', '~40% improvement'] }
     ];
