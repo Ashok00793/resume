@@ -739,7 +739,7 @@
 
     if (anyUpdate || changed) {
       var s = D.personal.stats;
-      s.i10Index = computeI10();
+      s.i10Index = 5;
       var container = document.getElementById('hero-stats');
       if (container) {
         container.innerHTML = '';
