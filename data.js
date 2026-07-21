@@ -8,7 +8,7 @@ const RESUME_DATA = {
     linkedin: "https://www.linkedin.com/in/ashokkumar-kumeravel",
     scopusId: "57515216700",
     stats: {
-      citations: 168,
+      citations: 169,
       hIndex: 7,
       i10Index: 5,
       totalPublications: 12
@@ -153,8 +153,8 @@ const RESUME_DATA = {
     { q: ["what is your research about", "tell me about your research", "what do you research", "research focus"], a: "My research focuses on microbial cell surface display engineering, metabolic pathway design, and green synthesis of functional nanoparticles. I work on bioremediation of heavy metals, sustainable biopolymer production, and photocatalytic degradation of environmental pollutants." },
     { q: ["what is your phd about", "phd topic", "phd research", "doctoral research"], a: "My PhD at the University of Ulsan specialized in microbial cell surface display (MCSD), metabolic pathway engineering, and green synthesis of functional metal nanoparticles for bioremediation and cancer therapies. I achieved a 94% grade under Prof. Dr. Soon Ho Hong." },
     { q: ["where did you do your postdoc", "postdoc", "post doctoral", "unist"], a: "I completed a Post-Doctoral position at UNIST (Ulsan National Institute of Science and Technology) from Aug 2025 to Feb 2026, where I engineered Pseudomonas denitrificans for efficient biosynthesis of Poly(3-hydroxypropionate) from glycerol and gluconate." },
-    { q: ["publications", "papers", "articles", "how many papers"], a: "I have 12 peer-reviewed publications with 168 citations, an h-index of 7, and an i10-index of 5. My work spans bioremediation, nanoparticle synthesis, metabolic engineering, and biomaterials." },
-    { q: ["what is your h-index", "h index", "citations"], a: "My h-index is 7 with 168 total citations and an i10-index of 5. Citation data is sourced from Google Scholar." },
+    { q: ["publications", "papers", "articles", "how many papers"], a: "I have 12 peer-reviewed publications with 169 citations, an h-index of 7, and an i10-index of 5. My work spans bioremediation, nanoparticle synthesis, metabolic engineering, and biomaterials." },
+    { q: ["what is your h-index", "h index", "citations"], a: "My h-index is 7 with 169 total citations and an i10-index of 5. Citation data is sourced from Google Scholar." },
     { q: ["skills", "techniques", "what can you do", "expertise", "laboratory"], a: "I specialize in molecular cloning, metabolic engineering, microbial cell culture, nanoparticle synthesis (green/chemical/microbial), ICP-OES, XRD, FTIR, TEM, SEM, XPS, HPLC, GC-MS, Python/R programming, and molecular docking." },
     { q: ["patent", "invention", "intellectual property"], a: "I hold a South Korean patent for 'Synthesis of cobalt oxide nanoparticles by recombinant microorganisms with modified cell surface and their use' (Application No: 10-2023-0122295)." },
     { q: ["awards", "scholarships", "grants", "fellowship"], a: "I received the Taiwan Postdoctoral Fellowship (NSTC), Brain Korea 21 (BK21) National Scholarship, and the Low Carbon Green Energy Project Scholarship from the City of Ulsan." },
