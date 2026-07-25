@@ -720,48 +720,6 @@
   }
 
   function applyLiveMetrics(metrics) {
-    var changed = false;
-    if (metrics.authorHIndex || metrics.authorTotalCitations || metrics.authorWorks) {
-      var s = D.personal.stats;
-      if (metrics.authorHIndex) { s.hIndex = metrics.authorHIndex; changed = true; }
-      if (metrics.authorTotalCitations) { s.citations = metrics.authorTotalCitations; changed = true; }
-      if (metrics.authorWorks) { s.totalPublications = metrics.authorWorks; changed = true; }
-    }
-
-    var anyUpdate = false;
-    D.publications.forEach(function (p) {
-      var doi = (p.doi || '').replace('https://doi.org/', '');
-      if (doi && metrics.citations[doi] !== undefined) {
-        var live = metrics.citations[doi];
-        if (live !== p.citations && live > 0) { p.citations = live; anyUpdate = true; }
-      }
-    });
-
-    if (anyUpdate || changed) {
-      var s = D.personal.stats;
-      s.i10Index = 5;
-      var container = document.getElementById('hero-stats');
-      if (container) {
-        container.innerHTML = '';
-        [
-          { val: s.citations, label: 'Citations' },
-          { val: s.hIndex, label: 'h-index' },
-          { val: s.i10Index, label: 'i10-index' },
-          { val: s.totalPublications, label: 'Publications' }
-        ].forEach(function (item) {
-          container.appendChild(ce('div', { className: 'hero__stat' }, [
-            ce('span', { className: 'hero__stat-value' }, ['' + item.val]),
-            ce('span', { className: 'hero__stat-label' }, [item.label])
-          ]));
-        });
-      }
-      var search = document.getElementById('pub-search');
-      if (search) {
-        var evt = document.createEvent('Event');
-        evt.initEvent('input', true, false);
-        search.dispatchEvent(evt);
-      }
-    }
   }
 
 
