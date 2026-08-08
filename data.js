@@ -5,10 +5,11 @@ const RESUME_DATA = {
     email: "bioashok00793@gmail.com",
     phone: "+91 8438330863",
     orcid: "0000-0002-3669-4986",
+    googleScholar: "https://scholar.google.com/citations?hl=en&user=nnrKxBMAAAAJ&view_op=list_works&sortby=pubdate",
     linkedin: "https://www.linkedin.com/in/ashokkumar-kumeravel",
     scopusId: "57515216700",
     stats: {
-      citations: 170,
+      citations: 180,
       hIndex: 7,
       i10Index: 5,
       totalPublications: 12
@@ -49,14 +50,14 @@ const RESUME_DATA = {
       role: "Assistant Professor",
       organization: "School of Science and Humanities, Department of Basic Science (Biotechnology), SR University",
       location: "Warangal, India",
-      period: "Jul 2026 - Present",
+      period: "Jul 20, 2026 - Present",
       details: "Appointed as Assistant Professor in the Department of Basic Science (Biotechnology), School of Science and Humanities at SR University, Warangal. Responsible for teaching and research in biotechnology and allied life sciences."
     },
     {
       role: "Adjunct Professor",
       organization: "Academy of Maritime Education and Training (AMET) Deemed to be University",
       location: "Chennai, Tamil Nadu, India",
-      period: "Dec 2025 - Present",
+      period: "Dec 19, 2025 - Present",
       details: "Concurrently delivering lectures and mentoring student projects at the Centre for Research and Innovation, focusing on marine biotechnology, eco-friendly nanomaterials, and environmental microbiology."
     },
     {
@@ -153,8 +154,8 @@ const RESUME_DATA = {
     { q: ["what is your research about", "tell me about your research", "what do you research", "research focus"], a: "My research focuses on microbial cell surface display engineering, metabolic pathway design, and green synthesis of functional nanoparticles. I work on bioremediation of heavy metals, sustainable biopolymer production, and photocatalytic degradation of environmental pollutants." },
     { q: ["what is your phd about", "phd topic", "phd research", "doctoral research"], a: "My PhD at the University of Ulsan specialized in microbial cell surface display (MCSD), metabolic pathway engineering, and green synthesis of functional metal nanoparticles for bioremediation and cancer therapies. I achieved a 94% grade under Prof. Dr. Soon Ho Hong." },
     { q: ["where did you do your postdoc", "postdoc", "post doctoral", "unist"], a: "I completed a Post-Doctoral position at UNIST (Ulsan National Institute of Science and Technology) from Aug 2025 to Feb 2026, where I engineered Pseudomonas denitrificans for efficient biosynthesis of Poly(3-hydroxypropionate) from glycerol and gluconate." },
-    { q: ["publications", "papers", "articles", "how many papers"], a: "I have 12 peer-reviewed publications with 170 citations, an h-index of 7, and an i10-index of 5. My work spans bioremediation, nanoparticle synthesis, metabolic engineering, and biomaterials." },
-    { q: ["what is your h-index", "h index", "citations"], a: "My h-index is 7 with 170 total citations and an i10-index of 5. Citation data is sourced from Google Scholar." },
+    { q: ["publications", "papers", "articles", "how many papers"], a: "I have 12 peer-reviewed publications with 180 citations, an h-index of 7, and an i10-index of 5. My work spans bioremediation, nanoparticle synthesis, metabolic engineering, and biomaterials." },
+    { q: ["what is your h-index", "h index", "citations"], a: "My h-index is 7 with 180 total citations and an i10-index of 5. Citation data is sourced from Google Scholar." },
     { q: ["skills", "techniques", "what can you do", "expertise", "laboratory"], a: "I specialize in molecular cloning, metabolic engineering, microbial cell culture, nanoparticle synthesis (green/chemical/microbial), ICP-OES, XRD, FTIR, TEM, SEM, XPS, HPLC, GC-MS, Python/R programming, and molecular docking." },
     { q: ["patent", "invention", "intellectual property"], a: "I hold a South Korean patent for 'Synthesis of cobalt oxide nanoparticles by recombinant microorganisms with modified cell surface and their use' (Application No: 10-2023-0122295)." },
     { q: ["awards", "scholarships", "grants", "fellowship"], a: "I received the Taiwan Postdoctoral Fellowship (NSTC), Brain Korea 21 (BK21) National Scholarship, and the Low Carbon Green Energy Project Scholarship from the City of Ulsan." },
@@ -260,6 +261,12 @@ const RESUME_DATA = {
       status: "Published"
     },
     {
+      title: "Data Security and Blockchain Integration in Quantum Pharmaceutical Research",
+      authors: "Sivaramakrishnan Ramachandiran, Ashokkumar Kumaravel, Saranya S.",
+      publisher: "Quantum Computing in Drug Discovery: The Future of Pharmaceutical Simulations, Cambridge Scholars Publishing",
+      status: "Published"
+    },
+    {
       title: "The Role of Fusobacterium in Biofilm Development: A Central Bridge to Pathogenesis",
       authors: "Ashokkumar Kumaravel, Saranya Shanmugasundaram, Likha Chandran, Senthamil Selvi Poongavanam",
       publisher: "Scopus Indexed",
@@ -274,18 +281,6 @@ const RESUME_DATA = {
     {
       title: "Microplastics and Organic Pollutants: Accumulation, Bioavailability, and Ecological Consequences in Coastal and Estuarine Systems",
       authors: "Sriya D., Ashokkumar Kumaravel, Saranya Shanmugasundaram",
-      publisher: "Scopus Indexed",
-      status: "In Progress"
-    },
-    {
-      title: "MicroRNA-Edited Gut Microbiota as an Epigenetic Vector",
-      authors: "Kotthapalli Prashanth, Ashokumar Kumaravel, Y. Aparna, S. Anju, Laurent Dufosse, Jamil Talukder, Sumana Kumar",
-      publisher: "Scopus Indexed",
-      status: "In Progress"
-    },
-    {
-      title: "Post-COVID-19 Era: A Bloom in Antibiotic Resistance in Microbial Community",
-      authors: "Ashokkumar Kumaravel, K. Anuradha, Shalini Rachel, Kotthapalli Prashanth, Sumana Kumar",
       publisher: "Scopus Indexed",
       status: "In Progress"
     }
