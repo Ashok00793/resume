@@ -245,6 +245,7 @@
 
     themes.forEach(function (t, i) {
       var card = ce('div', { className: 'research-card', onClick: function () { openResearchDialog(t, contentMap[i]); } }, [
+        ce('span', { className: 'research-card__number' }, ['0' + (i + 1)]),
         ce('div', { className: 'research-card__icon' }, [
           ce('div', { innerHTML: icons[i] })
         ]),
@@ -252,7 +253,8 @@
         ce('p', { className: 'research-card__desc' }, [t.desc]),
         ce('div', { className: 'research-card__tags' }, t.tags.map(function (tag) {
           return ce('span', { className: 'research-card__tag' }, [tag]);
-        }))
+        })),
+        ce('span', { className: 'research-card__explore' }, ['Explore focus', ce('span', { 'aria-hidden': 'true' }, ['→'])])
       ]);
       card.setAttribute('tabindex', '0');
       card.setAttribute('role', 'button');
@@ -331,8 +333,11 @@
           if (p.autoDetected) tagsEl.unshift(ce('span', { className: 'pub-card__tag pub-card__tag--auto' }, ['auto']));
           var ifBadge = p.impactFactor ? ce('span', { className: 'pub-card__if' }, ['IF: ' + p.impactFactor + (p.quartile ? ' ' + p.quartile : '')]) : null;
           list.appendChild(ce('div', { className: 'pub-card' }, [
-            ce('button', { className: 'pub-card__title' + (p.autoDetected ? ' pub-card__title--auto' : ''), onClick: function () { openDialog(p); } }, [p.title]),
-            ce('p', { className: 'pub-card__journal' }, [p.journal + ' (' + p.year + ')']),
+            ce('div', { className: 'pub-card__heading' }, [
+              ce('span', { className: 'pub-card__year' }, ['' + p.year]),
+              ce('button', { className: 'pub-card__title' + (p.autoDetected ? ' pub-card__title--auto' : ''), onClick: function () { openDialog(p); } }, [p.title])
+            ]),
+            ce('p', { className: 'pub-card__journal' }, [p.journal]),
             ce('div', { className: 'pub-card__meta' }, tagsEl.concat([
               ce('span', { className: 'pub-card__citations' }, [p.citations + ' cites']),
               ifBadge
@@ -788,77 +793,6 @@
     input.addEventListener('keydown', function (e) { if (e.key === 'Enter') handleSend(); });
   }
 
-  /* ============ Animated Stat Counters ============ */
-
-  function initAnimatedCounters() {
-    var statsEl = document.getElementById('hero-stats');
-    if (!statsEl) return;
-    var s = D.personal.stats;
-    var items = [
-      { val: s.citations, label: 'Citations' },
-      { val: s.hIndex, label: 'h-index' },
-      { val: s.i10Index, label: 'i10-index' },
-      { val: s.totalPublications, label: 'Publications' }
-    ];
-
-    statsEl.innerHTML = '';
-    var valueEls = [];
-    items.forEach(function (item) {
-      var stat = document.createElement('div');
-      stat.className = 'hero__stat';
-      var valEl = document.createElement('span');
-      valEl.className = 'hero__stat-value';
-      valEl.textContent = '0';
-      var labEl = document.createElement('span');
-      labEl.className = 'hero__stat-label';
-      labEl.textContent = item.label;
-      stat.appendChild(valEl);
-      stat.appendChild(labEl);
-      statsEl.appendChild(stat);
-      valueEls.push({ el: valEl, target: item.val, current: 0 });
-    });
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          observer.unobserve(entry.target);
-          valueEls.forEach(function (v) {
-            var duration = 1200;
-            var start = performance.now();
-            function step(now) {
-              var p = Math.min((now - start) / duration, 1);
-              var eased = 1 - Math.pow(1 - p, 3);
-              v.current = Math.round(eased * v.target);
-              v.el.textContent = v.current;
-              if (p < 1) requestAnimationFrame(step);
-            }
-            requestAnimationFrame(step);
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-    observer.observe(statsEl);
-  }
-
-  /* ============ Magnetic Hover on Buttons ============ */
-
-  function initMagneticHover() {
-    document.querySelectorAll('.btn, .btn-text').forEach(function (btn) {
-      btn.addEventListener('mousemove', function (e) {
-        var rect = btn.getBoundingClientRect();
-        var x = e.clientX - rect.left - rect.width / 2;
-        var y = e.clientY - rect.top - rect.height / 2;
-        var dist = Math.sqrt(x * x + y * y);
-        var maxDist = 60;
-        var strength = Math.max(0, 1 - dist / maxDist) * 6;
-        btn.style.transform = 'translate(' + (x * strength / 30) + 'px, ' + (y * strength / 30) + 'px)';
-      });
-      btn.addEventListener('mouseleave', function () {
-        btn.style.transform = '';
-      });
-    });
-  }
-
   /* ============ Scroll Progress ============ */
 
   function initProgressBar() {
@@ -904,8 +838,6 @@
     renderScholarCard('projects-list', null, renderProjects);
     renderScholarCard('bookchapters-list', null, renderBookChapters);
     initChat();
-    initAnimatedCounters();
-    initMagneticHover();
     initReveal();
     fetchLiveMetrics();
     fetchNewPapers();
