@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dr. Ashokkumar Kumaravel | Biotechnology Research</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="description" content="Research portfolio of Assistant Professor Dr. Ashokkumar Kumaravel at SR University — microbial cell-surface display, metabolic engineering, bio-nanomaterials, and sustainable bioprocessing.">
   <meta property="og:title" content="Dr. Ashokkumar Kumaravel | Biotechnology Research">
   <meta property="og:description" content="Engineering microbes into platforms for cleaner industry and functional biomaterials.">
@@ -27,11 +28,12 @@
       <nav class="header__nav" id="header-nav" aria-label="Main navigation">
         <a href="#research" class="header__link">Research</a>
         <a href="#publications" class="header__link">Publications</a>
+        <a href="#scholar-impact" class="header__link">Scholar Impact</a>
         <a href="#experience" class="header__link">Experience</a>
         <a href="#skills" class="header__link">Skills</a>
         <a href="#contact" class="header__link">Contact</a>
       </nav>
-      <button class="header__toggle" id="header-toggle" type="button" aria-label="Menu">
+      <button class="header__toggle" id="header-toggle" type="button" aria-label="Menu" aria-controls="header-nav" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -72,6 +74,17 @@
           <h2 class="section__title">Research Focus</h2>
           <p class="section__subtitle">Four connected research lines converging on scalable biological solutions for environmental and industrial challenges.</p>
         </div>
+        <div class="research-atlas" id="research-atlas">
+          <div class="research-atlas__intro">
+            <span class="research-atlas__eyebrow">Research compass</span>
+            <h3>Four lenses on one question: how can biology solve environmental problems?</h3>
+            <p>Each research line is a different entry point into the same translational mission — engineer a system, make it useful, and return a measurable benefit.</p>
+            <div class="research-atlas__stats" id="research-stats"></div>
+          </div>
+          <div class="research-atlas__thread" aria-label="Research translation thread">
+            <span>Microbes</span><b aria-hidden="true">→</b><span>Materials</span><b aria-hidden="true">→</b><span>Systems</span>
+          </div>
+        </div>
         <div class="research-grid" id="research-grid"></div>
       </div>
     </section>
@@ -83,81 +96,225 @@
           <h2 class="section__title">Publications</h2>
           <p class="section__subtitle">Peer-reviewed articles in high-impact journals spanning bioremediation, metabolic engineering, nanomaterials, and biomaterials.</p>
         </div>
-        <div class="pub-controls" id="pub-controls">
-          <div class="pub-controls__row">
-            <input type="search" id="pub-search" placeholder="Search by title, journal, or keyword..." autocomplete="off">
-            <select id="pub-filter"><option value="all">All Topics</option></select>
-            <select id="pub-sort">
-              <option value="year">Sort: Year</option>
-              <option value="citations">Sort: Citations</option>
-              <option value="impact">Sort: Impact Factor</option>
-            </select>
+        <div class="publication-studio" id="publication-studio">
+          <div class="publication-studio__intro">
+            <div>
+              <span class="publication-studio__eyebrow">Publication library</span>
+              <h3>Evidence, organized for exploration.</h3>
+              <p>Search, sort, and open any paper to move from a citation signal to the underlying research story.</p>
+            </div>
+            <div class="publication-studio__stats" id="publication-stats"></div>
           </div>
-          <div class="pub-controls__info">
-            <span id="pub-count">Loading...</span>
-            <button class="btn-text" id="pub-reset" type="button">Reset Filters</button>
+          <div class="pub-controls" id="pub-controls">
+            <div class="pub-controls__row">
+              <input type="search" id="pub-search" placeholder="Search by title, journal, or keyword..." aria-label="Search publications" autocomplete="off">
+              <select id="pub-filter" aria-label="Filter publications by topic"><option value="all">All Topics</option></select>
+              <select id="pub-sort" aria-label="Sort publications">
+                <option value="year">Sort: Year</option>
+                <option value="citations">Sort: Citations</option>
+                <option value="impact">Sort: Impact Factor</option>
+              </select>
+            </div>
+            <div class="pub-controls__info">
+              <span id="pub-count">Loading...</span>
+              <button class="btn-text" id="pub-reset" type="button">Reset Filters</button>
+            </div>
+          </div>
+          <div class="pub-list" id="pub-list" role="list" aria-label="Publication records"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="scholar-impact" aria-labelledby="scholar-impact-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__number">03</span>
+          <h2 class="section__title" id="scholar-impact-title">Scholar Impact</h2>
+          <p class="section__subtitle">A transparent view of research reach, with the source and verification date kept visible.</p>
+        </div>
+        <div class="impact-layout">
+          <div class="impact-summary">
+            <span class="impact-summary__eyebrow">Verified snapshot</span>
+            <h3>Research reach, clearly labelled.</h3>
+            <p>Headline metrics come from the public Google Scholar profile; publication-level bars are a separate portfolio view.</p>
+            <div class="impact-summary__source-row">
+              <a id="impact-source-link" href="https://scholar.google.com/citations?hl=en&amp;user=nnrKxBMAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener noreferrer" data-scholar-source="Google Scholar">Google Scholar profile</a>
+              <span data-scholar-verified>Verified 24 Sep 2026</span>
+            </div>
+            <div class="impact-summary__metrics" id="impact-metrics"></div>
+            <button class="btn btn--outline impact-copy" id="impact-copy" type="button">Copy profile summary</button>
+            <span class="impact-copy-status" id="impact-copy-status" aria-live="polite"></span>
+          </div>
+          <div class="impact-card">
+            <div class="impact-card__header">
+              <div>
+                <span class="impact-card__eyebrow">Citation explorer</span>
+                <h3>Where the attention is landing</h3>
+              </div>
+              <span class="impact-card__hint">Top cited works</span>
+            </div>
+            <div class="impact-list" id="impact-list" role="list" aria-label="Top cited publications"></div>
+            <p class="impact-note">Publication-level citation counts are a portfolio snapshot and may differ from Scholar totals.</p>
           </div>
         </div>
-        <div class="pub-list" id="pub-list"></div>
       </div>
     </section>
 
     <section class="section" id="experience">
       <div class="container">
         <div class="section__header">
-          <span class="section__number">03</span>
+          <span class="section__number">04</span>
           <h2 class="section__title">Professional &amp; Academic Journey</h2>
-          <p class="section__subtitle">Research and teaching experience across India, South Korea, and Taiwan.</p>
+          <p class="section__subtitle">A career arc from microbial engineering foundations to translational research, teaching, and academic leadership.</p>
         </div>
-        <div class="timeline" id="timeline"></div>
+        <div class="journey-overview" id="journey-overview">
+          <div class="journey-overview__copy">
+            <span class="journey-overview__eyebrow">Career arc</span>
+            <h3>Building biological systems that move from the bench to the world.</h3>
+            <p>Each chapter adds a new layer: microbial engineering foundations, translational experimentation, and the communication needed to teach and lead.</p>
+          </div>
+          <div class="journey-overview__steps" aria-label="Career arc milestones">
+            <div class="journey-step">
+              <span class="journey-step__index">01</span>
+              <strong>Foundation</strong>
+              <small>B.Sc. → M.Sc.</small>
+            </div>
+            <div class="journey-step">
+              <span class="journey-step__index">02</span>
+              <strong>Translation</strong>
+              <small>Ph.D. → Postdoc</small>
+            </div>
+            <div class="journey-step">
+              <span class="journey-step__index">03</span>
+              <strong>Leadership</strong>
+              <small>Research → Teaching</small>
+            </div>
+          </div>
+        </div>
+        <div class="journey-controls" role="group" aria-label="Filter journey entries">
+          <span class="journey-controls__label">View</span>
+          <button class="journey-filter is-active" data-journey-filter="all" type="button" aria-pressed="true">All</button>
+          <button class="journey-filter" data-journey-filter="research" type="button" aria-pressed="false">Research</button>
+          <button class="journey-filter" data-journey-filter="teaching" type="button" aria-pressed="false">Teaching</button>
+          <button class="journey-filter" data-journey-filter="academic" type="button" aria-pressed="false">Academic</button>
+          <span class="journey-count" id="journey-count" aria-live="polite">8 entries shown</span>
+        </div>
+        <div class="journey-board" id="journey-board" role="region" aria-label="Professional and academic journey entries"></div>
       </div>
     </section>
 
     <section class="section section--alt" id="skills">
       <div class="container">
         <div class="section__header">
-          <span class="section__number">04</span>
+          <span class="section__number">05</span>
           <h2 class="section__title">Technical Skills</h2>
-          <p class="section__subtitle">Bench, analytical, and computational capabilities for translational biotechnology research.</p>
+          <p class="section__subtitle">A capability atlas connecting molecular biology, materials science, analytical tools, and computational practice.</p>
         </div>
-        <div class="skills-layout">
-          <div class="proficiency-card" id="proficiency-card">
-            <h3 class="proficiency-card__title">Core Proficiency</h3>
+        <div class="skills-atlas" id="skills-atlas">
+          <div class="skills-atlas__intro">
+            <span class="skills-atlas__eyebrow">Capability atlas</span>
+            <h3>Benchcraft meets computational clarity.</h3>
+            <p>From engineered microbes to interpretable data, these capabilities support research that moves between the lab, the environment, and the clinic.</p>
+            <div class="skills-atlas__stats" id="skills-atlas-stats"></div>
+          </div>
+          <div class="skills-atlas__signal">
+            <div class="skills-atlas__signal-head">
+              <div>
+                <span class="skills-atlas__eyebrow">Core proficiency</span>
+                <h3>Signals of practice</h3>
+              </div>
+              <span class="skills-atlas__signal-note">Self-assessed</span>
+            </div>
             <div class="proficiency-bars" id="proficiency-bars"></div>
           </div>
-          <div class="skills-grid" id="skills-grid"></div>
         </div>
+        <div class="skills-grid" id="skills-grid"></div>
       </div>
     </section>
 
     <section class="section" id="scholarly">
       <div class="container">
         <div class="section__header">
-          <span class="section__number">05</span>
+          <span class="section__number">06</span>
           <h2 class="section__title">Awards, Patent &amp; Scholarly Output</h2>
-          <p class="section__subtitle">Recognition, intellectual property, and scientific contributions.</p>
+          <p class="section__subtitle">An evidence studio for recognition, intellectual property, dissemination, and the tools built along the way.</p>
         </div>
-        <div class="scholarly-grid">
-          <div class="scholarly-card">
-            <h3 class="scholarly-card__title">Awards &amp; Scholarships</h3>
-            <div id="awards-list"></div>
+        <div class="scholarly-studio" id="scholarly-studio">
+          <div class="scholarly-studio__intro">
+            <div>
+              <span class="scholarly-studio__eyebrow">Evidence lab</span>
+              <h3>Ideas become contributions.</h3>
+              <p>Recognition, open knowledge, and practical tools show how a research practice grows beyond a single result.</p>
+            </div>
+            <div class="scholarly-studio__stats" id="scholarly-stats"></div>
           </div>
-          <div class="scholarly-card">
-            <h3 class="scholarly-card__title">Patent</h3>
-            <div id="patent-content"></div>
+          <nav class="scholarly-index" id="scholarly-index" aria-label="Scholarly output sections">
+            <a href="#scholarly-awards"><span>01</span> Recognition</a>
+            <a href="#scholarly-patent"><span>02</span> Intellectual property</a>
+            <a href="#scholarly-conferences"><span>03</span> Proceedings</a>
+            <a href="#scholarly-chapters"><span>04</span> Book chapters</a>
+            <a href="#scholarly-projects"><span>05</span> Computational projects</a>
+          </nav>
+          <div class="scholarly-layout">
+            <div class="scholarly-layout__column scholarly-layout__column--primary">
+              <section class="scholarly-panel scholarly-panel--awards" id="scholarly-awards">
+                <div class="scholarly-panel__head">
+                  <span class="scholarly-panel__number">01</span>
+                  <div>
+                    <span class="scholarly-panel__eyebrow">Recognition</span>
+                    <h3>Awards &amp; Scholarships</h3>
+                  </div>
+                  <span class="scholarly-panel__count" id="awards-count"></span>
+                </div>
+                <div class="scholarly-list" id="awards-list"></div>
+              </section>
+              <section class="scholarly-panel scholarly-panel--patent" id="scholarly-patent">
+                <div class="scholarly-panel__head">
+                  <span class="scholarly-panel__number">02</span>
+                  <div>
+                    <span class="scholarly-panel__eyebrow">Intellectual property</span>
+                    <h3>Patent</h3>
+                  </div>
+                  <span class="scholarly-panel__status">Published</span>
+                </div>
+                <div id="patent-content"></div>
+              </section>
+            </div>
+            <div class="scholarly-layout__column scholarly-layout__column--secondary">
+              <section class="scholarly-panel scholarly-panel--conferences" id="scholarly-conferences">
+                <div class="scholarly-panel__head">
+                  <span class="scholarly-panel__number">03</span>
+                  <div>
+                    <span class="scholarly-panel__eyebrow">Dissemination</span>
+                    <h3>Conference Proceedings</h3>
+                  </div>
+                  <span class="scholarly-panel__count" id="conference-count"></span>
+                </div>
+                <div class="scholarly-accordion" id="conferences-list"></div>
+              </section>
+              <section class="scholarly-panel scholarly-panel--chapters" id="scholarly-chapters">
+                <div class="scholarly-panel__head">
+                  <span class="scholarly-panel__number">04</span>
+                  <div>
+                    <span class="scholarly-panel__eyebrow">Open knowledge</span>
+                    <h3>Book Chapters</h3>
+                  </div>
+                  <span class="scholarly-panel__count" id="chapter-count"></span>
+                </div>
+                <div class="scholarly-accordion" id="bookchapters-list"></div>
+              </section>
+            </div>
           </div>
-          <div class="scholarly-card">
-            <h3 class="scholarly-card__title">Conference Proceedings</h3>
-            <div id="conferences-list"></div>
-          </div>
-          <div class="scholarly-card">
-            <h3 class="scholarly-card__title">Book Chapters</h3>
-            <div id="bookchapters-list"></div>
-          </div>
-          <div class="scholarly-card scholarly-card--full">
-            <h3 class="scholarly-card__title">Computational Projects</h3>
-            <div id="projects-list"></div>
-          </div>
+          <section class="scholarly-projects" id="scholarly-projects">
+            <div class="scholarly-projects__head">
+              <div>
+                <span class="scholarly-panel__eyebrow">Build layer</span>
+                <h3>Computational Projects</h3>
+              </div>
+              <span class="scholarly-panel__count" id="project-count"></span>
+            </div>
+            <div class="project-grid" id="projects-list"></div>
+          </section>
         </div>
       </div>
     </section>
@@ -166,7 +323,7 @@
       <div class="container">
         <div class="contact-layout">
           <div class="contact__content">
-            <span class="section__number">06</span>
+            <span class="section__number">07</span>
             <h2 class="section__title">Get in Touch</h2>
             <p class="section__subtitle">Open to research collaborations, academic discussions, and partnership opportunities in microbial engineering and sustainable biotechnology.</p>
           </div>

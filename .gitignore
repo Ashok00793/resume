@@ -5,3 +5,8 @@ Thumbs.db
 .gemini/
 *.docx
 .*.docx
+
+# Ignore local tool artifacts
+.codebase-memory/
+.playwright-mcp/
+quillbot_mcp.log

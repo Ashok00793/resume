@@ -113,7 +113,11 @@
     bio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="2.5"/></svg>',
     gear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>',
     dock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M4 4h3l5 8-5 8H4l5-8-5-8z"/><path d="M13 4h3l5 8-5 8h-3l5-8-5-8z"/><path d="M13 12h4" opacity="0.5"/></svg>',
-    cpu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M1 9h3"/><path d="M1 15h3"/><path d="M20 9h3"/><path d="M20 15h3"/></svg>'
+    cpu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M1 9h3"/><path d="M1 15h3"/><path d="M20 9h3"/><path d="M20 15h3"/></svg>',
+    award: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 22l5-3 5 3-1.5-9.5"/><path d="m10 8 1.3 1.3L14 6.7"/></svg>',
+    patent: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M15 3v4h4"/><path d="M9 12h6M9 16h6"/><path d="M9 8h2"/></svg>',
+    book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5A2.5 2.5 0 0 1 20 21z"/></svg>',
+    presentation: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8M7 8h10M7 11h6"/></svg>'
   };
 
   /* ============ DOM Helper ============ */
@@ -174,8 +178,8 @@
   /* ============ Scroll Reveal ============ */
 
   function initReveal() {
-    var els = document.querySelectorAll('.research-card, .pub-card, .timeline-item__card, .skill-card, .scholarly-card, .project-card, .contact__link, .proficiency-card, .section__header');
-    document.querySelectorAll('.research-grid, .pub-list, .skills-grid, .scholarly-grid').forEach(function(g) { g.classList.add('reveal-stagger'); });
+    var els = document.querySelectorAll('.research-atlas, .research-atlas__thread, .research-card, .publication-studio__intro, .pub-card, .journey-overview, .journey-controls, .skills-atlas, .skill-card, .proficiency-card, .scholarly-studio__intro, .scholarly-panel, .scholarly-entry, .project-card, .contact__link, .impact-summary, .impact-card, .section__header');
+    document.querySelectorAll('.research-grid, .pub-list, .skills-grid, .project-grid, .scholarly-layout, .impact-layout').forEach(function(g) { g.classList.add('reveal-stagger'); });
     if (!els.length) return;
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -210,20 +214,124 @@
     });
   }
 
+  function formatSnapshotDate(value) {
+    if (!value) return 'Verification date unavailable';
+    var parts = value.split('-');
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    if (parts.length !== 3 || !months[Number(parts[1]) - 1]) return 'Verified ' + value;
+    return 'Verified ' + Number(parts[2]) + ' ' + months[Number(parts[1]) - 1] + ' ' + parts[0];
+  }
+
+  function copyProfileSummary(snapshot, status) {
+    var text = 'Dr. Ashokkumar Kumaravel | ' + snapshot.citations + ' citations | h-index ' + snapshot.hIndex + ' | i10-index ' + snapshot.i10Index;
+    function copied() {
+      if (!status) return;
+      status.textContent = 'Summary copied';
+      window.setTimeout(function () { status.textContent = ''; }, 2400);
+    }
+    function fallback() {
+      var textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      var success = false;
+      try { success = document.execCommand('copy'); } catch (_) {}
+      document.body.removeChild(textarea);
+      if (success) copied();
+      else if (status) status.textContent = 'Copy unavailable';
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(copied).catch(fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  function renderScholarImpact() {
+    var metricsContainer = document.getElementById('impact-metrics');
+    var list = document.getElementById('impact-list');
+    var sourceLink = document.getElementById('impact-source-link');
+    var verified = document.querySelector('[data-scholar-verified]');
+    var copyButton = document.getElementById('impact-copy');
+    var copyStatus = document.getElementById('impact-copy-status');
+    if (!metricsContainer || !list) return;
+
+    var stats = D.personal && D.personal.stats ? D.personal.stats : {};
+    var snapshot = D.scholarSnapshot || {
+      citations: stats.citations || 0,
+      hIndex: stats.hIndex || 0,
+      i10Index: stats.i10Index || 0,
+      profileUrl: D.personal && D.personal.googleScholar
+    };
+    var metrics = [
+      { value: snapshot.citations || 0, label: 'Citations' },
+      { value: snapshot.hIndex || 0, label: 'h-index' },
+      { value: snapshot.i10Index || 0, label: 'i10-index' }
+    ];
+    metricsContainer.innerHTML = '';
+    metrics.forEach(function (metric) {
+      metricsContainer.appendChild(ce('div', { className: 'impact-metric' }, [
+        ce('span', { className: 'impact-metric__value' }, ['' + metric.value]),
+        ce('span', { className: 'impact-metric__label' }, [metric.label])
+      ]));
+    });
+    if (sourceLink && snapshot.profileUrl) sourceLink.setAttribute('href', snapshot.profileUrl);
+    if (verified) verified.textContent = formatSnapshotDate(snapshot.verifiedOn);
+
+    var publications = Array.isArray(D.publications) ? D.publications.slice().sort(function (a, b) {
+      return (b.citations || 0) - (a.citations || 0);
+    }).slice(0, 5) : [];
+    var maxCitations = publications.reduce(function (max, publication) {
+      return Math.max(max, publication.citations || 0);
+    }, 0);
+    list.innerHTML = '';
+    if (publications.length === 0) {
+      list.appendChild(ce('p', { className: 'impact-list__empty' }, ['Publication citation data is not available yet.']));
+    } else {
+      publications.forEach(function (publication) {
+        var citations = publication.citations || 0;
+        var width = citations && maxCitations ? Math.max(8, Math.round(citations / maxCitations * 100)) : 0;
+        var track = ce('div', {
+          className: 'impact-row__track',
+          role: 'progressbar',
+          'aria-label': publication.title + ' citations',
+          'aria-valuemin': '0',
+          'aria-valuemax': '' + maxCitations,
+          'aria-valuenow': '' + citations
+        }, [ce('span', { className: 'impact-row__fill', style: 'width: ' + width + '%' }, [])]);
+        list.appendChild(ce('article', { className: 'impact-row', role: 'listitem' }, [
+          ce('div', { className: 'impact-row__top' }, [
+            ce('button', { className: 'impact-row__title', type: 'button', onClick: function () { openDialog(publication); } }, [publication.title]),
+            ce('span', { className: 'impact-row__count' }, [citations + ' cites'])
+          ]),
+          track,
+          ce('div', { className: 'impact-row__meta' }, [(publication.journal || 'Publication') + ' · ' + (publication.year || '—')])
+        ]));
+      });
+    }
+    if (copyButton && copyButton.getAttribute('data-bound') !== 'true') {
+      copyButton.setAttribute('data-bound', 'true');
+      copyButton.addEventListener('click', function () { copyProfileSummary(snapshot, copyStatus); });
+    }
+  }
+
   /* ============ Research Grid ============ */
 
   function renderResearch() {
     var grid = document.getElementById('research-grid');
+    var statsContainer = document.getElementById('research-stats');
     if (!grid) return;
 
     var icons = [SVG_ICONS.dna, SVG_ICONS.flask, SVG_ICONS.cell, SVG_ICONS.leaf];
     var themes = [
-      { title: 'Cell-Surface Display', desc: 'Engineered E. coli surface display via outer membrane protein anchors (OmpC, YiaT) for selective heavy metal binding and whole-cell biocatalysis.', tags: ['Peptide display', 'Metal selectivity', 'Biocatalysis'] },
-      { title: 'Nanomaterial Synthesis', desc: 'Green, chemical, and microbial routes to functional nanoparticles (Co3O4, NiO, Ag) for photocatalytic wastewater treatment and anticancer applications.', tags: ['Co₃O₄ NPs', 'NiO NPs', 'Photocatalysis'] },
-      { title: 'Metabolic Engineering', desc: 'Pathway colocalization via synthetic protein scaffolds for high-yield bioproduction of L-serine, GABA, and malic acid in recombinant E. coli.', tags: ['Protein scaffolds', 'Amino acids', 'Flux optimization'] },
-      { title: 'Waste Valorization & Biomaterials', desc: 'Converting agricultural waste into high-performance bacterial cellulose membranes and engineering P. denitrificans for sustainable biopolymer production.', tags: ['Bacterial cellulose', 'P3HP', '~40% improvement'] }
+      { title: 'Cell-Surface Display', eyebrow: '01 / Engineer the interface', signal: 'Living filtration', desc: 'Engineered E. coli surface display via outer membrane protein anchors (OmpC, YiaT) for selective heavy metal binding and whole-cell biocatalysis.', tags: ['Peptide display', 'Metal selectivity', 'Biocatalysis'] },
+      { title: 'Nanomaterial Synthesis', eyebrow: '02 / Make materials useful', signal: 'Functional matter', desc: 'Green, chemical, and microbial routes to functional nanoparticles (Co3O4, NiO, Ag) for photocatalytic wastewater treatment and anticancer applications.', tags: ['Co₃O₄ NPs', 'NiO NPs', 'Photocatalysis'] },
+      { title: 'Metabolic Engineering', eyebrow: '03 / Redirect the cell', signal: 'Pathway flux', desc: 'Pathway colocalization via synthetic protein scaffolds for high-yield bioproduction of L-serine, GABA, and malic acid in recombinant E. coli.', tags: ['Protein scaffolds', 'Amino acids', 'Flux optimization'] },
+      { title: 'Waste Valorization & Biomaterials', eyebrow: '04 / Close the loop', signal: 'Circular systems', desc: 'Converting agricultural waste into high-performance bacterial cellulose membranes and engineering P. denitrificans for sustainable biopolymer production.', tags: ['Bacterial cellulose', 'P3HP', '~40% improvement'] }
     ];
-
     var contentMap = [
       {
         detail: 'I engineer E. coli to display metal-binding peptides on its outer membrane by fusing them with anchor proteins (OmpC, YiaT). This creates whole-cell biocatalysts that selectively adsorb heavy metals (Ni²+, Co²+) from industrial wastewater — a living filtration platform. The metal-laden biomass can then be calcined into functional metal oxide nanoparticles.',
@@ -243,21 +351,48 @@
       }
     ];
 
-    themes.forEach(function (t, i) {
-      var card = ce('div', { className: 'research-card', onClick: function () { openResearchDialog(t, contentMap[i]); } }, [
-        ce('span', { className: 'research-card__number' }, ['0' + (i + 1)]),
-        ce('div', { className: 'research-card__icon' }, [
-          ce('div', { innerHTML: icons[i] })
+    if (statsContainer) {
+      var snapshot = D.scholarSnapshot || D.personal.stats;
+      var stats = [
+        { value: themes.length, label: 'Research lines' },
+        { value: D.personal.stats.totalPublications, label: 'Portfolio publications' },
+        { value: snapshot.citations, label: 'Scholar citations' }
+      ];
+      statsContainer.innerHTML = '';
+      stats.forEach(function (stat) {
+        statsContainer.appendChild(ce('div', { className: 'research-atlas__stat' }, [
+          ce('strong', {}, [String(stat.value)]),
+          ce('span', {}, [stat.label])
+        ]));
+      });
+    }
+
+    grid.innerHTML = '';
+    themes.forEach(function (theme, index) {
+      var card = ce('article', {
+        className: 'research-card research-card--' + (index + 1),
+        role: 'button',
+        tabindex: '0',
+        'aria-label': 'Explore research focus: ' + theme.title,
+        onClick: function () { openResearchDialog(theme, contentMap[index]); }
+      }, [
+        ce('div', { className: 'research-card__top' }, [
+          ce('span', { className: 'research-card__number' }, [('0' + (index + 1)).slice(-2)]),
+          ce('span', { className: 'research-card__signal' }, [theme.signal])
         ]),
-        ce('h3', { className: 'research-card__title' }, [t.title]),
-        ce('p', { className: 'research-card__desc' }, [t.desc]),
-        ce('div', { className: 'research-card__tags' }, t.tags.map(function (tag) {
-          return ce('span', { className: 'research-card__tag' }, [tag]);
-        })),
-        ce('span', { className: 'research-card__explore' }, ['Explore focus', ce('span', { 'aria-hidden': 'true' }, ['→'])])
+        ce('div', { className: 'research-card__icon' }, [ce('div', { innerHTML: icons[index] })]),
+        ce('span', { className: 'research-card__eyebrow' }, [theme.eyebrow]),
+        ce('h3', { className: 'research-card__title' }, [theme.title]),
+        ce('p', { className: 'research-card__desc' }, [theme.desc]),
+        ce('div', { className: 'research-card__tags' }, theme.tags.map(function (tag) { return ce('span', { className: 'research-card__tag' }, [tag]); })),
+        ce('span', { className: 'research-card__explore' }, ['Open research lens', ce('span', { 'aria-hidden': 'true' }, ['→'])])
       ]);
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('role', 'button');
+      card.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openResearchDialog(theme, contentMap[index]);
+        }
+      });
       grid.appendChild(card);
     });
   }
@@ -286,11 +421,36 @@
     actions.appendChild(btn);
     actions.appendChild(ce('button', { className: 'btn btn--outline', onClick: function () { dialog.close(); } }, ['Close']));
 
+    document.getElementById('pub-dialog-close').onclick = function () { dialog.close(); };
     dialog.showModal();
     dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); }, { once: true });
   }
 
   /* ============ Publications ============ */
+
+  function renderPublicationSummary() {
+    var container = document.getElementById('publication-stats');
+    if (!container) return;
+    var publications = Array.isArray(D.publications) ? D.publications : [];
+    var snapshot = D.scholarSnapshot || D.personal.stats;
+    var latestYear = publications.reduce(function (latest, publication) {
+      return Math.max(latest, publication.year || 0);
+    }, 0);
+    var q1Count = publications.filter(function (publication) { return publication.quartile === 'Q1'; }).length;
+    var stats = [
+      { value: D.personal.stats.totalPublications, label: 'Portfolio works' },
+      { value: snapshot.citations, label: 'Scholar citations' },
+      { value: q1Count, label: 'Q1 articles' },
+      { value: latestYear, label: 'Latest year' }
+    ];
+    container.innerHTML = '';
+    stats.forEach(function (stat) {
+      container.appendChild(ce('div', { className: 'publication-studio__stat' }, [
+        ce('strong', {}, [String(stat.value)]),
+        ce('span', {}, [stat.label])
+      ]));
+    });
+  }
 
   function initPublications() {
     var search = document.getElementById('pub-search');
@@ -302,62 +462,96 @@
     if (!list) return;
 
     var tags = new Set();
-    D.publications.forEach(function (p) { (p.tags || []).forEach(function (t) { tags.add(t); }); });
-    tags.forEach(function (t) {
-      filter.appendChild(ce('option', { value: t.toLowerCase() }, [t]));
+    D.publications.forEach(function (publication) { (publication.tags || []).forEach(function (tag) { tags.add(tag); }); });
+    filter.innerHTML = '';
+    filter.appendChild(ce('option', { value: 'all' }, ['All Topics']));
+    tags.forEach(function (tag) {
+      filter.appendChild(ce('option', { value: tag.toLowerCase() }, [tag]));
     });
 
-    function render() {
-      var q = (search.value || '').toLowerCase();
-      var f = filter.value;
-      var s = sort.value;
+    var maxCitations = D.publications.reduce(function (max, publication) {
+      return Math.max(max, publication.citations || 0);
+    }, 0);
 
-      var filtered = D.publications.filter(function (p) {
-        if (q && !p.title.toLowerCase().includes(q) && !p.journal.toLowerCase().includes(q) && !(p.abstract || '').toLowerCase().includes(q) && !p.tags.some(function (t) { return t.toLowerCase().includes(q); })) return false;
-        if (f !== 'all' && !p.tags.some(function (t) { return t.toLowerCase() === f; })) return false;
+    function render() {
+      var query = (search.value || '').toLowerCase();
+      var selectedTopic = filter.value;
+      var sortMode = sort.value;
+      var filtered = D.publications.filter(function (publication) {
+        var searchable = [publication.title, publication.journal, publication.abstract || ''].concat(publication.tags || []).join(' ').toLowerCase();
+        if (query && !searchable.includes(query)) return false;
+        if (selectedTopic !== 'all' && !(publication.tags || []).some(function (tag) { return tag.toLowerCase() === selectedTopic; })) return false;
         return true;
       });
-
       filtered.sort(function (a, b) {
-        if (s === 'citations') return b.citations - a.citations;
-        if (s === 'impact') return parseFloat(b.impactFactor || 0) - parseFloat(a.impactFactor || 0);
-        return b.year - a.year;
+        if (sortMode === 'citations') return (b.citations || 0) - (a.citations || 0);
+        if (sortMode === 'impact') return parseFloat(b.impactFactor || 0) - parseFloat(a.impactFactor || 0);
+        return (b.year || 0) - (a.year || 0);
       });
 
       list.innerHTML = '';
       if (filtered.length === 0) {
-        list.appendChild(ce('p', { style: 'text-align:center;padding:2rem;color:var(--text-muted);' }, ['No publications match your filters.']));
+        list.appendChild(ce('p', { className: 'pub-empty' }, ['No publications match your filters.']));
       } else {
-        filtered.forEach(function (p) {
-          var tagsEl = (p.tags || []).map(function (t) { return ce('span', { className: 'pub-card__tag' }, [t]); });
-          if (p.autoDetected) tagsEl.unshift(ce('span', { className: 'pub-card__tag pub-card__tag--auto' }, ['auto']));
-          var ifBadge = p.impactFactor ? ce('span', { className: 'pub-card__if' }, ['IF: ' + p.impactFactor + (p.quartile ? ' ' + p.quartile : '')]) : null;
-          list.appendChild(ce('div', { className: 'pub-card' }, [
-            ce('div', { className: 'pub-card__heading' }, [
-              ce('span', { className: 'pub-card__year' }, ['' + p.year]),
-              ce('button', { className: 'pub-card__title' + (p.autoDetected ? ' pub-card__title--auto' : ''), onClick: function () { openDialog(p); } }, [p.title])
+        filtered.forEach(function (publication, index) {
+          var citations = publication.citations || 0;
+          var width = maxCitations && citations ? Math.max(6, Math.round(citations / maxCitations * 100)) : 0;
+          var publicationTags = (publication.tags || []).slice(0, 3).map(function (tag) {
+            return ce('span', { className: 'pub-card__tag' }, [tag]);
+          });
+          if (publication.autoDetected) publicationTags.unshift(ce('span', { className: 'pub-card__tag pub-card__tag--auto' }, ['auto']));
+          var impactBadge = publication.impactFactor ? ce('span', { className: 'pub-card__if' }, ['IF: ' + publication.impactFactor + (publication.quartile ? ' · ' + publication.quartile : '')]) : null;
+          var card = ce('article', {
+            className: 'pub-card' + (index === 0 ? ' pub-card--featured' : ''),
+            role: 'listitem',
+            'data-pub-id': publication.id || publication.title
+          }, [
+            ce('div', { className: 'pub-card__rail' }, [
+              ce('span', { className: 'pub-card__index' }, [padCount(index + 1)]),
+              ce('span', { className: 'pub-card__year' }, [String(publication.year || '—')]),
+              ce('span', { className: 'pub-card__rail-line' }, [])
             ]),
-            ce('p', { className: 'pub-card__journal' }, [p.journal]),
-            ce('div', { className: 'pub-card__meta' }, tagsEl.concat([
-              ce('span', { className: 'pub-card__citations' }, [p.citations + ' cites']),
-              ifBadge
-            ]).filter(Boolean))
-          ]));
+            ce('div', { className: 'pub-card__body' }, [
+              ce('div', { className: 'pub-card__top' }, [
+                ce('span', { className: 'pub-card__journal' }, [publication.journal]),
+                impactBadge
+              ]),
+              ce('button', { className: 'pub-card__title', type: 'button', onClick: function () { openDialog(publication); } }, [publication.title]),
+              ce('div', { className: 'pub-card__tags' }, publicationTags),
+              ce('div', { className: 'pub-card__metrics' }, [
+                ce('span', { className: 'pub-card__citations' }, [citations + ' citations']),
+                ce('span', {
+                  className: 'pub-card__bar',
+                  role: 'progressbar',
+                  'aria-label': publication.title + ' citation signal',
+                  'aria-valuemin': '0',
+                  'aria-valuemax': String(maxCitations),
+                  'aria-valuenow': String(citations)
+                }, [ce('span', { className: 'pub-card__bar-fill', style: 'width: ' + width + '%' }, [])])
+              ])
+            ])
+          ]);
+          list.appendChild(card);
         });
       }
       count.textContent = filtered.length + ' publication' + (filtered.length !== 1 ? 's' : '');
     }
 
-    search.addEventListener('input', render);
-    filter.addEventListener('change', render);
-    sort.addEventListener('change', render);
-    reset.addEventListener('click', function () {
-      search.value = '';
-      filter.value = 'all';
-      sort.value = 'year';
-      render();
-    });
-
+    if (search.getAttribute('data-bound') !== 'true') {
+      search.setAttribute('data-bound', 'true');
+      filter.setAttribute('data-bound', 'true');
+      sort.setAttribute('data-bound', 'true');
+      reset.setAttribute('data-bound', 'true');
+      search.addEventListener('input', render);
+      filter.addEventListener('change', render);
+      sort.addEventListener('change', render);
+      reset.addEventListener('click', function () {
+        search.value = '';
+        filter.value = 'all';
+        sort.value = 'year';
+        render();
+      });
+    }
     render();
   }
 
@@ -381,74 +575,126 @@
     if (pub.doi) actions.appendChild(ce('a', { className: 'btn btn--primary', href: pub.doi, target: '_blank', rel: 'noopener noreferrer' }, ['Open DOI']));
     if (pub.pdf_url) actions.appendChild(ce('a', { className: 'btn btn--outline', href: pub.pdf_url, target: '_blank', rel: 'noopener noreferrer' }, ['Open Article']));
 
+    document.getElementById('pub-dialog-close').onclick = function () { dialog.close(); };
     dialog.showModal();
-    document.getElementById('pub-dialog-close').addEventListener('click', function () { dialog.close(); });
-    dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); }, { once: true });
   }
 
-  /* ============ Timeline ============ */
+  /* ============ Journey Board ============ */
 
-  function renderTimeline() {
-    var container = document.getElementById('timeline');
+  function renderJourney() {
+    var container = document.getElementById('journey-board');
+    var count = document.getElementById('journey-count');
     if (!container || !D.education || !D.experience) return;
 
-    function makeTItem(e) {
-      return { type: e.type, date: e.date, title: e.title, org: e.org, desc: e.desc, sub: e.sub };
+    function classifyExperience(item) {
+      var role = item.role.toLowerCase();
+      var kinds = [];
+      if (/research|post-doctoral|fellow|professor/.test(role)) kinds.push('research');
+      if (/professor|teaching|lecturer/.test(role)) kinds.push('teaching');
+      return kinds.length ? kinds : ['research'];
+    }
+    var experience = D.experience.map(function (item, index) {
+      return {
+        type: 'experience',
+        index: index + 1,
+        title: item.role,
+        organization: item.organization,
+        location: item.location,
+        period: item.period,
+        details: item.details,
+        kinds: classifyExperience(item),
+        current: /present/i.test(item.period)
+      };
+    });
+    var education = D.education.map(function (item, index) {
+      return {
+        type: 'education',
+        index: index + 1,
+        title: item.degree,
+        organization: item.institution,
+        location: item.location,
+        period: item.period,
+        details: item.details,
+        grade: item.grade,
+        mentor: item.mentor,
+        kinds: ['academic'],
+        current: false
+      };
+    });
+    var entries = experience.concat(education);
+    var filters = document.querySelectorAll('[data-journey-filter]');
+
+    function makeCard(item) {
+      var meta = [
+        ce('span', {}, [item.period]),
+        item.location ? ce('span', {}, [item.location]) : null
+      ].filter(Boolean);
+      var badges = [];
+      if (item.current) badges.push(ce('span', { className: 'journey-card__badge journey-card__badge--current' }, ['Current chapter']));
+      if (item.grade) badges.push(ce('span', { className: 'journey-card__badge' }, [item.grade]));
+      if (item.mentor) badges.push(ce('span', { className: 'journey-card__badge' }, [item.mentor]));
+      return ce('article', {
+        className: 'journey-card journey-card--' + item.type + (item.current ? ' journey-card--current' : ''),
+        'data-journey-entry': item.type,
+        'data-journey-kinds': item.kinds.join(' '),
+        role: 'listitem'
+      }, [
+        ce('div', { className: 'journey-card__top' }, [
+          ce('span', { className: 'journey-card__index' }, [('0' + item.index).slice(-2)]),
+          ce('span', { className: 'journey-card__type' }, [item.type === 'experience' ? 'Professional' : 'Academic'])
+        ]),
+        ce('h4', { className: 'journey-card__title' }, [item.title]),
+        ce('p', { className: 'journey-card__org' }, [item.organization]),
+        ce('div', { className: 'journey-card__meta' }, meta),
+        ce('p', { className: 'journey-card__desc' }, [item.details]),
+        badges.length ? ce('div', { className: 'journey-card__badges' }, badges) : null
+      ]);
     }
 
-    var eduItems = [];
-    D.education.forEach(function (e) {
-      eduItems.push(makeTItem({ type: 'edu', date: e.period, title: e.degree, org: e.institution + (e.location ? ', ' + e.location : ''), desc: e.details || '', sub: e.grade || '' }));
-    });
-
-    var expItems = [];
-    D.experience.forEach(function (e) {
-      expItems.push(makeTItem({ type: 'exp', date: e.period, title: e.role, org: e.organization, desc: e.details, sub: e.location || '' }));
-    });
-
-    var eduOrder = [
-      'Ph.D. in Chemical Engineering (Microbial Biotechnology)',
-      'Master of Science (M.Sc.) in Biotechnology',
-      'Bachelor of Science (B.Sc.) in Biotechnology'
-    ];
-
-    var expOrder = [
-      'Assistant Professor',
-      'Adjunct Professor',
-      'Post-Doctoral Researcher',
-      'Research Fellow',
-      'Ph.D. Researcher & Teaching Assistant'
-    ];
-
-    eduItems.sort(function (a, b) { return eduOrder.indexOf(a.title) - eduOrder.indexOf(b.title); });
-    expItems.sort(function (a, b) { return expOrder.indexOf(a.title) - expOrder.indexOf(b.title); });
-
-    var groupIcons = {
-      'Academic Path': SVG_ICONS.grad,
-      'Professional Experience': SVG_ICONS.work
-    };
-    function renderSection(title, items) {
-      container.appendChild(ce('div', { className: 'timeline-group' }, [
-        ce('span', { className: 'timeline-group__icon', innerHTML: groupIcons[title] || '' }),
-        ce('h3', { className: 'timeline-group__title' }, [title])
-      ]));
-      items.forEach(function (item) {
-        container.appendChild(ce('div', { className: 'timeline-item' + (item.type === 'edu' ? ' timeline-item--edu' : ' timeline-item--exp') }, [
-          ce('div', { className: 'timeline-item__date' }, [
-            item.date,
-            item.sub ? ce('span', { className: 'timeline-item__date-sub' }, [item.sub]) : null
-          ]),
-          ce('div', { className: 'timeline-item__card' }, [
-            ce('h4', { className: 'timeline-item__title' }, [item.title]),
-            ce('p', { className: 'timeline-item__org' }, [item.org]),
-            ce('p', { className: 'timeline-item__desc' }, [item.desc])
+    function makeLane(title, eyebrow, number, items, type) {
+      var lane = ce('section', { className: 'journey-lane journey-lane--' + type, 'aria-label': title }, [
+        ce('div', { className: 'journey-lane__header' }, [
+          ce('span', { className: 'journey-lane__number' }, [number]),
+          ce('div', {}, [
+            ce('span', { className: 'journey-lane__eyebrow' }, [eyebrow]),
+            ce('h3', { className: 'journey-lane__title' }, [title])
           ])
-        ]));
+        ]),
+        ce('div', { className: 'journey-lane__cards', role: 'list' }, items.length ? items.map(makeCard) : [ce('p', { className: 'journey-lane__empty' }, ['No entries in this view.'])])
+      ]);
+      if (!items.length) lane.setAttribute('hidden', '');
+      return lane;
+    }
+
+    function render(filter) {
+      var visible = entries.filter(function (item) {
+        return filter === 'all' || item.kinds.indexOf(filter) !== -1;
+      });
+      var visibleExperience = visible.filter(function (item) { return item.type === 'experience'; });
+      var visibleEducation = visible.filter(function (item) { return item.type === 'education'; });
+      container.classList.toggle('journey-board--single', visibleExperience.length === 0 || visibleEducation.length === 0);
+      container.innerHTML = '';
+      container.appendChild(makeLane('Professional experience', 'Practice', '01', visibleExperience, 'experience'));
+      container.appendChild(makeLane('Academic foundation', 'Education', '02', visibleEducation, 'education'));
+      count.textContent = visible.length + (visible.length === 1 ? ' entry' : ' entries') + ' shown';
+    }
+
+    if (filters.length && filters[0].getAttribute('data-bound') !== 'true') {
+      filters[0].setAttribute('data-bound', 'true');
+      filters.forEach(function (button) {
+        button.addEventListener('click', function () {
+          filters.forEach(function (item) {
+            item.classList.remove('is-active');
+            item.setAttribute('aria-pressed', 'false');
+          });
+          button.classList.add('is-active');
+          button.setAttribute('aria-pressed', 'true');
+          render(button.getAttribute('data-journey-filter'));
+        });
       });
     }
-
-    renderSection('Professional Experience', expItems);
-    renderSection('Academic Path', eduItems);
+    render('all');
   }
 
   /* ============ Skills ============ */
@@ -456,278 +702,222 @@
   function renderSkills() {
     var bars = document.getElementById('proficiency-bars');
     var grid = document.getElementById('skills-grid');
+    var atlasStats = document.getElementById('skills-atlas-stats');
     if (!bars || !grid) return;
 
-    if (D.skillProficiency) {
-      D.skillProficiency.labels.forEach(function (label, i) {
-        bars.appendChild(ce('div', { className: 'proficiency-row' }, [
-          ce('div', { className: 'proficiency-row__header' }, [
-            ce('span', {}, [label]),
-            ce('span', {}, [D.skillProficiency.values[i] + '%'])
-          ]),
-          ce('div', { className: 'proficiency-row__track' }, [
-            ce('div', { className: 'proficiency-row__fill', style: 'width: ' + D.skillProficiency.values[i] + '%' }, [])
-          ])
+    var groups = [
+      { key: 'molecular', title: 'Molecular Biology', kicker: 'Build & manipulate', items: D.skills.molecular, icon: SVG_ICONS.microbe },
+      { key: 'material', title: 'Nanomaterials', kicker: 'Make & recover', items: D.skills.material, icon: SVG_ICONS.molecule },
+      { key: 'analytical', title: 'Analytical Techniques', kicker: 'Measure & verify', items: D.skills.analytical, icon: SVG_ICONS.atom },
+      { key: 'computational', title: 'Computational Practice', kicker: 'Model & interpret', items: D.skills.software, icon: SVG_ICONS.code }
+    ];
+    var totalSkills = groups.reduce(function (total, group) { return total + group.items.length; }, 0);
+    var averageProficiency = D.skillProficiency ? Math.round(D.skillProficiency.values.reduce(function (total, value) { return total + value; }, 0) / D.skillProficiency.values.length) : 0;
+    var atlasValues = [
+      { value: totalSkills, label: 'Techniques' },
+      { value: groups.length, label: 'Practice areas' },
+      { value: averageProficiency + '%', label: 'Avg. proficiency' }
+    ];
+    if (atlasStats) {
+      atlasStats.innerHTML = '';
+      atlasValues.forEach(function (stat) {
+        atlasStats.appendChild(ce('div', { className: 'skills-atlas__stat' }, [
+          ce('strong', {}, [String(stat.value)]),
+          ce('span', {}, [stat.label])
         ]));
       });
     }
 
-    var skillIcons = [SVG_ICONS.microbe, SVG_ICONS.molecule, SVG_ICONS.atom, SVG_ICONS.code];
-    var groups = [
-      { title: 'Molecular Biology', items: D.skills.molecular },
-      { title: 'Nanomaterials', items: D.skills.material },
-      { title: 'Analytical Techniques', items: D.skills.analytical },
-      { title: 'Computational', items: D.skills.software }
-    ];
+    bars.innerHTML = '';
+    if (D.skillProficiency) {
+      D.skillProficiency.labels.forEach(function (label, i) {
+        var value = D.skillProficiency.values[i];
+        bars.appendChild(ce('div', { className: 'proficiency-row', 'data-skill-signal': label }, [
+          ce('div', { className: 'proficiency-row__header' }, [
+            ce('span', {}, [label]),
+            ce('strong', {}, [value + '%'])
+          ]),
+          ce('div', {
+            className: 'proficiency-row__track',
+            role: 'progressbar',
+            'aria-label': label + ' proficiency',
+            'aria-valuemin': '0',
+            'aria-valuemax': '100',
+            'aria-valuenow': String(value)
+          }, [ce('span', { className: 'proficiency-row__fill', style: 'width: ' + value + '%' }, [])])
+        ]));
+      });
+    }
 
-    groups.forEach(function (g, i) {
-      grid.appendChild(ce('div', { className: 'skill-card' }, [
-        ce('div', { className: 'skill-card__icon' }, [ce('div', { innerHTML: skillIcons[i] })]),
-        ce('h3', { className: 'skill-card__title' }, [g.title]),
-        ce('ul', { className: 'skill-card__list' }, g.items.map(function (item) { return ce('li', {}, [item]); }))
+    grid.innerHTML = '';
+    groups.forEach(function (group, index) {
+      grid.appendChild(ce('article', { className: 'skill-card', 'data-skill-domain': group.key }, [
+        ce('div', { className: 'skill-card__top' }, [
+          ce('span', { className: 'skill-card__index' }, [('0' + (index + 1)).slice(-2)]),
+          ce('span', { className: 'skill-card__count' }, [group.items.length + ' tools'])
+        ]),
+        ce('div', { className: 'skill-card__icon', innerHTML: group.icon }),
+        ce('h3', { className: 'skill-card__title' }, [group.title]),
+        ce('ul', { className: 'skill-card__list' }, group.items.map(function (item) { return ce('li', {}, [item]); })),
+        ce('div', { className: 'skill-card__footer' }, [ce('span', {}, [group.kicker])])
       ]));
     });
   }
 
   /* ============ Scholar Card ============ */
 
+  function padCount(value) {
+    return ('0' + value).slice(-2);
+  }
+
+  function renderScholarlySummary() {
+    var container = document.getElementById('scholarly-stats');
+    var values = [
+      { value: D.awards ? D.awards.length : 0, label: 'Awards' },
+      { value: D.patent ? 1 : 0, label: 'Patent' },
+      { value: D.conferenceProceedings ? D.conferenceProceedings.length : 0, label: 'Proceedings' },
+      { value: D.bookChapters ? D.bookChapters.length : 0, label: 'Chapters' },
+      { value: D.githubProjects ? D.githubProjects.length : 0, label: 'Projects' }
+    ];
+    if (container) {
+      container.innerHTML = '';
+      values.forEach(function (item) {
+        container.appendChild(ce('div', { className: 'scholarly-studio__stat' }, [
+          ce('strong', {}, [padCount(item.value)]),
+          ce('span', {}, [item.label])
+        ]));
+      });
+    }
+    var counts = {
+      'awards-count': D.awards ? D.awards.length : 0,
+      'conference-count': D.conferenceProceedings ? D.conferenceProceedings.length : 0,
+      'chapter-count': D.bookChapters ? D.bookChapters.length : 0,
+      'project-count': D.githubProjects ? D.githubProjects.length : 0
+    };
+    Object.keys(counts).forEach(function (id) {
+      var element = document.getElementById(id);
+      if (element) element.textContent = padCount(counts[id]) + ' entries';
+    });
+  }
+
   function renderScholarCard(id, title, itemsFn) {
     var container = document.getElementById(id);
     if (!container) return;
+    container.innerHTML = '';
     itemsFn(container);
+  }
+
+  function makeScholarlySummary(index, title, meta, description, status, className) {
+    return ce('article', { className: 'scholarly-entry ' + className }, [
+      ce('div', { className: 'scholarly-entry__rail' }, [
+        ce('span', { className: 'scholarly-entry__index' }, [padCount(index)]),
+        ce('span', { className: 'scholarly-entry__line' }, [])
+      ]),
+      ce('div', { className: 'scholarly-entry__body' }, [
+        ce('div', { className: 'scholarly-entry__top' }, [
+          ce('h4', { className: 'scholarly-entry__title' }, [title]),
+          status ? ce('span', { className: 'scholarly-entry__status scholarly-entry__status--' + (status === 'Published' || status === 'Recognized' ? 'finished' : 'progress') }, [status]) : null
+        ]),
+        ce('p', { className: 'scholarly-entry__meta' }, [meta]),
+        ce('p', { className: 'scholarly-entry__desc' }, [description])
+      ])
+    ]);
   }
 
   function renderAwards(container) {
     if (!D.awards) return;
-    D.awards.forEach(function (a) {
-      container.appendChild(ce('div', { className: 'scholarly-item' }, [
-        ce('div', { className: 'scholarly-item__title' }, [a.title]),
-        ce('div', { className: 'scholarly-item__detail' }, [a.agency + ' | ' + a.period]),
-        ce('div', { className: 'scholarly-item__detail' }, [a.description.substring(0, 120) + (a.description.length > 120 ? '...' : '')])
-      ]));
+    var list = ce('div', { className: 'scholarly-list' }, []);
+    D.awards.forEach(function (award, index) {
+      list.appendChild(makeScholarlySummary(index + 1, award.title, award.agency + ' · ' + award.period, award.description, 'Recognized', 'scholarly-entry--award'));
     });
+    container.appendChild(list);
   }
 
   function renderPatent(container) {
     if (!D.patent) return;
-    var p = D.patent;
-    container.appendChild(ce('div', { className: 'scholarly-item' }, [
-      ce('div', { className: 'scholarly-item__title' }, [p.title]),
-      ce('div', { className: 'scholarly-item__detail' }, ['Application: ' + p.applicationNo]),
-      ce('div', { className: 'scholarly-item__detail' }, [p.description.substring(0, 150) + (p.description.length > 150 ? '...' : '')])
+    var patent = D.patent;
+    var meta = ce('div', { className: 'patent-card__meta' }, [
+      ce('div', {}, [ce('span', {}, ['Application']), ce('strong', {}, [patent.applicationNo])]),
+      ce('div', {}, [ce('span', {}, ['Filed']), ce('strong', {}, [patent.date])]),
+      ce('div', {}, [ce('span', {}, ['Agency']), ce('strong', {}, [patent.agency])]),
+      ce('div', {}, [ce('span', {}, ['Inventors']), ce('strong', {}, [patent.inventors])])
+    ]);
+    container.appendChild(ce('article', { className: 'patent-card' }, [
+      ce('div', { className: 'patent-card__top' }, [
+        ce('span', { className: 'patent-card__label' }, ['Published patent']),
+        ce('span', { className: 'patent-card__icon', innerHTML: SVG_ICONS.patent })
+      ]),
+      ce('h4', { className: 'patent-card__title' }, [patent.title]),
+      ce('p', { className: 'patent-card__desc' }, [patent.description]),
+      meta
     ]));
   }
 
   function renderBookChapters(container) {
     if (!D.bookChapters) return;
-    var allItems = [];
-    var expanded = false;
-    D.bookChapters.forEach(function (b) {
-      var statusClass = 'scholarly-item__status--' + (b.status === 'Published' ? 'finished' : 'progress');
-      allItems.push(ce('div', { className: 'scholarly-item' }, [
-        ce('div', { className: 'scholarly-item__title' }, [b.title.substring(0, 90) + (b.title.length > 90 ? '...' : '')]),
-        ce('div', { className: 'scholarly-item__detail' }, [b.authors]),
-        ce('div', { className: 'scholarly-item__detail' }, [b.publisher]),
-        ce('span', { className: 'scholarly-item__status ' + statusClass }, [b.status])
-      ]));
+    var accordion = ce('div', { className: 'scholarly-accordion__list' }, []);
+    D.bookChapters.forEach(function (chapter, index) {
+      var attributes = { className: 'scholarly-entry scholarly-entry--chapter' };
+      if (index < 2) attributes.open = 'open';
+      var details = ce('details', attributes, [
+        ce('summary', { className: 'scholarly-entry__summary' }, [
+          ce('span', { className: 'scholarly-entry__summary-main' }, [
+            ce('span', { className: 'scholarly-entry__index' }, [padCount(index + 1)]),
+            ce('span', { className: 'scholarly-entry__summary-title' }, [chapter.title])
+          ]),
+          ce('span', { className: 'scholarly-entry__status scholarly-entry__status--' + (chapter.status === 'Published' ? 'finished' : 'progress') }, [chapter.status])
+        ]),
+        ce('div', { className: 'scholarly-entry__details' }, [
+          ce('p', {}, [chapter.authors]),
+          ce('p', {}, [chapter.publisher + (chapter.series ? ' · ' + chapter.series : '')]),
+          chapter.url ? ce('a', { className: 'scholarly-entry__link', href: chapter.url, target: '_blank', rel: 'noopener noreferrer' }, ['View published chapter ↗']) : null
+        ])
+      ]);
+      accordion.appendChild(details);
     });
-    var visible = allItems.slice(0, 2);
-    var hidden = allItems.slice(2);
-    visible.forEach(function (el) { container.appendChild(el); });
-    if (hidden.length > 0) {
-      var hiddenWrap = ce('div', { style: 'display:none;' });
-      hidden.forEach(function (el) { hiddenWrap.appendChild(el); });
-      container.appendChild(hiddenWrap);
-      var toggle = ce('button', { className: 'scholarly-toggle', onClick: function () {
-        expanded = !expanded;
-        hiddenWrap.style.display = expanded ? '' : 'none';
-        toggle.textContent = expanded ? 'Show less' : '+ ' + hidden.length + ' more';
-      } }, ['+ ' + hidden.length + ' more']);
-      container.appendChild(toggle);
-    }
+    container.appendChild(accordion);
   }
 
   function renderConferences(container) {
     if (!D.conferenceProceedings) return;
-    var allItems = [];
-    var expanded = false;
-    D.conferenceProceedings.forEach(function (c) {
-      allItems.push(ce('div', { className: 'scholarly-item' }, [
-        ce('div', { className: 'scholarly-item__title' }, [c.title.substring(0, 80) + (c.title.length > 80 ? '...' : '')]),
-        ce('div', { className: 'scholarly-item__detail' }, [c.conference + ', ' + c.year])
-      ]));
+    var accordion = ce('div', { className: 'scholarly-accordion__list' }, []);
+    D.conferenceProceedings.forEach(function (conference, index) {
+      var attributes = { className: 'scholarly-entry scholarly-entry--conference' };
+      if (index < 2) attributes.open = 'open';
+      var details = ce('details', attributes, [
+        ce('summary', { className: 'scholarly-entry__summary' }, [
+          ce('span', { className: 'scholarly-entry__summary-main' }, [
+            ce('span', { className: 'scholarly-entry__year' }, [String(conference.year)]),
+            ce('span', { className: 'scholarly-entry__summary-title' }, [conference.title])
+          ])
+        ]),
+        ce('div', { className: 'scholarly-entry__details' }, [
+          ce('p', {}, [conference.conference]),
+          ce('p', {}, [conference.authors]),
+          ce('p', {}, [conference.date + (conference.page ? ' · Page ' + conference.page : '')])
+        ])
+      ]);
+      accordion.appendChild(details);
     });
-    var visible = allItems.slice(0, 3);
-    var hidden = allItems.slice(3);
-    visible.forEach(function (el) { container.appendChild(el); });
-    if (hidden.length > 0) {
-      var hiddenWrap = ce('div', { id: 'hidden-confs', style: 'display:none;' });
-      hidden.forEach(function (el) { hiddenWrap.appendChild(el); });
-      container.appendChild(hiddenWrap);
-      var toggle = ce('button', { className: 'scholarly-toggle', onClick: function () {
-        expanded = !expanded;
-        hiddenWrap.style.display = expanded ? '' : 'none';
-        toggle.textContent = expanded ? 'Show less' : '+ ' + hidden.length + ' more';
-      } }, ['+ ' + hidden.length + ' more']);
-      container.appendChild(toggle);
-    }
+    container.appendChild(accordion);
   }
 
   function renderProjects(container) {
     if (!D.githubProjects) return;
-    var projIcons = [SVG_ICONS.bio, SVG_ICONS.gear, SVG_ICONS.dock, SVG_ICONS.cpu];
-    D.githubProjects.forEach(function (p, i) {
-      var statusClass = p.status === 'Finished' ? 'project-card__status--finished' : 'project-card__status--dev';
-      container.appendChild(ce('div', { className: 'project-card' }, [
-        ce('div', { className: 'project-card__icon-wrap', innerHTML: projIcons[i % projIcons.length] }),
-        ce('div', { className: 'project-card__body' }, [
-          ce('div', { className: 'project-card__title' }, [p.title]),
-          ce('div', { className: 'project-card__desc' }, [p.description]),
-          ce('span', { className: 'project-card__status ' + statusClass }, [p.status])
-        ])
+    var projectIcons = [SVG_ICONS.bio, SVG_ICONS.gear, SVG_ICONS.dock, SVG_ICONS.cpu];
+    D.githubProjects.forEach(function (project, index) {
+      var finished = project.status === 'Finished';
+      container.appendChild(ce('article', { className: 'project-card', 'data-project-status': finished ? 'finished' : 'development' }, [
+        ce('div', { className: 'project-card__top' }, [
+          ce('span', { className: 'project-card__index' }, [padCount(index + 1)]),
+          ce('span', { className: 'project-card__status ' + (finished ? 'project-card__status--finished' : 'project-card__status--dev') }, [project.status])
+        ]),
+        ce('div', { className: 'project-card__icon-wrap', innerHTML: projectIcons[index % projectIcons.length] }),
+        ce('h4', { className: 'project-card__title' }, [project.title]),
+        ce('p', { className: 'project-card__desc' }, [project.description])
       ]));
     });
   }
-
-  /* ============ OpenAlex Citation Updates ============ */
-
-  function getCache(key) {
-    try {
-      var raw = localStorage.getItem('oa_' + key);
-      if (!raw) return null;
-      var data = JSON.parse(raw);
-      if (data.expiry && Date.now() > data.expiry) { localStorage.removeItem('oa_' + key); return null; }
-      return data.value;
-    } catch (_) { return null; }
-  }
-
-  function setCache(key, value, ttlMs) {
-    try { localStorage.setItem('oa_' + key, JSON.stringify({ value: value, expiry: Date.now() + (ttlMs || 86400000) })); } catch (_) {}
-  }
-
-  function fetchJSON(url) {
-    return fetch(url, { headers: { 'Accept': 'application/json' } }).then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    });
-  }
-
-  function fetchLiveMetrics() {
-    var cacheKey = 'metrics_' + D.personal.orcid;
-    var cached = getCache(cacheKey);
-    if (cached) { applyLiveMetrics(cached); return; }
-
-    var dois = [];
-    D.publications.forEach(function (p) {
-      var doi = (p.doi || '').replace('https://doi.org/', '');
-      if (doi) dois.push(doi);
-    });
-
-    var allMetrics = { citations: {}, authorHIndex: null, authorTotalCitations: null, authorWorks: null };
-
-    var doiPromises = dois.map(function (doi) {
-      return fetchJSON('https://api.openalex.org/works/doi:' + doi).then(function (data) {
-        allMetrics.citations[doi] = data.cited_by_count || 0;
-      }).catch(function () {});
-    });
-
-    var authorPromise = fetchJSON('https://api.openalex.org/authors/orcid:' + D.personal.orcid).then(function (data) {
-      var s = data.summary_stats || {};
-      allMetrics.authorHIndex = s.h_index;
-      allMetrics.authorTotalCitations = s.cited_by_count;
-      allMetrics.authorWorks = s.works_count;
-    }).catch(function () {});
-
-    Promise.all(doiPromises.concat(authorPromise)).then(function () {
-      setCache(cacheKey, allMetrics, 86400000);
-      applyLiveMetrics(allMetrics);
-    }).catch(function () {});
-  }
-
-  function computeI10() {
-    var counts = [];
-    D.publications.forEach(function (p) { counts.push(p.citations); });
-    counts.sort(function (a, b) { return b - a; });
-    var i10 = 0;
-    counts.forEach(function (c) { if (c >= 10) i10++; });
-    return i10;
-  }
-
-  function fetchNewPapers() {
-    var cacheKey = 'papers_v3_' + D.personal.orcid;
-    var cached = getCache(cacheKey);
-    if (cached) { mergeNewPapers(cached); return; }
-
-    fetchJSON('https://api.openalex.org/works?filter=authorships.author.orcid:' + D.personal.orcid + '&sort=publication_year:desc&per_page=200').then(function (data) {
-      var results = data.results || [];
-      var existing = {};
-      D.publications.forEach(function (p) {
-        var doi = (p.doi || '').replace('https://doi.org/', '').toLowerCase();
-        if (doi) existing[doi] = true;
-      });
-      var seenTitles = {};
-      var fresh = [];
-      results.forEach(function (w) {
-        var doi = ((w.doi || '')).replace('https://doi.org/', '').toLowerCase();
-        if (!doi || existing[doi]) return;
-        var journal = '';
-        if (w.primary_location && w.primary_location.source) journal = w.primary_location.source.display_name || '';
-        if (/zenodo/i.test(journal)) return;
-        var title = (w.title || '').toLowerCase().trim();
-        if (title && seenTitles[title]) return;
-        if (title) seenTitles[title] = true;
-        fresh.push({
-          id: 'auto_' + w.id,
-          title: w.title || 'Untitled',
-          year: w.publication_year || 0,
-          citations: w.cited_by_count || 0,
-          doi: 'https://doi.org/' + doi,
-          journal: journal,
-          abstract: '',
-          pdf_url: '',
-          tags: [],
-          impactFactor: '',
-          autoDetected: true
-        });
-        existing[doi] = true;
-      });
-      if (fresh.length > 0) {
-        setCache(cacheKey, fresh, 86400000);
-        mergeNewPapers(fresh);
-      }
-    }).catch(function () {});
-  }
-
-  function mergeNewPapers(fresh) {
-    if (!fresh) return;
-    fresh = fresh.filter(function (p) { return p.journal && !/zenodo/i.test(p.journal); });
-    if (fresh.length === 0) return;
-    D.publications = D.publications.filter(function (p) { return !p.autoDetected; });
-    fresh.forEach(function (p) { D.publications.unshift(p); });
-    D.personal.stats.totalPublications = D.publications.length;
-    var container = document.getElementById('hero-stats');
-    if (container) {
-      container.innerHTML = '';
-      var s = D.personal.stats;
-      [
-        { val: s.citations, label: 'Citations' },
-        { val: s.hIndex, label: 'h-index' },
-        { val: s.i10Index, label: 'i10-index' },
-        { val: s.totalPublications, label: 'Publications' }
-      ].forEach(function (item) {
-        container.appendChild(ce('div', { className: 'hero__stat' }, [
-          ce('span', { className: 'hero__stat-value' }, ['' + item.val]),
-          ce('span', { className: 'hero__stat-label' }, [item.label])
-        ]));
-      });
-    }
-    initPublications();
-  }
-
-  function applyLiveMetrics(metrics) {
-  }
-
-
 
   /* ============ Floating Chat Assistant ============ */
 
@@ -828,10 +1018,13 @@
     initCanvas();
     initNav();
     renderStats();
+    renderScholarImpact();
     renderResearch();
+    renderPublicationSummary();
     initPublications();
-    renderTimeline();
+    renderJourney();
     renderSkills();
+    renderScholarlySummary();
     renderScholarCard('awards-list', null, renderAwards);
     renderScholarCard('patent-content', null, renderPatent);
     renderScholarCard('conferences-list', null, renderConferences);
@@ -839,8 +1032,6 @@
     renderScholarCard('bookchapters-list', null, renderBookChapters);
     initChat();
     initReveal();
-    fetchLiveMetrics();
-    fetchNewPapers();
   }
 
   if (document.readyState === 'loading') {
