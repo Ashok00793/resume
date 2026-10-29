@@ -13,7 +13,7 @@ const data = context.__resumeData;
 const html = fs.readFileSync('index.html', 'utf8');
 
 test('uses the verified Google Scholar snapshot for headline metrics', () => {
-  assert.equal(data.personal.stats.citations, 181);
+  assert.equal(data.personal.stats.citations, 185);
   assert.equal(data.personal.stats.hIndex, 7);
   assert.equal(data.personal.stats.i10Index, 5);
   assert.equal(data.personal.stats.totalPublications, 12);
