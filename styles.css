@@ -342,26 +342,19 @@ ul { list-style: none; }
 
 /* ============ 3D Fluid Enhancements ============ */
 .hero { perspective: 1200px; }
-.hero__content { position: relative; z-index: 2; transform: translateZ(20px); }
+.hero__content { position: relative; z-index: 2; }
 .hero__image-frame { transform-style: preserve-3d; transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1); }
 .hero__image-frame:hover { transform: rotateY(-6deg) rotateX(4deg) translateZ(10px); }
 
 .research-card, .pub-card, .skill-card, .project-card, .journey-card,
 .impact-row, .patent-card, .scholarly-entry {
-  transform-style: preserve-3d;
   transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms ease;
-  will-change: transform;
 }
 .research-card:hover, .pub-card:hover, .skill-card:hover, .project-card:hover,
 .journey-card:hover, .patent-card:hover, .scholarly-entry:hover {
   transform: perspective(900px) rotateX(4deg) rotateY(-6deg) translateZ(12px);
   box-shadow: 0 24px 60px rgba(9, 48, 33, 0.18);
 }
-.research-card .research-card__icon, .pub-card .pub-card__title,
-.skill-card .skill-card__icon-wrap {
-  transform: translateZ(18px);
-}
-.research-card .research-card__title { transform: translateZ(12px); }
 
 /* fluid gradient backdrop for sections */
 .section { position: relative; }
@@ -391,7 +384,6 @@ ul { list-style: none; }
 
 /* floating 3d badges */
 .hero__badge {
-  transform: translateZ(8px);
   box-shadow: 0 8px 20px rgba(9,48,33,0.12);
   transition: transform 280ms ease, box-shadow 280ms ease;
 }
@@ -550,10 +542,10 @@ ul { list-style: none; }
 
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 86vh;
   display: flex;
   align-items: center;
-  padding: 7rem 0 4rem;
+  padding: 5rem 0 2.5rem;
   overflow: hidden;
   background-color: #f5f8f4;
   background-image:
@@ -836,7 +828,7 @@ ul { list-style: none; }
 /* ============ Sections ============ */
 
 .section {
-  padding: 6rem 0;
+  padding: 3.5rem 0;
   position: relative;
 }
 
@@ -857,14 +849,14 @@ ul { list-style: none; }
 }
 
 .section--last {
-  padding-bottom: 5rem;
+  padding-bottom: 2.5rem;
 }
 
 .section__header {
-  margin-bottom: 3rem;
+  margin-bottom: 1.75rem;
   max-width: none;
   position: relative;
-  padding-bottom: 1.25rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
 }
 
@@ -2085,7 +2077,7 @@ ul { list-style: none; }
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 2rem;
   align-items: start;
 }
 
@@ -3081,7 +3073,7 @@ ul { list-style: none; }
   .header__toggle { display: flex; }
   .header__link { padding: 0.75rem 1rem; width: 100%; border-radius: var(--radius-sm); }
 
-  .hero { min-height: auto; padding: 6rem 0 3rem; }
+  .hero { min-height: auto; padding: 4.5rem 0 2rem; }
   .hero__grid { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; text-align: center; }
   .hero__grid > * { min-width: 0; }
   .hero__image-wrap { align-items: center; }
@@ -3103,7 +3095,7 @@ ul { list-style: none; }
   .hero__actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(100%, 430px); margin-inline: auto; }
   .hero__actions .btn { width: 100%; }
 
-  .section { padding: 4rem 0; }
+  .section { padding: 2.5rem 0; }
   .section__header { max-width: 100%; }
 
   .research-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -3147,10 +3139,10 @@ ul { list-style: none; }
 
 @media (max-width: 480px) {
   .container { width: min(100% - 20px, var(--max-width)); }
-  .section { padding: 3rem 0; }
+  .section { padding: 2rem 0; }
   .header__logo-name { font-size: 0.8rem; }
   .header__logo-role { font-size: 0.63rem; }
-  .hero { padding-top: 5.5rem; }
+  .hero { padding-top: 4.5rem; }
   .hero__image-frame { width: min(74vw, 240px); height: min(94vw, 305px); }
   .hero__image-wrap::before { width: min(74vw, 240px); height: min(94vw, 305px); }
   .hero__badge { font-size: 0.68rem; padding: 0.28rem 0.62rem; }
@@ -3164,7 +3156,7 @@ ul { list-style: none; }
   .hero__stat-value { font-size: 1.65rem; }
   .hero__actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
   .hero__actions .btn { width: 100%; padding-inline: 0.7rem; }
-  .section__header { margin-bottom: 2rem; }
+  .section__header { margin-bottom: 1.25rem; }
   .research-card { padding: 1.5rem 1.35rem 1.25rem; }
   .pub-card { padding: 1.2rem; }
   .pub-card__heading { grid-template-columns: 44px minmax(0, 1fr); gap: 0.75rem; }
