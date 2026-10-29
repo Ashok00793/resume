@@ -36,51 +36,6 @@
     var points = new THREE.Points(pGeo, pMat);
     scene.add(points);
 
-    // DNA double helix
-    var helixGroup = new THREE.Group();
-    var strandMat = new THREE.MeshBasicMaterial({ color: 0x0f3b2a, transparent: true, opacity: 0.85 });
-    var rungMat = new THREE.MeshBasicMaterial({ color: 0xb8944a, transparent: true, opacity: 0.6 });
-    var sphereGeo = new THREE.SphereGeometry(0.7, 12, 12);
-    var cylinderGeo = new THREE.CylinderGeometry(0.15, 0.15, 1, 8);
-    var turns = 6;
-    var pointsPerTurn = 18;
-    var total = turns * pointsPerTurn;
-    var radius = 8;
-    var height = 40;
-    var strandA = [];
-    var strandB = [];
-    for (var i = 0; i < total; i++) {
-      var t = i / (total - 1);
-      var angle = t * turns * Math.PI * 2;
-      var y = (t - 0.5) * height;
-      var ax = Math.cos(angle) * radius;
-      var az = Math.sin(angle) * radius;
-      var bx = Math.cos(angle + Math.PI) * radius;
-      var bz = Math.sin(angle + Math.PI) * radius;
-      strandA.push({ x: ax, y: y, z: az });
-      strandB.push({ x: bx, y: y, z: bz });
-
-      var sa = new THREE.Mesh(sphereGeo, strandMat);
-      sa.position.set(ax, y, az);
-      helixGroup.add(sa);
-      var sb = new THREE.Mesh(sphereGeo, strandMat);
-      sb.position.set(bx, y, bz);
-      helixGroup.add(sb);
-
-      if (i % 3 === 0) {
-        var rung = new THREE.Mesh(cylinderGeo, rungMat);
-        var midX = (ax + bx) / 2;
-        var midZ = (az + bz) / 2;
-        rung.position.set(midX, y, midZ);
-        rung.scale.y = Math.sqrt((ax - bx) * (ax - bx) + (az - bz) * (az - bz));
-        rung.lookAt(new THREE.Vector3(bx, y, bz));
-        rung.rotateX(Math.PI / 2);
-        helixGroup.add(rung);
-      }
-    }
-    helixGroup.position.set(0, 0, 0);
-    scene.add(helixGroup);
-
     // Mouse parallax
     var mouseX = 0, mouseY = 0;
     hero.addEventListener('mousemove', function (e) {
@@ -105,8 +60,6 @@
       var t = clock.getElapsedTime();
       points.rotation.y = t * 0.05;
       points.rotation.x = Math.sin(t * 0.1) * 0.1;
-      helixGroup.rotation.y = t * 0.25 + mouseX * 0.4;
-      helixGroup.rotation.x = mouseY * 0.3;
       camera.position.x += (mouseX * 6 - camera.position.x) * 0.05;
       camera.position.y += (-mouseY * 4 - camera.position.y) * 0.05;
       camera.lookAt(0, 0, 0);
