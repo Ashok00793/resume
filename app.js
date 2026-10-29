@@ -985,22 +985,6 @@
     });
   }
 
-  /* ============ 3D Scroll Parallax ============ */
-  function initParallax3D() {
-    var sections = document.querySelectorAll('.section');
-    function onScroll() {
-      var sy = window.scrollY;
-      sections.forEach(function (sec, i) {
-        var rect = sec.getBoundingClientRect();
-        var center = rect.top + rect.height / 2 - window.innerHeight / 2;
-        var depth = Math.max(-40, Math.min(40, center * -0.04));
-        sec.style.transform = 'translateZ(' + depth + 'px)';
-      });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
   /* ============ 3D Tilt on Cards ============ */
   function initTilt() {
     var selectors = ['.research-card', '.pub-card', '.skill-card', '.project-card', '.journey-card', '.patent-card'];
@@ -1041,7 +1025,6 @@
     initChat();
     initReveal();
     initTilt();
-    initParallax3D();
   }
 
   if (document.readyState === 'loading') {
