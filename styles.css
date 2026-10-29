@@ -342,7 +342,7 @@ ul { list-style: none; }
 
 /* ============ 3D Fluid Enhancements ============ */
 .hero { perspective: 1200px; }
-.hero__content { position: relative; z-index: 2; transform: translateZ(20px); }
+.hero__content { position: relative; z-index: 2;  }
 .hero__image-frame { transform-style: preserve-3d; transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1); }
 .hero__image-frame:hover { transform: rotateY(-6deg) rotateX(4deg) translateZ(10px); }
 
@@ -359,9 +359,8 @@ ul { list-style: none; }
 }
 .research-card .research-card__icon, .pub-card .pub-card__title,
 .skill-card .skill-card__icon-wrap {
-  transform: translateZ(18px);
 }
-.research-card .research-card__title { transform: translateZ(12px); }
+.research-card .research-card__title {  }
 
 /* fluid gradient backdrop for sections */
 .section { position: relative; }
@@ -382,7 +381,6 @@ ul { list-style: none; }
   background: rgba(255,255,255,0.78);
   border: 1px solid rgba(255,255,255,0.4);
   box-shadow: 0 30px 80px rgba(9,48,33,0.25);
-  transform: translateZ(0);
 }
 [data-theme="dark"] .dialog__shell {
   background: rgba(26,36,31,0.82);
@@ -391,7 +389,6 @@ ul { list-style: none; }
 
 /* floating 3d badges */
 .hero__badge {
-  transform: translateZ(8px);
   box-shadow: 0 8px 20px rgba(9,48,33,0.12);
   transition: transform 280ms ease, box-shadow 280ms ease;
 }
@@ -439,24 +436,24 @@ main { perspective: 1400px; transform-style: preserve-3d; }
 }
 
 /* 3D depth on hero text */
-.hero__name { transform: translateZ(40px); text-shadow: 0 8px 24px rgba(9,48,33,0.12); }
-.hero__desc { transform: translateZ(20px); }
-.hero__label { transform: translateZ(15px); }
-.hero__stat { transform: translateZ(10px); transition: transform 300ms ease; }
+.hero__name {  text-shadow: 0 8px 24px rgba(9,48,33,0.12); }
+.hero__desc {  }
+.hero__label {  }
+.hero__stat {  transition: transform 300ms ease; }
 .hero__stat:hover { transform: translateZ(22px) translateY(-4px); }
 
 /* 3D header logo */
-.header__logo-mark { transform: translateZ(6px); transition: transform 300ms ease; }
+.header__logo-mark {  transition: transform 300ms ease; }
 .header__logo:hover .header__logo-mark { transform: translateZ(14px) rotateY(12deg); }
 
 /* 3D nav links */
 .header__link { position: relative; transform-style: preserve-3d; transition: transform 240ms ease, color var(--transition); }
-.header__link:hover { transform: translateZ(8px); }
+.header__link:hover {  }
 
 /* 3D section headers with depth */
-.section__title { transform: translateZ(12px); }
-.section__number { transform: translateZ(24px); display: inline-block; }
-.section__subtitle { transform: translateZ(6px); }
+.section__title {  }
+.section__number {  display: inline-block; }
+.section__subtitle {  }
 
 /* 3D research cards: flip container */
 .research-card {
@@ -470,7 +467,6 @@ main { perspective: 1400px; transform-style: preserve-3d; }
   border-radius: inherit;
   background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent 60%);
   pointer-events: none;
-  transform: translateZ(30px);
   opacity: 0;
   transition: opacity 300ms ease;
 }
@@ -478,44 +474,43 @@ main { perspective: 1400px; transform-style: preserve-3d; }
 
 /* 3D pub cards */
 .pub-card { transform-style: preserve-3d; }
-.pub-card__rail { transform: translateZ(14px); }
-.pub-card__body { transform: translateZ(6px); }
-.pub-card__title { transform: translateZ(10px); display: inline-block; }
+.pub-card__rail {  }
+.pub-card__body {  }
+.pub-card__title {  display: inline-block; }
 
 /* 3D skill cards */
 .skill-card { transform-style: preserve-3d; }
-.skill-card__icon-wrap { transform: translateZ(18px); }
-.skill-card__title { transform: translateZ(10px); }
-.skill-card__list li { transform: translateZ(4px); transition: transform 200ms ease; }
+.skill-card__icon-wrap {  }
+.skill-card__title {  }
+.skill-card__list li {  transition: transform 200ms ease; }
 .skill-card:hover .skill-card__list li { transform: translateZ(8px) translateX(4px); }
 
 /* 3D proficiency bars */
-.proficiency-row__fill { transform: translateZ(4px); box-shadow: 0 2px 6px rgba(var(--accent-rgb),0.35); }
+.proficiency-row__fill {  box-shadow: 0 2px 6px rgba(var(--accent-rgb),0.35); }
 
 /* 3D journey cards */
 .journey-card { transform-style: preserve-3d; }
-.journey-card__title { transform: translateZ(8px); }
-.journey-card__org { transform: translateZ(4px); }
+.journey-card__title {  }
+.journey-card__org {  }
 
 /* 3D scholarly entries */
 .scholarly-entry { transform-style: preserve-3d; }
-.scholarly-entry__title { transform: translateZ(6px); }
-.scholarly-entry__status { transform: translateZ(10px); }
+.scholarly-entry__title {  }
+.scholarly-entry__status {  }
 
 /* 3D patent card */
 .patent-card { transform-style: preserve-3d; }
-.patent-card__title { transform: translateZ(10px); }
-.patent-card__icon { transform: translateZ(18px); }
+.patent-card__title {  }
+.patent-card__icon {  }
 
 /* 3D impact rows */
 .impact-row { transform-style: preserve-3d; }
-.impact-row__title { transform: translateZ(6px); }
-.impact-row__count { transform: translateZ(10px); }
+.impact-row__title {  }
+.impact-row__count {  }
 
 /* 3D buttons */
 .btn {
   transform-style: preserve-3d;
-  transform: translateZ(0);
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
 .btn:hover { transform: translateZ(6px) translateY(-2px); box-shadow: 0 10px 24px rgba(9,48,33,0.18); }
@@ -531,14 +526,14 @@ main { perspective: 1400px; transform-style: preserve-3d; }
 
 /* 3D footer */
 .footer { transform-style: preserve-3d; }
-.footer__left { transform: translateZ(6px); }
-.footer__top { transform: translateZ(6px); transition: transform 200ms ease; }
+.footer__left {  }
+.footer__top {  transition: transform 200ms ease; }
 .footer__top:hover { transform: translateZ(12px) translateY(-2px); }
 
 /* 3D dialog */
 .dialog__shell { transform-style: preserve-3d; }
-.dialog__title { transform: translateZ(8px); }
-.dialog__close { transform: translateZ(12px); transition: transform 200ms ease; }
+.dialog__title {  }
+.dialog__close {  transition: transform 200ms ease; }
 .dialog__close:hover { transform: translateZ(16px) rotate(90deg); }
 
 /* 3D section dividers (angled planes) */
@@ -549,57 +544,56 @@ main { perspective: 1400px; transform-style: preserve-3d; }
   bottom: 0; left: 0; right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb),0.35), transparent);
-  transform: translateZ(2px);
 }
 
 /* 3D scroll progress bar depth */
-.progress-bar { box-shadow: 0 2px 8px rgba(var(--accent-rgb),0.4); transform: translateZ(20px); }
+.progress-bar { box-shadow: 0 2px 8px rgba(var(--accent-rgb),0.4);  }
 
 /* 3D contact links */
 .contact__link { transform-style: preserve-3d; transition: transform 240ms ease; }
 .contact__link:hover { transform: translateZ(10px) translateX(4px); }
-.contact__link-icon { transform: translateZ(8px); }
+.contact__link-icon {  }
 
 /* 3D awards/scholarly panels */
 .scholarly-panel { transform-style: preserve-3d; }
-.scholarly-panel__head { transform: translateZ(4px); }
+.scholarly-panel__head {  }
 
 /* 3D stat numbers (hero) */
-.hero__stat-value { transform: translateZ(6px); display: inline-block; }
+.hero__stat-value {  display: inline-block; }
 
 /* 3D research atlas thread */
-.research-atlas__thread span { transform: translateZ(8px); display: inline-block; transition: transform 240ms ease; }
-.research-atlas__thread span:hover { transform: translateZ(16px); }
-.research-atlas__thread b { transform: translateZ(4px); }
+.research-atlas__thread span {  display: inline-block; transition: transform 240ms ease; }
+.research-atlas__thread span:hover {  }
+.research-atlas__thread b {  }
 
 /* 3D publication studio intro */
-.publication-studio__intro h3 { transform: translateZ(8px); }
-.publication-studio__stat { transform: translateZ(6px); transition: transform 240ms ease; }
+.publication-studio__intro h3 {  }
+.publication-studio__stat {  transition: transform 240ms ease; }
 .publication-studio__stat:hover { transform: translateZ(14px) translateY(-3px); }
 
 /* 3D scholarly studio */
-.scholarly-studio__intro h3 { transform: translateZ(8px); }
-.scholarly-studio__stat { transform: translateZ(6px); transition: transform 240ms ease; }
+.scholarly-studio__intro h3 {  }
+.scholarly-studio__stat {  transition: transform 240ms ease; }
 .scholarly-studio__stat:hover { transform: translateZ(14px) translateY(-3px); }
 
 /* 3D skills atlas */
-.skills-atlas__intro h3 { transform: translateZ(8px); }
-.skills-atlas__stat { transform: translateZ(6px); transition: transform 240ms ease; }
+.skills-atlas__intro h3 {  }
+.skills-atlas__stat {  transition: transform 240ms ease; }
 .skills-atlas__stat:hover { transform: translateZ(14px) translateY(-3px); }
 
 /* 3D journey overview */
-.journey-overview__copy h3 { transform: translateZ(8px); }
+.journey-overview__copy h3 {  }
 .journey-step { transform-style: preserve-3d; transition: transform 240ms ease; }
 .journey-step:hover { transform: translateZ(10px) translateY(-3px); }
 
 /* 3D impact summary */
-.impact-summary h3 { transform: translateZ(8px); }
-.impact-metric { transform: translateZ(6px); transition: transform 240ms ease; }
+.impact-summary h3 {  }
+.impact-metric {  transition: transform 240ms ease; }
 .impact-metric:hover { transform: translateZ(14px) translateY(-3px); }
 
-/* 3D scroll reveal now includes 3D depth */
-.reveal { transform: translate3d(0, 24px, -20px); }
-.reveal--visible { transform: translate3d(0,0,0); }
+/* scroll reveal */
+.reveal { transform: translateY(16px); opacity: 0; }
+.reveal--visible { transform: translateY(0); opacity: 1; }
 
 /* Reduce motion safety */
 @media (prefers-reduced-motion: reduce) {
