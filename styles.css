@@ -401,6 +401,215 @@ ul { list-style: none; }
 .reveal { transition: opacity 700ms ease, transform 700ms cubic-bezier(0.22,1,0.36,1); }
 .reveal--visible { opacity: 1; transform: none; }
 
+/* ============================================================
+   3D DESIGN SYSTEM — applied across the whole page
+   ============================================================ */
+
+/* Global 3D stage */
+main { perspective: 1400px; transform-style: preserve-3d; }
+.section { transform-style: preserve-3d; }
+
+/* 3D floating orbs in hero */
+.hero { position: relative; overflow: hidden; }
+.hero::before, .hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+  transform-style: preserve-3d;
+  animation: orbFloat 14s ease-in-out infinite;
+}
+.hero::before {
+  width: 320px; height: 320px;
+  top: -60px; right: -80px;
+  background: radial-gradient(circle, rgba(var(--accent-rgb),0.35), transparent 70%);
+}
+.hero::after {
+  width: 260px; height: 260px;
+  bottom: -40px; left: -60px;
+  background: radial-gradient(circle, rgba(var(--accent-gold-rgb),0.28), transparent 70%);
+  animation-delay: -7s;
+}
+@keyframes orbFloat {
+  0%,100% { transform: translate3d(0,0,0) scale(1); }
+  33% { transform: translate3d(20px,-30px,40px) scale(1.08); }
+  66% { transform: translate3d(-15px,20px,-20px) scale(0.95); }
+}
+
+/* 3D depth on hero text */
+.hero__name { transform: translateZ(40px); text-shadow: 0 8px 24px rgba(9,48,33,0.12); }
+.hero__desc { transform: translateZ(20px); }
+.hero__label { transform: translateZ(15px); }
+.hero__stat { transform: translateZ(10px); transition: transform 300ms ease; }
+.hero__stat:hover { transform: translateZ(22px) translateY(-4px); }
+
+/* 3D header logo */
+.header__logo-mark { transform: translateZ(6px); transition: transform 300ms ease; }
+.header__logo:hover .header__logo-mark { transform: translateZ(14px) rotateY(12deg); }
+
+/* 3D nav links */
+.header__link { position: relative; transform-style: preserve-3d; transition: transform 240ms ease, color var(--transition); }
+.header__link:hover { transform: translateZ(8px); }
+
+/* 3D section headers with depth */
+.section__title { transform: translateZ(12px); }
+.section__number { transform: translateZ(24px); display: inline-block; }
+.section__subtitle { transform: translateZ(6px); }
+
+/* 3D research cards: flip container */
+.research-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.research-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent 60%);
+  pointer-events: none;
+  transform: translateZ(30px);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+.research-card:hover::after { opacity: 1; }
+
+/* 3D pub cards */
+.pub-card { transform-style: preserve-3d; }
+.pub-card__rail { transform: translateZ(14px); }
+.pub-card__body { transform: translateZ(6px); }
+.pub-card__title { transform: translateZ(10px); display: inline-block; }
+
+/* 3D skill cards */
+.skill-card { transform-style: preserve-3d; }
+.skill-card__icon-wrap { transform: translateZ(18px); }
+.skill-card__title { transform: translateZ(10px); }
+.skill-card__list li { transform: translateZ(4px); transition: transform 200ms ease; }
+.skill-card:hover .skill-card__list li { transform: translateZ(8px) translateX(4px); }
+
+/* 3D proficiency bars */
+.proficiency-row__fill { transform: translateZ(4px); box-shadow: 0 2px 6px rgba(var(--accent-rgb),0.35); }
+
+/* 3D journey cards */
+.journey-card { transform-style: preserve-3d; }
+.journey-card__title { transform: translateZ(8px); }
+.journey-card__org { transform: translateZ(4px); }
+
+/* 3D scholarly entries */
+.scholarly-entry { transform-style: preserve-3d; }
+.scholarly-entry__title { transform: translateZ(6px); }
+.scholarly-entry__status { transform: translateZ(10px); }
+
+/* 3D patent card */
+.patent-card { transform-style: preserve-3d; }
+.patent-card__title { transform: translateZ(10px); }
+.patent-card__icon { transform: translateZ(18px); }
+
+/* 3D impact rows */
+.impact-row { transform-style: preserve-3d; }
+.impact-row__title { transform: translateZ(6px); }
+.impact-row__count { transform: translateZ(10px); }
+
+/* 3D buttons */
+.btn {
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.btn:hover { transform: translateZ(6px) translateY(-2px); box-shadow: 0 10px 24px rgba(9,48,33,0.18); }
+.btn:active { transform: translateZ(0) translateY(0); }
+
+/* 3D theme toggle */
+.theme-toggle { transform-style: preserve-3d; transition: transform 240ms ease; }
+.theme-toggle:hover { transform: translateZ(8px) rotate(12deg); }
+
+/* 3D chat bubble */
+.chat-bubble { transform-style: preserve-3d; transition: transform 240ms ease; }
+.chat-bubble:hover { transform: translateZ(10px) scale(1.06); }
+
+/* 3D footer */
+.footer { transform-style: preserve-3d; }
+.footer__left { transform: translateZ(6px); }
+.footer__top { transform: translateZ(6px); transition: transform 200ms ease; }
+.footer__top:hover { transform: translateZ(12px) translateY(-2px); }
+
+/* 3D dialog */
+.dialog__shell { transform-style: preserve-3d; }
+.dialog__title { transform: translateZ(8px); }
+.dialog__close { transform: translateZ(12px); transition: transform 200ms ease; }
+.dialog__close:hover { transform: translateZ(16px) rotate(90deg); }
+
+/* 3D section dividers (angled planes) */
+.section--alt { position: relative; }
+.section--alt::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb),0.35), transparent);
+  transform: translateZ(2px);
+}
+
+/* 3D scroll progress bar depth */
+.progress-bar { box-shadow: 0 2px 8px rgba(var(--accent-rgb),0.4); transform: translateZ(20px); }
+
+/* 3D contact links */
+.contact__link { transform-style: preserve-3d; transition: transform 240ms ease; }
+.contact__link:hover { transform: translateZ(10px) translateX(4px); }
+.contact__link-icon { transform: translateZ(8px); }
+
+/* 3D awards/scholarly panels */
+.scholarly-panel { transform-style: preserve-3d; }
+.scholarly-panel__head { transform: translateZ(4px); }
+
+/* 3D stat numbers (hero) */
+.hero__stat-value { transform: translateZ(6px); display: inline-block; }
+
+/* 3D research atlas thread */
+.research-atlas__thread span { transform: translateZ(8px); display: inline-block; transition: transform 240ms ease; }
+.research-atlas__thread span:hover { transform: translateZ(16px); }
+.research-atlas__thread b { transform: translateZ(4px); }
+
+/* 3D publication studio intro */
+.publication-studio__intro h3 { transform: translateZ(8px); }
+.publication-studio__stat { transform: translateZ(6px); transition: transform 240ms ease; }
+.publication-studio__stat:hover { transform: translateZ(14px) translateY(-3px); }
+
+/* 3D scholarly studio */
+.scholarly-studio__intro h3 { transform: translateZ(8px); }
+.scholarly-studio__stat { transform: translateZ(6px); transition: transform 240ms ease; }
+.scholarly-studio__stat:hover { transform: translateZ(14px) translateY(-3px); }
+
+/* 3D skills atlas */
+.skills-atlas__intro h3 { transform: translateZ(8px); }
+.skills-atlas__stat { transform: translateZ(6px); transition: transform 240ms ease; }
+.skills-atlas__stat:hover { transform: translateZ(14px) translateY(-3px); }
+
+/* 3D journey overview */
+.journey-overview__copy h3 { transform: translateZ(8px); }
+.journey-step { transform-style: preserve-3d; transition: transform 240ms ease; }
+.journey-step:hover { transform: translateZ(10px) translateY(-3px); }
+
+/* 3D impact summary */
+.impact-summary h3 { transform: translateZ(8px); }
+.impact-metric { transform: translateZ(6px); transition: transform 240ms ease; }
+.impact-metric:hover { transform: translateZ(14px) translateY(-3px); }
+
+/* 3D scroll reveal now includes 3D depth */
+.reveal { transform: translate3d(0, 24px, -20px); }
+.reveal--visible { transform: translate3d(0,0,0); }
+
+/* Reduce motion safety */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* ============ DNA Helix Decorative SVG ============ */
 
 .dna-decoration {
