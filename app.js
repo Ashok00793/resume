@@ -3,94 +3,116 @@
 
   var D = RESUME_DATA;
 
-  /* ============ Canvas Biotech Background ============ */
+  /* ============ 3D Biotech Background (Three.js) ============ */
 
   function initCanvas() {
-    var canvas = document.createElement('canvas');
-    canvas.id = 'bio-canvas';
     var hero = document.querySelector('.hero');
     if (!hero) return;
+    if (typeof THREE === 'undefined') { setTimeout(initCanvas, 120); return; }
+
+    var canvas = document.createElement('canvas');
+    canvas.id = 'bio-canvas';
     hero.insertBefore(canvas, hero.firstChild);
 
-    var ctx = canvas.getContext('2d');
-    var w, h;
-    var particles = [];
-    var COUNT = 60;
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
+    camera.position.z = 60;
+
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+
+    // Particle field
+    var particleCount = 900;
+    var positions = new Float32Array(particleCount * 3);
+    for (var i = 0; i < particleCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 180;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 120;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 120;
+    }
+    var pGeo = new THREE.BufferGeometry();
+    pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    var pMat = new THREE.PointsMaterial({ color: 0x2d8f6c, size: 0.7, transparent: true, opacity: 0.55, sizeAttenuation: true });
+    var points = new THREE.Points(pGeo, pMat);
+    scene.add(points);
+
+    // DNA double helix
+    var helixGroup = new THREE.Group();
+    var strandMat = new THREE.MeshBasicMaterial({ color: 0x0f3b2a, transparent: true, opacity: 0.85 });
+    var rungMat = new THREE.MeshBasicMaterial({ color: 0xb8944a, transparent: true, opacity: 0.6 });
+    var sphereGeo = new THREE.SphereGeometry(0.7, 12, 12);
+    var cylinderGeo = new THREE.CylinderGeometry(0.15, 0.15, 1, 8);
+    var turns = 6;
+    var pointsPerTurn = 18;
+    var total = turns * pointsPerTurn;
+    var radius = 8;
+    var height = 40;
+    var strandA = [];
+    var strandB = [];
+    for (var i = 0; i < total; i++) {
+      var t = i / (total - 1);
+      var angle = t * turns * Math.PI * 2;
+      var y = (t - 0.5) * height;
+      var ax = Math.cos(angle) * radius;
+      var az = Math.sin(angle) * radius;
+      var bx = Math.cos(angle + Math.PI) * radius;
+      var bz = Math.sin(angle + Math.PI) * radius;
+      strandA.push({ x: ax, y: y, z: az });
+      strandB.push({ x: bx, y: y, z: bz });
+
+      var sa = new THREE.Mesh(sphereGeo, strandMat);
+      sa.position.set(ax, y, az);
+      helixGroup.add(sa);
+      var sb = new THREE.Mesh(sphereGeo, strandMat);
+      sb.position.set(bx, y, bz);
+      helixGroup.add(sb);
+
+      if (i % 3 === 0) {
+        var rung = new THREE.Mesh(cylinderGeo, rungMat);
+        var midX = (ax + bx) / 2;
+        var midZ = (az + bz) / 2;
+        rung.position.set(midX, y, midZ);
+        rung.scale.y = Math.sqrt((ax - bx) * (ax - bx) + (az - bz) * (az - bz));
+        rung.lookAt(new THREE.Vector3(bx, y, bz));
+        rung.rotateX(Math.PI / 2);
+        helixGroup.add(rung);
+      }
+    }
+    helixGroup.position.set(0, 0, 0);
+    scene.add(helixGroup);
+
+    // Mouse parallax
+    var mouseX = 0, mouseY = 0;
+    hero.addEventListener('mousemove', function (e) {
+      var rect = hero.getBoundingClientRect();
+      mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    }, { passive: true });
 
     function resize() {
-      w = canvas.width = hero.offsetWidth;
-      h = canvas.height = hero.offsetHeight;
+      var w = hero.offsetWidth;
+      var h = hero.offsetHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h, false);
     }
-
-    function createParticles() {
-      particles = [];
-      for (var i = 0; i < COUNT; i++) {
-        particles.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          r: 1.5 + Math.random() * 3,
-          dx: (Math.random() - 0.5) * 0.2,
-          dy: (Math.random() - 0.5) * 0.2,
-          phase: Math.random() * Math.PI * 2,
-          speed: 0.1 + Math.random() * 0.2
-        });
-      }
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      var t = Date.now() / 1000;
-
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if (p.x < -20) p.x = w + 20;
-        if (p.x > w + 20) p.x = -20;
-        if (p.y < -20) p.y = h + 20;
-        if (p.y > h + 20) p.y = -20;
-
-        var pulse = 0.4 + 0.3 * Math.sin(t * p.speed + p.phase);
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(45, 143, 108, ' + (0.08 * pulse) + ')';
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r * 0.5, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(45, 143, 108, ' + (0.15 * pulse) + ')';
-        ctx.fill();
-      }
-
-      ctx.lineWidth = 0.5;
-      for (var i = 0; i < particles.length; i++) {
-        for (var j = i + 1; j < particles.length; j++) {
-          var dx = particles[i].x - particles[j].x;
-          var dy = particles[i].y - particles[j].y;
-          var dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = 'rgba(45, 143, 108, ' + (0.03 * (1 - dist / 120)) + ')';
-            ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(draw);
-    }
-
     resize();
-    createParticles();
-    draw();
+    window.addEventListener('resize', resize, { passive: true });
 
-    window.addEventListener('resize', function () {
-      resize();
-      createParticles();
-    }, { passive: true });
+    var clock = new THREE.Clock();
+    function animate() {
+      requestAnimationFrame(animate);
+      var t = clock.getElapsedTime();
+      points.rotation.y = t * 0.05;
+      points.rotation.x = Math.sin(t * 0.1) * 0.1;
+      helixGroup.rotation.y = t * 0.25 + mouseX * 0.4;
+      helixGroup.rotation.x = mouseY * 0.3;
+      camera.position.x += (mouseX * 6 - camera.position.x) * 0.05;
+      camera.position.y += (-mouseY * 4 - camera.position.y) * 0.05;
+      camera.lookAt(0, 0, 0);
+      renderer.render(scene, camera);
+    }
+    animate();
   }
 
   /* ============ SVG Icons for Research ============ */
@@ -1010,6 +1032,23 @@
     });
   }
 
+  /* ============ 3D Tilt on Cards ============ */
+  function initTilt() {
+    var selectors = ['.research-card', '.pub-card', '.skill-card', '.project-card', '.journey-card', '.patent-card'];
+    var cards = document.querySelectorAll(selectors.join(','));
+    cards.forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = 'perspective(900px) rotateX(' + (y * -8) + 'deg) rotateY(' + (x * 10) + 'deg) translateZ(12px)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+      });
+    });
+  }
+
   /* ============ Init ============ */
 
   function init() {
@@ -1032,6 +1071,7 @@
     renderScholarCard('bookchapters-list', null, renderBookChapters);
     initChat();
     initReveal();
+    initTilt();
   }
 
   if (document.readyState === 'loading') {
